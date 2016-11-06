@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MouseManager</name>
+    </assembly>
+    <members>
+        <member name="T:FYFY_plugins.MouseManager.MouseOver">
+            <summary>
+            	Component specifying that the mouse is over the <c>GameObject</c>.
+            </summary>
+            <remarks>
+            	Automatically added or removed by the relative <see cref="T:FYFY_plugins.MouseManager.MouseSensitive">component</see>.
+            </remarks>
+        </member>
+        <member name="T:FYFY_plugins.MouseManager.MouseSensitive">
+            <summary>
+            	Component allowing <c>GameObject</c> to be sensitive to the mouse.
+            	Add automatically a <see cref="T:FYFY_plugins.MouseManager.MouseOver">component</see> when the mouse points the <c>GameObject</c>.
+            </summary>
+            <remarks>
+            	<para>
+            		This component works only on objects that aren't on Ignore Raycast layer 
+            		and which have a collider marked as Trigger (with <c>Physics.queriesHitTriggers</c> true).
+            	</para>
+            </remarks>
+        </member>
+    </members>
+</doc>
