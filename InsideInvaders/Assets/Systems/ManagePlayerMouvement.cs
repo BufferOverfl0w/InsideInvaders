@@ -29,14 +29,14 @@ public class ManagePlayerMouvement : FSystem {
 		Transform tr = go.GetComponent<Transform> ();
 		ControllableByKeyboard controlBKey = go.GetComponent<ControllableByKeyboard> ();
 
-		float speedTranslation = controlBKey.speed *100* rb.mass *Time.deltaTime ;
-		float speedRotation = controlBKey.speed *Time.deltaTime*2 ;
+		float speedTranslation = controlBKey.propulsionPower *100* rb.mass *Time.deltaTime ;
+		float speedRotation = controlBKey.propulsionPower *Time.deltaTime ;
 
 		if (Input.GetKey (KeyCode.Z) || Input.GetKey (KeyCode.UpArrow)) {
 			rb.AddForce (tr.up * speedTranslation);;
 		}
 		if (Input.GetKey (KeyCode.S) || Input.GetKey (KeyCode.DownArrow)) {
-			rb.AddForce (-tr.up * speedTranslation);
+			rb.AddForce (-tr.up * (speedTranslation/4));
 		} 
 		if (Input.GetKey (KeyCode.Q) || Input.GetKey (KeyCode.LeftArrow)) {
 			tr.Rotate (new Vector3 (0, 1, 0) * speedRotation);
@@ -58,8 +58,12 @@ public class ManagePlayerMouvement : FSystem {
 			mouseX = -mouseX;
 			mouseY = -mouseY;
 		}
-		Vector3 mouseRotation = new Vector3 (mouseY, 0, mouseX);
-		tr.Rotate(mouseRotation * controlBKey.mouseSensibility);
+		mouseX *= Time.deltaTime * controlBKey.mouseSensibility;
+		mouseY *= Time.deltaTime * controlBKey.mouseSensibility;
+		//Vector3 mouseRotation = new Vector3 (mouseY, 0, mouseX);
+		//tr.Rotate(mouseRotation * controlBKey.mouseSensibility);
+		tr.Rotate (0, 0, mouseX);
+		tr.Rotate (mouseY, 0, 0);
 	}
 
 }
