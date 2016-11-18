@@ -5,7 +5,6 @@ public class ManagePlayerMouvement : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
 	private Family _controlableGO = FamilyManager.getFamily(new AllOfComponents(typeof(ControllableByKeyboard)));
-
 	protected override void onPause(int currentFrame) {
 	}
 
@@ -30,14 +29,14 @@ public class ManagePlayerMouvement : FSystem {
 		Transform tr = go.GetComponent<Transform> ();
 		ControllableByKeyboard controlBKey = go.GetComponent<ControllableByKeyboard> ();
 
-		float speedTranslation = controlBKey.propulsionPower *100* rb.mass *Time.deltaTime ;
-		float speedRotation = controlBKey.propulsionPower *Time.deltaTime ;
+		float speedTranslation = controlBKey.speed *100* rb.mass *Time.deltaTime ;
+		float speedRotation = controlBKey.speed *Time.deltaTime*2 ;
 
 		if (Input.GetKey (KeyCode.Z) || Input.GetKey (KeyCode.UpArrow)) {
-			rb.AddForce (tr.up * speedTranslation);
+			rb.AddForce (tr.up * speedTranslation);;
 		}
 		if (Input.GetKey (KeyCode.S) || Input.GetKey (KeyCode.DownArrow)) {
-			rb.AddForce (-tr.up * (speedTranslation/4));
+			rb.AddForce (-tr.up * speedTranslation);
 		} 
 		if (Input.GetKey (KeyCode.Q) || Input.GetKey (KeyCode.LeftArrow)) {
 			tr.Rotate (new Vector3 (0, 1, 0) * speedRotation);
@@ -59,12 +58,8 @@ public class ManagePlayerMouvement : FSystem {
 			mouseX = -mouseX;
 			mouseY = -mouseY;
 		}
-		mouseX *= Time.deltaTime * controlBKey.mouseSensibility;
-		mouseY *= Time.deltaTime * controlBKey.mouseSensibility;
-		//Vector3 mouseRotation = new Vector3 (mouseY, 0, mouseX);
-		//tr.Rotate(mouseRotation * controlBKey.mouseSensibility);
-		tr.Rotate (0, 0, mouseX);
-		tr.Rotate (mouseY, 0, 0);
+		Vector3 mouseRotation = new Vector3 (mouseY, 0, mouseX);
+		tr.Rotate(mouseRotation * controlBKey.mouseSensibility);
 	}
 
 }
