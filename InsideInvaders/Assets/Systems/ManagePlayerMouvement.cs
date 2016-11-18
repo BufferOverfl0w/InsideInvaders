@@ -12,6 +12,7 @@ public class ManagePlayerMouvement : FSystem {
 	// Advice: avoid to update your families inside this function.
 	protected override void onResume(int currentFrame){
 		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	// Use to process your families.
