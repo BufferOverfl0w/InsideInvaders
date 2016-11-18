@@ -198,21 +198,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 75000011805914122, guid: 8c9311a18bf377745b4963762c9d532d,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010172028214, guid: 8c9311a18bf377745b4963762c9d532d,
-        type: 2}
-      propertyPath: maxSpeed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010172028214, guid: 8c9311a18bf377745b4963762c9d532d,
-        type: 2}
-      propertyPath: mouseSensibility
-      value: 150
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c9311a18bf377745b4963762c9d532d, type: 2}
   m_IsPrefabParent: 0
