@@ -202,9 +202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9614b51875b656447b9964cbf0419f72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
-  maxSpeed: 60
-  mouseSensibility: 10
+  propulsionPower: 50
+  maxSpeed: 100
+  mouseSensibility: 150
   inverseMouse: 1
 --- !u!75 &484185407
 ConstantForce:
@@ -212,7 +212,7 @@ ConstantForce:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 484185400}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Force: {x: 0, y: -50, z: 0}
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
@@ -226,7 +226,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 3.3921852
+  m_Radius: 2.9169178
   m_Height: 13.926051
   m_Direction: 1
   m_Center: {x: 0, y: -0.37, z: -0.02}
