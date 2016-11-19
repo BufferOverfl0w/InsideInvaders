@@ -5,6 +5,7 @@ public class GestionMort : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
 	private Family _vivantsGO = FamilyManager.getFamily(new AllOfComponents(typeof(BarreDeVie)));
+	public int val = 12 ;
 	protected override void onPause(int currentFrame) {
 	}
 
@@ -12,6 +13,7 @@ public class GestionMort : FSystem {
 	// Advice: avoid to update your families inside this function.
 	protected override void onResume(int currentFrame){
 	}
+
 
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {

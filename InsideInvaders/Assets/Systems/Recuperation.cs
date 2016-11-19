@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using FYFY;
+using UnityEngine.UI;
 
 public class Recuperation : FSystem {
 	// Use this to update member variables when system pause. 
@@ -7,13 +8,18 @@ public class Recuperation : FSystem {
 	private Family _recuperableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Recuperable)));
 	private Family _playerGO = FamilyManager.getFamily(new AllOfComponents(typeof(ControllableByKeyboard)));
 	private Family _cameraGO = FamilyManager.getFamily(new AllOfComponents(typeof(CameraPlayer)));
+	private Image img_Cursor;
+
 
 	protected override void onPause(int currentFrame) {
+
 	}
 
 	// Use this to update member variables when system resume.
 	// Advice: avoid to update your families inside this function.
 	protected override void onResume(int currentFrame){
+		img_Cursor = GameObject.FindGameObjectWithTag ("cursor_Image").GetComponent<Image>();
+		img_Cursor.color = Color.red;
 	}
 
 	// Use to process your families.
@@ -39,15 +45,26 @@ public class Recuperation : FSystem {
 		RaycastHit hit;
 		Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
+		img_Cursor.color = Color.red;
 		if (Physics.Raycast (ray, out hit)) {
 			GameObject go_hit = hit.transform.gameObject;
-			foreach (GameObject go in _recuperableGO) {
-				if (go.Equals(go_hit)) {
-					if (Input.GetMouseButton (0)) {
-						go_hit.GetComponent<Recuperable> ().recupere = true;
-					}
+			if (_recuperableGO.contains (go_hit.GetInstanceID ())) { // test if is a Recuperable Object
+				img_Cursor.color = Color.green;
+				if (Input.GetMouseButton (0)) {
+					go_hit.GetComponent<Recuperable> ().recupere = true;
 				}
 			}
+
+//			foreach (GameObject go in _recuperableGO) {
+//				if (go.Equals (go_hit)) {
+//					img_Cursor.color = Color.green;
+//					if (Input.GetMouseButton (0)) {
+//						go_hit.GetComponent<Recuperable> ().recupere = true;
+//					}
+//				} else {
+//					img_Cursor.color = Color.red;
+//				}
+//			}
 		}
 	}
 	private void envoi(Camera camera){

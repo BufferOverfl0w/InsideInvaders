@@ -5,6 +5,16 @@ public class ManagePlayerMouvement : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
 	private Family _controlableGO = FamilyManager.getFamily(new AllOfComponents(typeof(ControllableByKeyboard)));
+
+	public float sensitivityX = 15F;
+	public float sensitivityY = 15F;
+	public float minimumY = -190F;
+	public float maximumY = 190F;
+	public float minimumX = -360F;
+	public float maximumX = 360F;
+	float rotationX = 0F;
+
+
 	protected override void onPause(int currentFrame) {
 	}
 
@@ -60,10 +70,14 @@ public class ManagePlayerMouvement : FSystem {
 		}
 		mouseX *= Time.deltaTime * controlBKey.mouseSensibility;
 		mouseY *= Time.deltaTime * controlBKey.mouseSensibility;
+
 		//Vector3 mouseRotation = new Vector3 (mouseY, 0, mouseX);
 		//tr.Rotate(mouseRotation * controlBKey.mouseSensibility);
-		tr.Rotate (0, 0, mouseX);
+
+
 		tr.Rotate (mouseY, 0, 0);
+		tr.Rotate (0, 0, mouseX);
 	}
+		
 
 }
