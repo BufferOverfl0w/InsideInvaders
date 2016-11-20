@@ -6,13 +6,6 @@ public class ManagePlayerMouvement : FSystem {
 	// Advice: avoid to update your families inside this function.
 	private Family _controlableGO = FamilyManager.getFamily(new AllOfComponents(typeof(ControllableByKeyboard)));
 
-	public float sensitivityX = 15F;
-	public float sensitivityY = 15F;
-	public float minimumY = -190F;
-	public float maximumY = 190F;
-	public float minimumX = -360F;
-	public float maximumX = 360F;
-	float rotationX = 0F;
 
 
 	protected override void onPause(int currentFrame) {
@@ -40,18 +33,24 @@ public class ManagePlayerMouvement : FSystem {
 		ControllableByKeyboard controlBKey = go.GetComponent<ControllableByKeyboard> ();
 
 		float speedTranslation = controlBKey.propulsionPower *100* rb.mass *Time.deltaTime ;
-		float speedRotation = controlBKey.propulsionPower *Time.deltaTime ;
+		float speedRotation = (controlBKey.propulsionPower *Time.deltaTime)*0.5f ;
 
 		if (Input.GetKey (KeyCode.Z) || Input.GetKey (KeyCode.UpArrow)) {
-			rb.AddForce (tr.up * speedTranslation);;
+			rb.AddForce (tr.up * speedTranslation);
 		}
 		if (Input.GetKey (KeyCode.S) || Input.GetKey (KeyCode.DownArrow)) {
-			rb.AddForce (-tr.up * (speedTranslation/4));
+			rb.AddForce (-tr.up * (speedTranslation/2));
 		} 
 		if (Input.GetKey (KeyCode.Q) || Input.GetKey (KeyCode.LeftArrow)) {
-			tr.Rotate (new Vector3 (0, 1, 0) * speedRotation);
+			rb.AddForce (-tr.right * speedTranslation);
 		}
 		if (Input.GetKey (KeyCode.D) || Input.GetKey (KeyCode.RightArrow)) {
+			rb.AddForce (tr.right * speedTranslation);
+		}
+		if (Input.GetKey (KeyCode.A)) {
+			tr.Rotate (new Vector3 (0, 1, 0) * speedRotation);
+		}
+		if (Input.GetKey (KeyCode.E)) {
 			tr.Rotate (new Vector3 (0, -1, 0) * speedRotation);
 		}
 		if (rb.velocity.magnitude > controlBKey.maxSpeed) {
@@ -77,6 +76,7 @@ public class ManagePlayerMouvement : FSystem {
 
 		tr.Rotate (mouseY, 0, 0);
 		tr.Rotate (0, 0, mouseX);
+		//tr.rotation = Quaternion.Euler(tr.eulerAngles.x, 0, tr.eulerAngles.z);
 	}
 		
 

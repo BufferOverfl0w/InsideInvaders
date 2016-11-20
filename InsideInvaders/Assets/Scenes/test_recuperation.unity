@@ -284,7 +284,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012349075102, guid: 8c9311a18bf377745b4963762c9d532d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 35
+      value: 50.4
       objectReference: {fileID: 0}
     - target: {fileID: 4000012349075102, guid: 8c9311a18bf377745b4963762c9d532d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -318,7 +318,7 @@ Prefab:
     - target: {fileID: 114000010172028214, guid: 8c9311a18bf377745b4963762c9d532d,
         type: 2}
       propertyPath: maxSpeed
-      value: 100
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 114000010172028214, guid: 8c9311a18bf377745b4963762c9d532d,
         type: 2}
@@ -356,6 +356,29 @@ Prefab:
     - target: {fileID: 4000011900989014, guid: 8c9311a18bf377745b4963762c9d532d, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012349075102, guid: 8c9311a18bf377745b4963762c9d532d, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012349075102, guid: 8c9311a18bf377745b4963762c9d532d, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54000012423150128, guid: 8c9311a18bf377745b4963762c9d532d,
+        type: 2}
+      propertyPath: m_Drag
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 54000012423150128, guid: 8c9311a18bf377745b4963762c9d532d,
+        type: 2}
+      propertyPath: m_AngularDrag
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 54000012423150128, guid: 8c9311a18bf377745b4963762c9d532d,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c9311a18bf377745b4963762c9d532d, type: 2}
