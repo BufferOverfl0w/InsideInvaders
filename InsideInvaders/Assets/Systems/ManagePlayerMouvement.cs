@@ -7,6 +7,11 @@ public class ManagePlayerMouvement : FSystem {
 	// Advice: avoid to update your families inside this function.
 	private Family _controlableGO = FamilyManager.getFamily(new AllOfComponents(typeof(ControllableByKeyboard)));
 
+	public float mouseSensitivity = 100.0f;
+	public float clampAngle = 80.0f;
+
+	private float rotY = 0.0f; // rotation around the up/y axis
+	private float rotX = 0.0f; // rotation around the right/x axis
 	protected override void onPause(int currentFrame) {
 	}
 
@@ -16,6 +21,12 @@ public class ManagePlayerMouvement : FSystem {
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
 
+		foreach (GameObject go in _controlableGO) {
+			Transform tr = go.GetComponent<Transform> ();
+			Vector3 rot = tr.localRotation.eulerAngles;
+			rotY = rot.y;
+			rotX = rot.x;
+		}
 
 
 	}
@@ -49,12 +60,12 @@ public class ManagePlayerMouvement : FSystem {
 		if (Input.GetKey (KeyCode.D) || Input.GetKey (KeyCode.RightArrow)) {
 			rb.AddForce (tr.right * speedTranslation);
 		}
-		if (Input.GetKey (KeyCode.A)) {
-			tr.Rotate (new Vector3 (0, 1, 0) * speedRotation);
-		}
-		if (Input.GetKey (KeyCode.E)) {
-			tr.Rotate (new Vector3 (0, -1, 0) * speedRotation);
-		}
+//		if (Input.GetKey (KeyCode.A)) {
+//			tr.Rotate (new Vector3 (0, 0, 1) * speedRotation);
+//		}
+//		if (Input.GetKey (KeyCode.E)) {
+//			tr.Rotate (new Vector3 (0, 0, -1) * speedRotation);
+//		}
 		if (Input.GetKey (KeyCode.Space)) {
 			rb.AddForce (-tr.forward * speedTranslation);
 		}
@@ -66,22 +77,34 @@ public class ManagePlayerMouvement : FSystem {
 	private void rotatePlayer(GameObject go ){
 		Transform tr = go.GetComponent<Transform> ();
 		ControllableByKeyboard controlBKey = go.GetComponent<ControllableByKeyboard> ();
-		float mouseX = Input.GetAxis("Mouse X");
-		float mouseY = Input.GetAxis("Mouse Y");
-		if (controlBKey.inverseMouse) {
-			mouseX = -mouseX;
-			mouseY = -mouseY;
-		}
-		mouseX *= Time.deltaTime * controlBKey.mouseSensibility;
-		mouseY *= Time.deltaTime * controlBKey.mouseSensibility;
-
-		//Vector3 mouseRotation = new Vector3 (mouseY, 0, mouseX);
-		//tr.Rotate(mouseRotation * controlBKey.mouseSensibility);
-
-		tr.Rotate (mouseY, 0, 0);
-		tr.Rotate (0, 0, mouseX);
+//		float mouseX = Input.GetAxis("Mouse X");
+//		float mouseY = Input.GetAxis("Mouse Y");
+//		if (controlBKey.inverseMouse) {
+//			mouseX = -mouseX;
+//			mouseY = -mouseY;
+//		}
+//		mouseX *= Time.deltaTime * controlBKey.mouseSensibility;
+//		mouseY *= Time.deltaTime * controlBKey.mouseSensibility;
+//
+//		//Vector3 mouseRotation = new Vector3 (mouseY, 0, mouseX);
+//		//tr.Rotate(mouseRotation * controlBKey.mouseSensibility);
+//
+//		tr.Rotate (mouseY, 0, 0);
+//		tr.Rotate (0, 0, mouseX);
 
 		//tr.rotation = Quaternion.Euler(tr.eulerAngles.x, 0, tr.eulerAngles.z);
+
+
+		float mouseX = Input.GetAxis("Mouse X");
+		float mouseY = -Input.GetAxis("Mouse Y");
+
+		rotY += mouseX * mouseSensitivity * Time.deltaTime;
+		rotX += mouseY * mouseSensitivity * Time.deltaTime;
+
+		//rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
+
+		Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
+		tr.rotation = localRotation;
 
 	}
 		
