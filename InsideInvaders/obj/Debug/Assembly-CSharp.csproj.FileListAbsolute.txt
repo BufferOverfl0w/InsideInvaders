@@ -56,3 +56,4 @@ C:\Users\MP\Documents\GitHub\InsideInvaders\InsideInvaders\Temp\bin\Debug\Trigge
 C:\Users\MP\Documents\GitHub\InsideInvaders\InsideInvaders\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\MP\Documents\GitHub\InsideInvaders\InsideInvaders\obj\Debug\Assembly-CSharp.dll
 C:\Users\MP\Documents\GitHub\InsideInvaders\InsideInvaders\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Frederic\Documents\GitHub\InsideInvaders\InsideInvaders\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb

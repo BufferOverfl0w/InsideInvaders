@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 using FYFY;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class ManagePlayerMouvement : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
 	private Family _controlableGO = FamilyManager.getFamily(new AllOfComponents(typeof(ControllableByKeyboard)));
-
-
 
 	protected override void onPause(int currentFrame) {
 	}
@@ -16,6 +15,9 @@ public class ManagePlayerMouvement : FSystem {
 	protected override void onResume(int currentFrame){
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
+
+
+
 	}
 
 	// Use to process your families.
@@ -33,7 +35,7 @@ public class ManagePlayerMouvement : FSystem {
 		ControllableByKeyboard controlBKey = go.GetComponent<ControllableByKeyboard> ();
 
 		float speedTranslation = controlBKey.propulsionPower *100* rb.mass *Time.deltaTime ;
-		float speedRotation = (controlBKey.propulsionPower *Time.deltaTime)*0.5f ;
+		float speedRotation = (controlBKey.propulsionPower *Time.deltaTime) ;
 
 		if (Input.GetKey (KeyCode.Z) || Input.GetKey (KeyCode.UpArrow)) {
 			rb.AddForce (tr.up * speedTranslation);
@@ -52,6 +54,9 @@ public class ManagePlayerMouvement : FSystem {
 		}
 		if (Input.GetKey (KeyCode.E)) {
 			tr.Rotate (new Vector3 (0, -1, 0) * speedRotation);
+		}
+		if (Input.GetKey (KeyCode.Space)) {
+			rb.AddForce (-tr.forward * speedTranslation);
 		}
 		if (rb.velocity.magnitude > controlBKey.maxSpeed) {
 			rb.velocity = rb.velocity.normalized * controlBKey.maxSpeed;
@@ -73,10 +78,11 @@ public class ManagePlayerMouvement : FSystem {
 		//Vector3 mouseRotation = new Vector3 (mouseY, 0, mouseX);
 		//tr.Rotate(mouseRotation * controlBKey.mouseSensibility);
 
-
 		tr.Rotate (mouseY, 0, 0);
 		tr.Rotate (0, 0, mouseX);
+
 		//tr.rotation = Quaternion.Euler(tr.eulerAngles.x, 0, tr.eulerAngles.z);
+
 	}
 		
 
