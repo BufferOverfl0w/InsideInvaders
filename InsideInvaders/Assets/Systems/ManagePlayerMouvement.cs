@@ -45,13 +45,13 @@ public class ManagePlayerMouvement : FSystem {
 		float speedTranslation = controlBKey.propulsionPower *100* rb.mass *Time.deltaTime ;
 		//float speedRotation = (controlBKey.propulsionPower *Time.deltaTime) ;
 
-		if (Input.GetKey (KeyCode.Z) || Input.GetKey (KeyCode.UpArrow)) {
+		if (Input.GetKey (KeyCode.W) ||Input.GetKey (KeyCode.Z) || Input.GetKey (KeyCode.UpArrow)) {
 			rb.AddForce (tr.up * speedTranslation);
 		}
 		if (Input.GetKey (KeyCode.S) || Input.GetKey (KeyCode.DownArrow)) {
 			rb.AddForce (-tr.up * (speedTranslation/2));
 		} 
-		if (Input.GetKey (KeyCode.Q) || Input.GetKey (KeyCode.LeftArrow)) {
+		if (Input.GetKey (KeyCode.A) ||Input.GetKey (KeyCode.Q) || Input.GetKey (KeyCode.LeftArrow)) {
 			rb.AddForce (-tr.right * speedTranslation);
 		}
 		if (Input.GetKey (KeyCode.D) || Input.GetKey (KeyCode.RightArrow)) {

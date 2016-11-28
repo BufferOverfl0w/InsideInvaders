@@ -46,6 +46,11 @@ public class Recuperation : FSystem {
 		Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
 		img_Cursor.color = Color.red;
+		foreach (GameObject go in _recuperableGO)
+			if (go.GetComponent<Recuperable> ().recupere == true){
+				img_Cursor.color = Color.yellow;
+					break;
+			}
 		if (Physics.Raycast (ray, out hit)) {
 			GameObject go_hit = hit.transform.gameObject;
 			if (_recuperableGO.contains (go_hit.GetInstanceID ())) { // test if is a Recuperable Object
@@ -68,7 +73,7 @@ public class Recuperation : FSystem {
 		}
 	}
 	private void envoi(Camera camera){
-		float force_envoi = 20;
+		float force_envoi = 50f;
 
 		//Si clic droit, envoi des unités vers pos curseur
 		if (Input.GetMouseButton (1)) {
