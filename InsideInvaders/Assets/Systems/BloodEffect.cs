@@ -30,6 +30,8 @@ public class BloodEffect : FSystem {
 			Light light = Go_light.GetComponent<Light> ();
 			light.color = component.LightColor;
 			light.intensity = 0.3f;
+
+			component.dustStorm.SetActive (true);
 		}
 	}
 
