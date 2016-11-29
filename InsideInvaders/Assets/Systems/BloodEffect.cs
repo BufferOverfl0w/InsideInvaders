@@ -1,19 +1,12 @@
 ﻿using UnityEngine;
 using FYFY;
 
-public class ManageUnderWaterEffect : FSystem {
+public class BloodEffect : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
 
 	private Family _cameraGO = FamilyManager.getFamily(new AllOfComponents(typeof(CameraPlayer)));
-
-	//The scene's default fog settings
-	private bool defaultFog;
-	private Color defaultFogColor;
-	private float defaultFogDensity;
-	//private Material defaultSkybox;
-
-
+	GameObject Go_light = GameObject.FindGameObjectWithTag("Light");
 	protected override void onPause(int currentFrame) {
 	}
 
@@ -21,25 +14,39 @@ public class ManageUnderWaterEffect : FSystem {
 	// Advice: avoid to update your families inside this function.
 	protected override void onResume(int currentFrame){
 
-		//Set the background color*
-		defaultFog = RenderSettings.fog;
-		defaultFogColor = RenderSettings.fogColor;
-		defaultFogDensity = RenderSettings.fogDensity;
-		//defaultSkybox = RenderSettings.skybox;
+		CameraPlayer component = null;
+		Camera cam = null;
+		foreach (GameObject go in _cameraGO) {
+			component = go.GetComponent<CameraPlayer> ();
 
+			cam = go.GetComponent<Camera> ();
+			cam.clearFlags = CameraClearFlags.SolidColor;
+			cam.backgroundColor = component.skyBoxColor;
+
+			RenderSettings.fog = true;
+			RenderSettings.fogColor =component.fogColor;
+			RenderSettings.fogDensity =component.fogIntensity;
+
+			Light light = Go_light.GetComponent<Light> ();
+			light.color = component.LightColor;
+			light.intensity = 1.5f;
+		}
 	}
 
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
-		
+
 		CameraPlayer component = null;
+		Camera cam = null;
 		foreach (GameObject go in _cameraGO) {
 			component = go.GetComponent<CameraPlayer> ();
+			cam = go.GetComponent<Camera> ();
+			cam.clearFlags = CameraClearFlags.SolidColor;
+			cam.backgroundColor = component.skyBoxColor;
 			RenderSettings.fog = true;
 			RenderSettings.fogColor =component.fogColor;
 			RenderSettings.fogDensity =component.fogIntensity;
-			//RenderSettings.skybox = null;
 		}
-			
 	}
+
 }

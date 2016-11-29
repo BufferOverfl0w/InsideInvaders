@@ -6,6 +6,8 @@ TagManager:
   tags:
   - cursor
   - cursor_Image
+  - Terrain
+  - Light
   layers:
   - Default
   - TransparentFX

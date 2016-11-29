@@ -100,7 +100,7 @@ Material:
       second: 1
     - first:
         name: _Metallic
-      second: 0.643
+      second: 0.141
     - first:
         name: _Mode
       second: 3
@@ -128,7 +128,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.21993946, g: 0.32527447, b: 0.8308824, a: 0.441}
+      second: {r: 0.21993946, g: 0.32527447, b: 0.8308824, a: 0.584}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
