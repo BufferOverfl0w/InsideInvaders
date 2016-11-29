@@ -8,6 +8,8 @@ TagManager:
   - cursor_Image
   - Terrain
   - Light
+  - Fire
+  - Main_Loop
   layers:
   - Default
   - TransparentFX

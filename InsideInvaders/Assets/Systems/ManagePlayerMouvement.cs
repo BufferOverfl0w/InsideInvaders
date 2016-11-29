@@ -8,6 +8,12 @@ public class ManagePlayerMouvement : FSystem {
 	private Family _controlableGO = FamilyManager.getFamily(new AllOfComponents(typeof(ControllableByKeyboard)));
 	private float rotY = 0.0f; // rotation around the up/y axis
 	private float rotX = 0.0f; // rotation around the right/x axis
+
+	// Varibles pour le system "PlayerParticules" 
+	static public bool playerPressForward =false;
+	static public bool playerPressBackward =false;
+	static public bool playerPressRight =false;
+	static public bool playerPressLeft =false;
 	protected override void onPause(int currentFrame) {
 	}
 
@@ -53,24 +59,33 @@ public class ManagePlayerMouvement : FSystem {
 
 		float speedTranslation = controlBKey.propulsionPower *100* rb.mass *Time.deltaTime ;
 		//float speedRotation = (controlBKey.propulsionPower *Time.deltaTime) ;
-
+		playerPressForward =false;
+		playerPressBackward = false;
+		playerPressLeft = false;
+		playerPressRight = false;
 		if (Input.GetKey (KeyCode.W) ||Input.GetKey (KeyCode.Z) || Input.GetKey (KeyCode.UpArrow)) {
 			rb.AddForce (tr.up * speedTranslation);
+			playerPressForward =true;
 		}
 		if (Input.GetKey (KeyCode.S) || Input.GetKey (KeyCode.DownArrow)) {
 			rb.AddForce (-tr.up * (speedTranslation/2));
+			playerPressBackward =true;
 		} 
 		if (Input.GetKey (KeyCode.A) ||Input.GetKey (KeyCode.Q) || Input.GetKey (KeyCode.LeftArrow)) {
 			rb.AddForce (-tr.right * speedTranslation);
+			playerPressLeft =true;
 		}
 		if (Input.GetKey (KeyCode.D) || Input.GetKey (KeyCode.RightArrow)) {
 			rb.AddForce (tr.right * speedTranslation);
+			playerPressRight =true;
 		}
 		if (Input.GetKey (KeyCode.Space)) {
 			rb.AddForce (-tr.forward * speedTranslation);
+			playerPressForward =true;
 		}
 		if (rb.velocity.magnitude > controlBKey.maxSpeed) {
 			rb.velocity = rb.velocity.normalized * controlBKey.maxSpeed;
+			playerPressForward =true;
 		}
 	}
 

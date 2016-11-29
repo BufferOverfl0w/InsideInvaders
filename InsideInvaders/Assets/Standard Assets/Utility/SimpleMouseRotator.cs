@@ -16,8 +16,7 @@ namespace UnityStandardAssets.Utility
         // on a moving spaceship with a limited angular range)
         // to have no constraints on an axis, set the rotationRange to 360 or greater.
         public Vector2 rotationRange = new Vector3(70, 70);
-        public float horizontalSpeed = 10;
-		public float verticalSpeed = 1;
+        public float rotationSpeed = 10;
         public float dampingTime = 0.2f;
         public bool autoZeroVerticalOnMobile = true;
         public bool autoZeroHorizontalOnMobile = false;
@@ -77,17 +76,17 @@ namespace UnityStandardAssets.Utility
 			if (autoZeroHorizontalOnMobile) {
 				m_TargetAngles.y = Mathf.Lerp (-rotationRange.y * 0.5f, rotationRange.y * 0.5f, inputH * .5f + .5f);
 			} else {
-				m_TargetAngles.y += inputH * horizontalSpeed;
+				m_TargetAngles.y += inputH * rotationSpeed;
 			}
 			if (autoZeroVerticalOnMobile) {
 				m_TargetAngles.x = Mathf.Lerp (-rotationRange.x * 0.5f, rotationRange.x * 0.5f, inputV * .5f + .5f);
 			} else {
-				m_TargetAngles.x += inputV * verticalSpeed;
+				m_TargetAngles.x += inputV * rotationSpeed;
 			}
 #else
                 // with mouse input, we have direct control with no springback required.
-				m_TargetAngles.y -= inputH*horizontalSpeed;
-				m_TargetAngles.x += inputV*verticalSpeed;
+                m_TargetAngles.y += inputH*rotationSpeed;
+                m_TargetAngles.x += inputV*rotationSpeed;
 #endif
 
                 // clamp values to allowed range
