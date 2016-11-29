@@ -129,13 +129,13 @@ Material:
       second: 1
     - first:
         name: _Glossiness
-      second: 1
+      second: 0.596
     - first:
         name: _GlossyReflections
       second: 1
     - first:
         name: _Metallic
-      second: 0
+      second: 0.457
     - first:
         name: _Mode
       second: 0
@@ -193,7 +193,7 @@ Material:
       second: {r: 1, g: 1, b: -2, a: 3}
     - first:
         name: _Color
-      second: {r: 0.9117647, g: 0.3486159, b: 0.3486159, a: 1}
+      second: {r: 0.77205884, g: 0.22707611, b: 0.22707611, a: 1}
     - first:
         name: _DistortParams
       second: {r: 1, g: 1, b: 2, a: 1.15}

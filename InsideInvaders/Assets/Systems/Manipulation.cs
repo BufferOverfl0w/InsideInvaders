@@ -33,7 +33,7 @@ public class Manipulation : FSystem {
 		foreach (GameObject go in _cameraGO) {
 			camera = go.GetComponent<Camera> ();
 		}
-		Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width/2,(Screen.height/2)+20,0));
+		Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width/2,(Screen.height/2)+20,0));
 
 		if (Physics.Raycast (ray, out hit)) {
 			GameObject go_hit = hit.transform.gameObject;

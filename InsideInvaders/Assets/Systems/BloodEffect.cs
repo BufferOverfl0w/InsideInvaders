@@ -29,23 +29,7 @@ public class BloodEffect : FSystem {
 
 			Light light = Go_light.GetComponent<Light> ();
 			light.color = component.LightColor;
-			light.intensity = 1.5f;
-		}
-	}
-
-	// Use to process your families.
-	protected override void onProcess(int familiesUpdateCount) {
-
-		CameraPlayer component = null;
-		Camera cam = null;
-		foreach (GameObject go in _cameraGO) {
-			component = go.GetComponent<CameraPlayer> ();
-			cam = go.GetComponent<Camera> ();
-			cam.clearFlags = CameraClearFlags.SolidColor;
-			cam.backgroundColor = component.skyBoxColor;
-			RenderSettings.fog = true;
-			RenderSettings.fogColor =component.fogColor;
-			RenderSettings.fogDensity =component.fogIntensity;
+			light.intensity = 0.3f;
 		}
 	}
 

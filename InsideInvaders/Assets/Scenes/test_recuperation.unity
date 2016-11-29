@@ -291,7 +291,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000012349075102, guid: 8c9311a18bf377745b4963762c9d532d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 127
+      value: 62
       objectReference: {fileID: 0}
     - target: {fileID: 4000012349075102, guid: 8c9311a18bf377745b4963762c9d532d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -529,7 +529,7 @@ Prefab:
     - target: {fileID: 114000012182335038, guid: 8c9311a18bf377745b4963762c9d532d,
         type: 2}
       propertyPath: fogIntensity
-      value: 0.007
+      value: 0.004
       objectReference: {fileID: 0}
     - target: {fileID: 114000012182335038, guid: 8c9311a18bf377745b4963762c9d532d,
         type: 2}
@@ -859,10 +859,10 @@ Terrain:
   serializedVersion: 3
   m_TerrainData: {fileID: 15600000, guid: 99f2acb480f0ae7449c884a8c78ee6bc, type: 2}
   m_TreeDistance: 2000
-  m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
-  m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 31
+  m_TreeBillboardDistance: 352
+  m_TreeCrossFadeLength: 39.7
+  m_TreeMaximumFullLODCount: 1838
+  m_DetailObjectDistance: 70
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 1
   m_SplatMapDistance: 2000
