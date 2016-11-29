@@ -15,14 +15,14 @@ public class UnderWater : MonoBehaviour {
 	private bool defaultFog;
 	private Color defaultFogColor;
 	private float defaultFogDensity;
-	private Material defaultSkybox;
+	//private Material defaultSkybox;
 
 	void Start () {
 		//Set the background color*
 		defaultFog = RenderSettings.fog;
 		defaultFogColor = RenderSettings.fogColor;
 		defaultFogDensity = RenderSettings.fogDensity;
-		defaultSkybox = RenderSettings.skybox;
+		//defaultSkybox = RenderSettings.skybox;
 
 		underwaterLevel = waterTransform.localPosition.y;
 	}

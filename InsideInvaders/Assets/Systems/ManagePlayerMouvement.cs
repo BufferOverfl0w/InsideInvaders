@@ -8,7 +8,6 @@ public class ManagePlayerMouvement : FSystem {
 	private Family _controlableGO = FamilyManager.getFamily(new AllOfComponents(typeof(ControllableByKeyboard)));
 	private float rotY = 0.0f; // rotation around the up/y axis
 	private float rotX = 0.0f; // rotation around the right/x axis
-
 	protected override void onPause(int currentFrame) {
 	}
 
@@ -30,12 +29,22 @@ public class ManagePlayerMouvement : FSystem {
 
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
+
+//		checkPause ();
+//		if (pause)
+//			return;
+		//Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width/2,(Screen.height/2)+20,0));
+		//Debug.DrawLine (ray.origin, ray.GetPoint (1000), Color.red, 1);
 		foreach (GameObject go in _controlableGO) {
 			movePlayer (go);
 			rotatePlayer (go);
 		}
 	}
-
+//	private void checkPause (){
+//		if(Input.GetKeyDown(KeyCode.Escape)){
+//			pause = !pause;
+//		}
+//	}
 
 	private void movePlayer(GameObject go){
 		Rigidbody rb = go.GetComponent<Rigidbody> ();

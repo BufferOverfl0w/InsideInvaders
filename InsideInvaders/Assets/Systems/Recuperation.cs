@@ -43,7 +43,7 @@ public class Recuperation : FSystem {
 
 	private void saisie(Transform tr, Camera camera){
 		RaycastHit hit;
-		Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+		Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width/2,(Screen.height/2)+20,0));
 
 		img_Cursor.color = Color.red;
 		foreach (GameObject go in _recuperableGO)
@@ -78,7 +78,7 @@ public class Recuperation : FSystem {
 		//Si clic droit, envoi des unités vers pos curseur
 		if (Input.GetMouseButton (1)) {
 			RaycastHit hit;
-			Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+			Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width/2,(Screen.height/2)+20,0));
 			if (Physics.Raycast (ray, out hit)) {
 
 				foreach (GameObject go in _recuperableGO) {
