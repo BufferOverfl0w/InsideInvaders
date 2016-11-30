@@ -8075,7 +8075,8 @@ Prefab:
       propertyPath: recupere
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000011573046930, guid: 081fd933f70d54342b19aa9e6767f037, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 081fd933f70d54342b19aa9e6767f037, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &863614268

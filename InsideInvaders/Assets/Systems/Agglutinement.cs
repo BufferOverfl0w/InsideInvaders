@@ -32,8 +32,11 @@ public class Agglutinement : FSystem {
 						go2.GetComponent<Agglutinable> ().progres_agglutinement += pas_agglutinement;
 					} else {
 						Debug.Log ("agglutinement complete");
-						Object.Instantiate(go2.GetComponent<Agglutinable> ().VirusAgglutine, tr2.position, Quaternion.identity);
+						//Object.Instantiate(go2.GetComponent<Agglutinable> ().VirusAgglutine, tr2.position, Quaternion.identity);
 						GameObjectManager.destroyGameObject(go2);
+						GameObject go = GameObjectManager.instantiatePrefab ("Prefabs/Virus Agglutine");
+						go.transform.position = tr2.position;
+
 						// + TODO: changement couleur?
 					}
 				}

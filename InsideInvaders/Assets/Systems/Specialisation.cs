@@ -35,8 +35,10 @@ public class Specialisation : FSystem {
 							Debug.Log ("specialisation virale en cours");
 							go2.GetComponent<Specialisable> ().progres_spec_viral += pas_specialisation;
 						} else {
-							Object.Instantiate(go2.GetComponent<Specialisable> ().LymphocyteBViral, tr2.position, Quaternion.identity);
+							//Object.Instantiate(go2.GetComponent<Specialisable> ().LymphocyteBViral, tr2.position, Quaternion.identity);
 							GameObjectManager.destroyGameObject(go2);
+							GameObject go = GameObjectManager.instantiatePrefab ("Prefabs/Lymphocyte B SpeViral");
+							go.transform.position = tr2.position;
 							Debug.Log ("specialisation virale completee");
 						}
 					}
@@ -45,8 +47,10 @@ public class Specialisation : FSystem {
 							Debug.Log ("specialisation bacterienne en cours");
 							go2.GetComponent<Specialisable> ().progres_spec_bacterien += pas_specialisation;
 						} else {
-							Object.Instantiate(go2.GetComponent<Specialisable> ().LymphocyteBBacterien, tr2.position, Quaternion.identity);
+							//Object.Instantiate(go2.GetComponent<Specialisable> ().LymphocyteBBacterien, tr2.position, Quaternion.identity);
 							GameObjectManager.destroyGameObject(go2);
+							GameObject go = GameObjectManager.instantiatePrefab ("Prefabs/Lymphocyte B SpeBacterien");
+							go.transform.position = tr2.position;
 							Debug.Log ("specialisation bacterienne completee");
 						}
 					}
