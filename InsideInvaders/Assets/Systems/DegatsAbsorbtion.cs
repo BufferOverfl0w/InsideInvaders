@@ -4,7 +4,8 @@ using FYFY;
 public class DegatsAbsorbtion : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
-	private Family _absorbableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Absorbable)));
+	private Family _absorbableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Absorbable)), new NoneOfComponents(typeof(Infectable)));
+	private Family _absorbableInfectableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Absorbable),typeof(Infectable)));
 	private Family _absorbeurGO = FamilyManager.getFamily(new AllOfComponents(typeof(Absorbeur)));
 	protected override void onPause(int currentFrame) {
 	}
@@ -28,6 +29,19 @@ public class DegatsAbsorbtion : FSystem {
 				if (distance < rayon_effet) {
 					Debug.Log ("je fais des degats");
 					go2.GetComponent<BarreDeVie> ().pv -= degats_absorbtion;
+				}
+			}
+
+			foreach (GameObject go3 in _absorbableInfectableGO) {
+				Transform tr3 = go3.GetComponent<Transform> ();
+				float distance = Mathf.Sqrt ((tr1.position.x - tr3.position.x) * (tr1.position.x - tr3.position.x)
+					+ (tr1.position.z - tr3.position.z) * (tr1.position.z - tr3.position.z));
+				if (distance < rayon_effet) {
+					Debug.Log ("je fais des degats");
+					go3.GetComponent<BarreDeVie> ().pv -= degats_absorbtion;
+					if (go3.GetComponent<BarreDeVie> ().pv <= 0) {
+						go3.GetComponent<Infectable> ().infecte = false;
+					}
 				}
 			}
 		}

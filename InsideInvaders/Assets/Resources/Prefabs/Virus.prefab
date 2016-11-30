@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f75979ee04dcc09449c056b7a19b7a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pv: 200
+  pv: 2000
 --- !u!114 &114000012514208296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -203,6 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726a22398ea63e74986eb5ba96f03087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayon_effet: 30
+  vitesse_infection: 1
 --- !u!114 &114000013167565408
 MonoBehaviour:
   m_ObjectHideFlags: 1

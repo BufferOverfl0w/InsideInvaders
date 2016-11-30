@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f75979ee04dcc09449c056b7a19b7a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pv: 200
+  pv: 2000
 --- !u!114 &114000012508796642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,6 +145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7328783b9c3267549a7de900fd16a74d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayon_effet: 30
+  vitesse_agglutinement: 1
 --- !u!135 &135000013062740796
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -7981,6 +7981,10 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     _typeFullName: DegatsAbsorbtion
     _pause: 0
+  - _typeAssemblyQualifiedName: DegatsInfection, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: DegatsInfection
+    _pause: 0
   - _typeAssemblyQualifiedName: ManagePlayerMouvement, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: ManagePlayerMouvement
