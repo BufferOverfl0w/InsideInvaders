@@ -3722,6 +3722,23 @@ Transform:
   m_PrefabParentObject: {fileID: 4000012349075102, guid: 8c9311a18bf377745b4963762c9d532d,
     type: 2}
   m_PrefabInternal: {fileID: 717984744}
+--- !u!1 &129628374 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013735366764, guid: 8c9311a18bf377745b4963762c9d532d,
+    type: 2}
+  m_PrefabInternal: {fileID: 717984744}
+--- !u!114 &129628380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 129628374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2881ddf86546d25479c5806ff7ccf4e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 6
 --- !u!1 &439993501
 GameObject:
   m_ObjectHideFlags: 0
@@ -7920,6 +7937,10 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     _typeFullName: PlayerParticules
     _pause: 0
+  - _typeAssemblyQualifiedName: Infection, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    _typeFullName: Infection
+    _pause: 0
   _lateUpdateSystemDescriptions: []
 --- !u!4 &784400377
 Transform:
@@ -11895,15 +11916,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: ed1c797ec3736704db03a0d64d010e33, type: 2}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: ed1c797ec3736704db03a0d64d010e33, type: 2}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0
+      value: 0.18431373
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: ed1c797ec3736704db03a0d64d010e33, type: 2}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0
+      value: 0.18431373
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: ed1c797ec3736704db03a0d64d010e33, type: 2}
       propertyPath: InitialModule.startColor.minColor.r
@@ -12079,6 +12100,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ed1c797ec3736704db03a0d64d010e33, type: 2}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: ed1c797ec3736704db03a0d64d010e33, type: 2}
+      propertyPath: m_SelectedWireframeHidden
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
