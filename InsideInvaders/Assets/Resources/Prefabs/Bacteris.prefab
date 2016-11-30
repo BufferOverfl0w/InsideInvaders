@@ -42,6 +42,7 @@ GameObject:
   - 114: {fileID: 114000010908698054}
   - 114: {fileID: 114000013641636346}
   - 114: {fileID: 114000011890482254}
+  - 114: {fileID: 114000011713853630}
   m_Layer: 0
   m_Name: Bacteris
   m_TagString: Bacterie
@@ -218,6 +219,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 759da0366f654b14a8bd1bd2d9b2a7be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114000011713853630
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012459106178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541f9dcbd0e9d414c894c0920c5f9af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vitesse: 20
+  positionCible: {x: 0, y: 0, z: 0}
 --- !u!114 &114000011890482254
 MonoBehaviour:
   m_ObjectHideFlags: 1

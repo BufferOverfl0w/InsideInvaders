@@ -40,11 +40,11 @@ GameObject:
   - 23: {fileID: 23000013998323756}
   - 54: {fileID: 54000012817975424}
   - 135: {fileID: 135000013990582552}
-  - 114: {fileID: 114000014177183852}
   - 114: {fileID: 114000012063678938}
   - 114: {fileID: 114000012514208296}
   - 114: {fileID: 114000013167565408}
   - 114: {fileID: 114000011446678852}
+  - 114: {fileID: 114000014057663912}
   m_Layer: 0
   m_Name: Virus
   m_TagString: Virus
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e60f71cd16f1a448605f67a5b76b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114000014177183852
+--- !u!114 &114000014057663912
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -224,10 +224,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012452507018}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2881ddf86546d25479c5806ff7ccf4e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 541f9dcbd0e9d414c894c0920c5f9af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 20
+  vitesse: 20
+  positionCible: {x: 0, y: 0, z: 0}
 --- !u!135 &135000013990582552
 SphereCollider:
   m_ObjectHideFlags: 1

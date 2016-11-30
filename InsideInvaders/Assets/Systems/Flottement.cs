@@ -2,10 +2,10 @@
 using FYFY;
 
 public class Flottement : FSystem {
-	// Use this to update member variables when system pause. 
-	// Advice: avoid to update your families inside this function.
 	private Family _flottantGO = FamilyManager.getFamily(new AllOfComponents(typeof(Flottant)));
 
+	// Use this to update member variables when system pause. 
+	// Advice: avoid to update your families inside this function.
 	protected override void onPause(int currentFrame) {
 	}
 

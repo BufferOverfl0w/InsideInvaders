@@ -3851,6 +3851,23 @@ Transform:
   m_PrefabParentObject: {fileID: 4000013776150852, guid: f7f475e68383a534781ecc53c1e5f79f,
     type: 2}
   m_PrefabInternal: {fileID: 292323753}
+--- !u!1 &379808510 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012452507018, guid: c2aa59775b3992f42886344533b26777,
+    type: 2}
+  m_PrefabInternal: {fileID: 508157622}
+--- !u!114 &379808511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 379808510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2881ddf86546d25479c5806ff7ccf4e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 6
 --- !u!1 &439993501
 GameObject:
   m_ObjectHideFlags: 0
@@ -5819,8 +5836,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114000014177183852, guid: c2aa59775b3992f42886344533b26777,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: force
       value: 20
       objectReference: {fileID: 0}
@@ -8020,6 +8036,10 @@ MonoBehaviour:
   - _typeAssemblyQualifiedName: Agglutinement, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     _typeFullName: Agglutinement
+    _pause: 0
+  - _typeAssemblyQualifiedName: DeplacementAleatoire, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: DeplacementAleatoire
     _pause: 0
   _lateUpdateSystemDescriptions: []
 --- !u!4 &784400377
