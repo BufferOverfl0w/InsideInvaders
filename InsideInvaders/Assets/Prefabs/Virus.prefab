@@ -43,9 +43,11 @@ GameObject:
   - 114: {fileID: 114000014177183852}
   - 114: {fileID: 114000012063678938}
   - 114: {fileID: 114000012514208296}
+  - 114: {fileID: 114000013167565408}
+  - 114: {fileID: 114000011446678852}
   m_Layer: 0
   m_Name: Virus
-  m_TagString: Untagged
+  m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,6 +166,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &114000011446678852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012452507018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f939d734b3207489b12eb8b8e84089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VirusAgglutine: {fileID: 4000010709107648, guid: fe7af5d8b04112140befe2f158470cf9,
+    type: 2}
+  progres_agglutinement: 0
 --- !u!114 &114000012063678938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,6 +201,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 726a22398ea63e74986eb5ba96f03087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114000013167565408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012452507018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e60f71cd16f1a448605f67a5b76b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114000014177183852

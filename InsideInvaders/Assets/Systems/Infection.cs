@@ -25,7 +25,7 @@ public class Infection : FSystem {
 			foreach (GameObject go2 in _infectableGO) {
 				Transform tr2 = go2.GetComponent<Transform> ();
 				float distance = Mathf.Sqrt ((tr1.position.x - tr2.position.x) * (tr1.position.x - tr2.position.x)
-					+ (tr1.position.z - tr2.position.z) * (tr1.position.z - tr2.position.z));
+				                 + (tr1.position.z - tr2.position.z) * (tr1.position.z - tr2.position.z));
 				if (distance < rayon_effet) {
 					if (go2.GetComponent<Infectable> ().progres_infection < seuil_infection) {
 						Debug.Log ("infection en cours");
