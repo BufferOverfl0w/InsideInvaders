@@ -24,7 +24,7 @@ GameObject:
   - 64: {fileID: 64000013964887980}
   - 54: {fileID: 54000010979655180}
   m_Layer: 0
-  m_Name: CellDebris
+  m_Name: Dechet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -27,6 +27,7 @@ GameObject:
   - 114: {fileID: 114000013918798750}
   - 114: {fileID: 114000011906115798}
   - 114: {fileID: 114000013450681948}
+  - 114: {fileID: 114000013048360102}
   m_Layer: 0
   m_Name: Lymphocyte B SpeBacterien
   m_TagString: Untagged
@@ -122,6 +123,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 2000
+--- !u!114 &114000013048360102
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013701413094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac912ce87c701e4397c6f237fe413fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayon_effet: 30
 --- !u!114 &114000013450681948
 MonoBehaviour:
   m_ObjectHideFlags: 1
