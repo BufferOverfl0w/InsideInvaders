@@ -18,9 +18,9 @@ public class Infection : FSystem {
 
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
-		float rayon_effet = 30;
-		int pas_infection = 1;
 		foreach (GameObject go1 in _infectieuxGO) {
+			float rayon_effet = go1.GetComponent<Infectieux> ().rayon_effet;
+			int pas_infection = go1.GetComponent<Infectieux> ().vitesse_infection;
 			Transform tr1 = go1.GetComponent<Transform> ();
 			foreach (GameObject go2 in _infectableGO) {
 				Transform tr2 = go2.GetComponent<Transform> ();

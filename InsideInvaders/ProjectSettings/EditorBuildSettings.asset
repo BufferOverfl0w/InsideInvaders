@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Single TPS Controller/Base.unity
   - enabled: 1
     path: Assets/Scenes/test.unity
+  - enabled: 1
+    path: Assets/Scenes/test_recuperation.unity

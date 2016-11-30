@@ -89,6 +89,8 @@ public class Recuperation : FSystem {
 						v.x = v.x * force_envoi;
 						v.y = v.y * force_envoi;
 						v.z = v.z * force_envoi;
+
+						rb.velocity = Vector3.zero;
 						rb.AddForce (v);
 					}
 				}

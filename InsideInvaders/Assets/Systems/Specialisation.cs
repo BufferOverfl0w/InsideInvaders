@@ -18,12 +18,15 @@ public class Specialisation : FSystem {
 
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
-		float rayon_effet = 30;
-		int pas_specialisation = 1;
+
 		foreach (GameObject go1 in _specialisantGO) {
 			Transform tr1 = go1.GetComponent<Transform> ();
 			foreach (GameObject go2 in _specialisableGO) {
+				
+				float rayon_effet = go2.GetComponent<Specialisable> ().rayon_effet;
+				int pas_specialisation = go2.GetComponent<Specialisable> ().vitesse_specialisation;
 				Transform tr2 = go2.GetComponent<Transform> ();
+
 				float distance = Mathf.Sqrt ((tr1.position.x - tr2.position.x) * (tr1.position.x - tr2.position.x)
 					+ (tr1.position.z - tr2.position.z) * (tr1.position.z - tr2.position.z));
 				if (distance < rayon_effet) {

@@ -16,9 +16,10 @@ public class DegatsAbsorbtion : FSystem {
 
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
-		float rayon_effet = 30;
-		int degats_absorbtion = 1;
+		
 		foreach (GameObject go1 in _absorbeurGO) {
+			float rayon_effet = go1.GetComponent<Absorbeur> ().rayon_effet;
+			int degats_absorbtion = go1.GetComponent<Absorbeur> ().degats_absorbtion;
 			Transform tr1 = go1.GetComponent<Transform> ();
 			foreach (GameObject go2 in _absorbableGO) {
 				Transform tr2 = go2.GetComponent<Transform> ();

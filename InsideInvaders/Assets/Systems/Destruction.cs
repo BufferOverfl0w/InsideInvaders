@@ -17,11 +17,12 @@ public class Destruction : FSystem {
 
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
-		float rayon_effet = 30;
 		foreach (GameObject go1 in _destructibleGO) {
 			if (go1.tag == "Bacterie" && go1.GetComponent<Infectable> ().infecte == true) {
 				Transform tr1 = go1.GetComponent<Transform> ();
 				foreach (GameObject go2 in _destructeurGO) {
+					float rayon_effet = go2.GetComponent<Destructeur> ().rayon_effet;
+
 					Transform tr2 = go2.GetComponent<Transform> ();
 					float distance = Mathf.Sqrt ((tr1.position.x - tr2.position.x) * (tr1.position.x - tr2.position.x)
 					                 + (tr1.position.z - tr2.position.z) * (tr1.position.z - tr2.position.z));
