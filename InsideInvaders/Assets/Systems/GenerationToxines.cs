@@ -17,8 +17,6 @@ public class GenerationToxiines : FSystem {
 	protected override void onProcess(int familiesUpdateCount) {
 		foreach(GameObject go1 in _genToxGO){
 			go1.GetComponent<GenerateurToxines>().temps += Time.deltaTime;
-			Debug.Log (go1.GetComponent<GenerateurToxines>().temps);
-			Debug.Log (go1.GetComponent<GenerateurToxines>().periode);
 			if (go1.GetComponent<GenerateurToxines> ().temps > go1.GetComponent<GenerateurToxines> ().periode) {
 				go1.GetComponent<GenerateurToxines> ().temps = 0f;
 				GameObject go2 = GameObjectManager.instantiatePrefab ("Prefabs/Toxine");

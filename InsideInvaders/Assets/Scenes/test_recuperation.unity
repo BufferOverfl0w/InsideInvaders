@@ -7974,6 +7974,10 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     _typeFullName: GenerationToxiines
     _pause: 0
+  - _typeAssemblyQualifiedName: DeplacementVirus, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: DeplacementVirus
+    _pause: 0
   _lateUpdateSystemDescriptions: []
 --- !u!4 &784400377
 Transform:
