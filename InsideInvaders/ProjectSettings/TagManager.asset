@@ -12,6 +12,7 @@ TagManager:
   - Main_Loop
   - Virus
   - Bacterie
+  - canvas_unite
   layers:
   - Default
   - TransparentFX

@@ -128,17 +128,17 @@ namespace ProgressBar
                 //  TransitoryValue needs to be incremented.
                 if (Dvalue > 0)
                 {
-                    TransitoryValue += ProgressSpeed * Time.deltaTime;
-                    if (TransitoryValue > m_Value.AsFloat)
-                        TransitoryValue = m_Value.AsFloat;
+                    //TransitoryValue += ProgressSpeed * Time.deltaTime;
+                    //if (TransitoryValue > m_Value.AsFloat)
+                    TransitoryValue = m_Value.AsFloat;
                 }
                 //If the difference is negative:
                 //  TransitoryValue needs to be decremented.
                 else if (Dvalue < 0)
                 {
-                    TransitoryValue -= ProgressSpeed * Time.deltaTime;
-                    if (TransitoryValue < m_Value.AsFloat)
-                        TransitoryValue = m_Value.AsFloat;
+                    //TransitoryValue -= ProgressSpeed * Time.deltaTime;
+                    //if (TransitoryValue < m_Value.AsFloat)
+                	TransitoryValue = m_Value.AsFloat;
                 }
 
                 //Clamping:

@@ -21,7 +21,7 @@ public class DegatsInfection : FSystem {
 		foreach (GameObject go1 in _infectableGO) {
 			if (go1.GetComponent<Infectable>().infecte == true) {
 				
-				go1.GetComponent<BarreDeVie> ().pv -= degats_infection;
+				go1.GetComponent<BarreDeVie> ().current_pv -= degats_infection;
 			
 			}
 		}

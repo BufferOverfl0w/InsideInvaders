@@ -19,12 +19,12 @@ public class GestionMort : FSystem {
 	protected override void onProcess(int familiesUpdateCount) {
 		Transform tr;
 		foreach (GameObject go in _vivantsGO){
-			if (go.GetComponent<BarreDeVie>().pv <= 0){
+			if (go.GetComponent<BarreDeVie>().current_pv <= 0){
 				GameObjectManager.destroyGameObject(go);
 			}
 		}
 		foreach (GameObject go in _vivantsInfectablesGO){
-			if (go.GetComponent<BarreDeVie>().pv <= 0){
+			if (go.GetComponent<BarreDeVie>().current_pv <= 0){
 				if (go.GetComponent<Infectable> ().infecte == true) {
 					tr = go.GetComponent<Transform> ();
 					GameObjectManager.destroyGameObject (go);
