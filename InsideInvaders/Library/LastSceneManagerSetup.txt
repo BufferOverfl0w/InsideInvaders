@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/test_map.unity
+- path: Assets/Scenes/test_recuperation.unity
   isLoaded: 1
   isActive: 1

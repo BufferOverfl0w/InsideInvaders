@@ -324,10 +324,6 @@ MonoBehaviour:
       PublicKeyToken=null
     _typeFullName: Recuperation
     _pause: 0
-  - _typeAssemblyQualifiedName: GestionMort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-    _typeFullName: GestionMort
-    _pause: 0
   - _typeAssemblyQualifiedName: DegatsAbsorbtion, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: DegatsAbsorbtion
@@ -336,9 +332,49 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     _typeFullName: DegatsInfection
     _pause: 0
+  - _typeAssemblyQualifiedName: DegatsToxiques, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: DegatsToxiques
+    _pause: 0
+  - _typeAssemblyQualifiedName: GestionMort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    _typeFullName: GestionMort
+    _pause: 0
+  - _typeAssemblyQualifiedName: Destruction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    _typeFullName: Destruction
+    _pause: 0
+  - _typeAssemblyQualifiedName: Specialisation, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: Specialisation
+    _pause: 0
+  - _typeAssemblyQualifiedName: Agglutinement, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    _typeFullName: Agglutinement
+    _pause: 0
+  - _typeAssemblyQualifiedName: Ralentissement, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: Ralentissement
+    _pause: 0
+  - _typeAssemblyQualifiedName: Infection, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    _typeFullName: Infection
+    _pause: 0
   - _typeAssemblyQualifiedName: ManagePlayerMouvement, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: ManagePlayerMouvement
+    _pause: 0
+  - _typeAssemblyQualifiedName: DeplacementAleatoire, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: DeplacementAleatoire
+    _pause: 0
+  - _typeAssemblyQualifiedName: DeplacementVirus, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: DeplacementVirus
+    _pause: 0
+  - _typeAssemblyQualifiedName: GenerationToxiines, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: GenerationToxiines
     _pause: 0
   - _typeAssemblyQualifiedName: Flottement, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
@@ -355,38 +391,6 @@ MonoBehaviour:
   - _typeAssemblyQualifiedName: PlayerParticules, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: PlayerParticules
-    _pause: 0
-  - _typeAssemblyQualifiedName: Infection, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-    _typeFullName: Infection
-    _pause: 0
-  - _typeAssemblyQualifiedName: Specialisation, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    _typeFullName: Specialisation
-    _pause: 0
-  - _typeAssemblyQualifiedName: Destruction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-    _typeFullName: Destruction
-    _pause: 0
-  - _typeAssemblyQualifiedName: Agglutinement, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-    _typeFullName: Agglutinement
-    _pause: 0
-  - _typeAssemblyQualifiedName: DeplacementAleatoire, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    _typeFullName: DeplacementAleatoire
-    _pause: 0
-  - _typeAssemblyQualifiedName: Ralentissement, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    _typeFullName: Ralentissement
-    _pause: 0
-  - _typeAssemblyQualifiedName: GenerationToxiines, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    _typeFullName: GenerationToxiines
-    _pause: 0
-  - _typeAssemblyQualifiedName: DeplacementVirus, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    _typeFullName: DeplacementVirus
     _pause: 0
   - _typeAssemblyQualifiedName: SpriteLookPlayer, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -778,6 +782,11 @@ Prefab:
     - target: {fileID: 4000011134720316, guid: 8b2f8f7efb98f244dbe82f7c14e366e0, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 198000013622840804, guid: 8b2f8f7efb98f244dbe82f7c14e366e0,
+        type: 2}
+      propertyPath: randomSeed
+      value: -907100508
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b2f8f7efb98f244dbe82f7c14e366e0, type: 2}

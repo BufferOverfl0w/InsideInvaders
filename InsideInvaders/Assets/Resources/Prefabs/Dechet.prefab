@@ -41,6 +41,7 @@ GameObject:
   - 23: {fileID: 23000010928491284}
   - 64: {fileID: 64000012414483072}
   - 54: {fileID: 54000014049256294}
+  - 114: {fileID: 114000013651264620}
   m_Layer: 0
   m_Name: Dechet
   m_TagString: Untagged
@@ -162,6 +163,17 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114000013651264620
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012075866716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e7ec76d22208164ebc1cc273839f4a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!223 &223000012090716430
 Canvas:
   m_ObjectHideFlags: 1

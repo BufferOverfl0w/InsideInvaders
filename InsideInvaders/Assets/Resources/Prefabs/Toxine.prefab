@@ -22,6 +22,10 @@ GameObject:
   - 198: {fileID: 198000013622840804}
   - 199: {fileID: 199000010231564554}
   - 135: {fileID: 135000013709394098}
+  - 114: {fileID: 114000014133673934}
+  - 114: {fileID: 114000011180456760}
+  - 114: {fileID: 114000014227817512}
+  - 114: {fileID: 114000012133317384}
   m_Layer: 0
   m_Name: Toxine
   m_TagString: Untagged
@@ -61,6 +65,30 @@ Transform:
   - {fileID: 224000011031857504}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &114000011180456760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010184639386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cdecd86985ab2469bc9c218293571e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayon_effet: 10
+  degats_toxiques: 2
+--- !u!114 &114000012133317384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010184639386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759da0366f654b14a8bd1bd2d9b2a7be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000012980488466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -77,6 +105,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114000014133673934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010184639386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75979ee04dcc09449c056b7a19b7a5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max_pv: 20
+  current_pv: 20
 --- !u!114 &114000014219486688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -98,6 +139,17 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114000014227817512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010184639386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e7ec76d22208164ebc1cc273839f4a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135000013709394098
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -45,6 +45,7 @@ GameObject:
   - 114: {fileID: 114000011346873468}
   - 114: {fileID: 114000011274332282}
   - 114: {fileID: 114000012900849014}
+  - 114: {fileID: 114000014033440138}
   m_Layer: 0
   m_Name: Macrophage
   m_TagString: Untagged
@@ -528,6 +529,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000014033440138
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011281141696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de38b1cc1f84dd845894ab35caf483c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000014154036358
 MonoBehaviour:
   m_ObjectHideFlags: 1

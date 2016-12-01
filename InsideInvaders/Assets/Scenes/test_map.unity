@@ -825,6 +825,10 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     _typeFullName: DegatsInfection
     _pause: 0
+  - _typeAssemblyQualifiedName: DegatsToxiques, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: DegatsToxiques
+    _pause: 0
   - _typeAssemblyQualifiedName: DeplacementAleatoire, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: DeplacementAleatoire
@@ -860,10 +864,6 @@ MonoBehaviour:
   - _typeAssemblyQualifiedName: ManagePlayerMouvement, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: ManagePlayerMouvement
-    _pause: 0
-  - _typeAssemblyQualifiedName: Manipulation, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-    _typeFullName: Manipulation
     _pause: 0
   - _typeAssemblyQualifiedName: ManageTimeSleep, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null

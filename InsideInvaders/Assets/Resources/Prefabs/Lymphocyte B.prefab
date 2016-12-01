@@ -268,6 +268,7 @@ GameObject:
   - 114: {fileID: 114000013454703636}
   - 114: {fileID: 114000013646579702}
   - 54: {fileID: 54000010318314676}
+  - 114: {fileID: 114000010216538004}
   m_Layer: 0
   m_Name: Lymphocyte B
   m_TagString: Untagged
@@ -850,6 +851,17 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: c18869376a86c8e44b19768a70710fda, type: 3}
+--- !u!114 &114000010216538004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013899643298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de38b1cc1f84dd845894ab35caf483c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000010553620812
 MonoBehaviour:
   m_ObjectHideFlags: 1
