@@ -32,6 +32,7 @@ public class BloodEffect : FSystem {
 			light.intensity = 0.3f;
 
 			component.dustStorm.SetActive (true);
+			component.dustStorm_2.SetActive (true);
 		}
 	}
 
