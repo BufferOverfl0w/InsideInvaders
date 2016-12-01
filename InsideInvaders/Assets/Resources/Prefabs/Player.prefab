@@ -163,7 +163,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!64 &64000010340771138
 MeshCollider:
@@ -232,7 +232,6 @@ MonoBehaviour:
   skyBoxColor: {r: 0, g: 0.4, b: 0.7, a: 0.6}
   fogIntensity: 0.001
   LightColor: {r: 0, g: 0.4, b: 0.7, a: 0.6}
-  dustStorm: {fileID: 0}
 --- !u!124 &124000011773150328
 Behaviour:
   m_ObjectHideFlags: 1
