@@ -36,12 +36,12 @@ public class Destruction : FSystem {
 			}
 		}*/
 		foreach (GameObject go1 in _triggeredDestructibleGO) {
-			if (go1.tag == "Bacterie" && go1.GetComponent<Infectable> ().infecte == true) {
+			if (/*go1.tag == "Bacterie" && */go1.GetComponent<Infectable> ().infecte == true) {
 				foreach(GameObject go2 in _destructeurGO){
 					foreach(GameObject go3 in go1.GetComponent<Triggered3D> ().Targets){
 						if (go2 == go3) {
 							GameObjectManager.destroyGameObject (go1);
-							Debug.Log ("bacterie infectee detruite");
+							Debug.Log ("objet infecte detruit");
 						}
 					}
 				}

@@ -27,6 +27,7 @@ GameObject:
   - 114: {fileID: 114000010553418724}
   - 114: {fileID: 114000012092994826}
   - 114: {fileID: 114000010359327028}
+  - 114: {fileID: 114000013000297268}
   m_Layer: 0
   m_Name: Lymphocyte T8
   m_TagString: Untagged
@@ -109,7 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b130d43ee3ddfb489ab87d62aa7362d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayon_effet: 30
 --- !u!114 &114000010553418724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,6 +146,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 2000
+--- !u!114 &114000013000297268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011010405034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf9b8688d0419c48b5a5b70ece497b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infecte: 0
+  progres_infection: 0
 --- !u!135 &135000011962884154
 SphereCollider:
   m_ObjectHideFlags: 1

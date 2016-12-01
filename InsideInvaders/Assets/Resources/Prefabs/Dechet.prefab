@@ -23,6 +23,8 @@ GameObject:
   - 23: {fileID: 23000011646031768}
   - 64: {fileID: 64000013964887980}
   - 54: {fileID: 54000010979655180}
+  - 114: {fileID: 114000010216721732}
+  - 114: {fileID: 114000013987930900}
   m_Layer: 0
   m_Name: Dechet
   m_TagString: Untagged
@@ -37,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013392475652}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.503, y: 253.66, z: 0.19072}
+  m_LocalPosition: {x: 10.503, y: 250, z: 0.19072}
   m_LocalScale: {x: 0.7, y: 0.3, z: 0.7}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -106,3 +108,26 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: 8e7f554b8a8f6dc469c819d566faf655, type: 3}
+--- !u!114 &114000010216721732
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013392475652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759da0366f654b14a8bd1bd2d9b2a7be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114000013987930900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013392475652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75979ee04dcc09449c056b7a19b7a5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pv: 50
