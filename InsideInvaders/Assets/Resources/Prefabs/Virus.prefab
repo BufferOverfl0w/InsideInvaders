@@ -78,7 +78,6 @@ GameObject:
   - 114: {fileID: 114000010253145830}
   - 114: {fileID: 114000013855183498}
   - 114: {fileID: 114000010782657314}
-  - 114: {fileID: 114000010914318466}
   - 114: {fileID: 114000013783756414}
   - 114: {fileID: 114000013363363850}
   - 114: {fileID: 114000010592455804}
@@ -325,19 +324,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_pv: 200
   current_pv: 200
---- !u!114 &114000010914318466
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011243928980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 541f9dcbd0e9d414c894c0920c5f9af4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vitesse: 20
-  positionCible: {x: 0, y: 0, z: 0}
 --- !u!114 &114000011574663278
 MonoBehaviour:
   m_ObjectHideFlags: 1
