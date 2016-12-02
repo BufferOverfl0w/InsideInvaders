@@ -35,7 +35,7 @@ public class Infection : FSystem {
 					if (inf.progres_infection < inf.timeForInfect) {
 						Debug.Log ("infection en cours");
 						inf.progres_infection += pas_infection * Time.deltaTime;
-						Debug.Log ("value cell : " + (int)inf.progres_infection);
+						//Debug.Log ("value cell : " + (int)inf.progres_infection);
 					} else {
 						Debug.Log ("infection completee");
 						go2.GetComponent<Infectable> ().infecte = true;

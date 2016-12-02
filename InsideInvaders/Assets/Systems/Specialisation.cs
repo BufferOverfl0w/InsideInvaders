@@ -4,7 +4,7 @@ using FYFY;
 public class Specialisation : FSystem {
 	private Family _specialisableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Specialisable)));
 	private Family _specialisantGO = FamilyManager.getFamily(new AllOfComponents(typeof(Specialisant)));
-	public int seuil_specialisation = 200;
+	public int seuil_specialisation = 500;
 
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
@@ -36,6 +36,7 @@ public class Specialisation : FSystem {
 							go2.GetComponent<Specialisable> ().progres_spec_viral += pas_specialisation;
 						} else {
 							//Object.Instantiate(go2.GetComponent<Specialisable> ().LymphocyteBViral, tr2.position, Quaternion.identity);
+							if(go2 ==null) continue;
 							GameObjectManager.destroyGameObject(go2);
 							GameObject go = GameObjectManager.instantiatePrefab ("Prefabs/Lymphocyte B SpeViral");
 							go.transform.position = tr2.position;
@@ -48,6 +49,7 @@ public class Specialisation : FSystem {
 							go2.GetComponent<Specialisable> ().progres_spec_bacterien += pas_specialisation;
 						} else {
 							//Object.Instantiate(go2.GetComponent<Specialisable> ().LymphocyteBBacterien, tr2.position, Quaternion.identity);
+							if(go2 ==null) continue;
 							GameObjectManager.destroyGameObject(go2);
 							GameObject go = GameObjectManager.instantiatePrefab ("Prefabs/Lymphocyte B SpeBacterien");
 							go.transform.position = tr2.position;

@@ -81,7 +81,7 @@ public class ManageAllSprite : FSystem {
 				healthBar_Go.SetActive (true);
 				val = (life * 100) / maxPv;
 				//val = 100 - val;
-				Debug.Log ("val " + val);
+				//Debug.Log ("val " + val);
 				healthBar.Value = val;
 
 				img.color =  g.Evaluate (val/100);
