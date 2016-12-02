@@ -51,7 +51,7 @@ public class ManageAllSprite : FSystem {
 			float infection = inf.progres_infection;
 
 			if ((infection <= 0.0f) || (infection >= inf.timeForInfect))  {
-				//img_progress.enabled = false;
+				img_progress.enabled = false;
 				progressInfect.Value = 0.0f;
 			} else {
 				img_progress.enabled = true;

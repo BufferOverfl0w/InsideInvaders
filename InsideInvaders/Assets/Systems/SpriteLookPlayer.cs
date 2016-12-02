@@ -4,16 +4,13 @@ using FYFY;
 public class SpriteLookPlayer : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
-	GameObject[] listCanevas_Go;
-	GameObject player_Go;
+	private GameObject[] listCanevas_Go;
 	protected override void onPause(int currentFrame) {
 	}
 
 	// Use this to update member variables when system resume.
 	// Advice: avoid to update your families inside this function.
 	protected override void onResume(int currentFrame){
-		//listCanevas_Go =  GameObject.FindGameObjectsWithTag ("canvas_unite");
-		player_Go = GameObject.FindGameObjectWithTag ("Player");
 	}
 
 	// Use to process your families.

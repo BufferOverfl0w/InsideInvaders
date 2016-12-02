@@ -13,6 +13,8 @@ TagManager:
   - Virus
   - Bacterie
   - canvas_unite
+  - unites
+  - NavMesh
   layers:
   - Default
   - TransparentFX
