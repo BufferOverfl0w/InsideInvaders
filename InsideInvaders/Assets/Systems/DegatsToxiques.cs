@@ -19,7 +19,7 @@ public class DegatsToxiques : FSystem {
 	protected override void onProcess(int familiesUpdateCount) {
 		foreach (GameObject go1 in _toxiqueGO) {
 			float rayon_effet = go1.GetComponent<Toxique> ().rayon_effet;
-			int degats_toxiques = go1.GetComponent<Toxique> ().degats_toxiques;
+			float degats_toxiques = go1.GetComponent<Toxique> ().degats_toxiques;
 			Transform tr1 = go1.GetComponent<Transform> ();
 			foreach (GameObject go2 in _intoxiquesGO) {
 				Transform tr2 = go2.GetComponent<Transform> ();

@@ -67,7 +67,7 @@ public class ManageAllSprite : FSystem {
 	private void manageHealthBar(){
 
 		foreach (GameObject go in _livingGO) {
-			int life = go.GetComponent<BarreDeVie> ().current_pv;
+			float life = go.GetComponent<BarreDeVie> ().current_pv;
 			int maxPv = go.GetComponent<BarreDeVie> ().max_pv;
 			GameObject healthBar_Go = go.transform.Find ("Canvas/healthBar").gameObject;
 			ProgressBarBehaviour healthBar = healthBar_Go.GetComponent<ProgressBarBehaviour> ();
