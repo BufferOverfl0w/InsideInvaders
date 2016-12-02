@@ -28,11 +28,10 @@ public class ManagePatrouille : FSystem {
 		foreach (GameObject go in _patrGO) {
 			PatrouilleCercle spe = go.GetComponent<PatrouilleCercle> ();
 			if (spe.seeTarget) continue;
-			if (spe.getAgent() == null) newUnite (go);
-			float distance = Mathf.Sqrt ((go.transform.position.x - spe.objectif.x) * (go.transform.position.x - spe.objectif.x)
-				+ (go.transform.position.z - spe.objectif.z) * (go.transform.position.z - spe.objectif.z));
-			NavMeshAgent agentTmp = spe.getAgent ();
-			if((distance) <= (agentTmp.radius*2)+10.0f){
+			if (spe.agent == null) newUnite (go);
+			NavMeshAgent agentTmp = spe.agent;
+			float distance = Vector3.Distance (agentTmp.destination, agentTmp.transform.position);
+			if( (distance<=10.0f) || isBlocked(agentTmp,spe) ){
 				Vector3 pos = (Random.insideUnitSphere * spe.rayon) + spe.centreOfSphere;
 				spe.objectif =  new Vector3 (pos.x, go.transform.position.y, pos.z);
 				//Debug.Log (spe.objectif);
@@ -54,7 +53,19 @@ public class ManagePatrouille : FSystem {
 		newAgent.speed = spe.speed;
 		newAgent.angularSpeed = spe.angularSpeed;
 		newAgent.acceleration = spe.acceleration;
-		spe.setAgent(newAgent);
+		spe.agent = newAgent;
 	}
-		
+	private bool isBlocked(NavMeshAgent agent,PatrouilleCercle spe){
+
+		float distance = Vector3.Distance (agent.destination, agent.transform.position);
+		if (Mathf.Approximately (distance, spe.lastDistance)) 
+		{
+			spe.nbSecBlocked = spe.nbSecBlocked + Time.deltaTime;
+			return (spe.nbSecBlocked >= 2); // 2 sec
+		}
+		spe.nbSecBlocked = 0.0f;
+		spe.lastDistance =  distance;
+		return false;
+	}
+
 }
