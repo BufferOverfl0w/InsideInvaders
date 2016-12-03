@@ -5,7 +5,7 @@ public class DegatsInfection : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
 	private Family _infectableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Infectable)));
-	int degats_infection = 1;
+	float degats_infection = 0.25f;
 
 	protected override void onPause(int currentFrame) {
 	}
