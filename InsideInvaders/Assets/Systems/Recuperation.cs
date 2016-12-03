@@ -87,8 +87,14 @@ public class Recuperation : FSystem {
 						Vector3 v = hit.point - go.transform.position;
 						go.GetComponent<Recuperable> ().recupere = false;
 						v.x = v.x * force_envoi;
-						v.y = v.y * force_envoi;
+						v.y = 0;
 						v.z = v.z * force_envoi;
+						float vitesse = Mathf.Sqrt (v.x * v.x + v.z * v.z);
+						if (vitesse > 8000) {
+							Debug.Log ("dans le if");
+							v.x /= (vitesse / 8000);
+							v.z /= (vitesse / 8000);
+						}
 
 						rb.velocity = Vector3.zero;
 						rb.AddForce (v);

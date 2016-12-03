@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad96a20e189646a4285e0467baed74b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  periode: 10
+  periode: 2
   temps: 0
 --- !u!114 &114000010690452324
 MonoBehaviour:
@@ -528,8 +528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f75979ee04dcc09449c056b7a19b7a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_pv: 200
-  current_pv: 200
+  max_pv: 2000
+  current_pv: 2000
 --- !u!114 &114000013002446210
 MonoBehaviour:
   m_ObjectHideFlags: 1
