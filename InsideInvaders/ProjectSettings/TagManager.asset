@@ -15,6 +15,7 @@ TagManager:
   - canvas_unite
   - unites
   - NavMesh
+  - Dechet
   layers:
   - Default
   - TransparentFX

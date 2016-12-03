@@ -8,7 +8,7 @@ public class ManageAllSprite : FSystem {
 	// Advice: avoid to update your families inside this function.
 
 	private Family _infectableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Infectable)));
-	private Family _livingGO = FamilyManager.getFamily(new AllOfComponents(typeof(BarreDeVie)),new NoneOfComponents(typeof(Toxique)));
+	private Family _livingGO = FamilyManager.getFamily(new AllOfComponents(typeof(BarreDeVie)),new NoneOfComponents(typeof(Toxique)), new NoneOfTags("Dechet"));
 	Gradient g;
 	protected override void onPause(int currentFrame) {
 	}
