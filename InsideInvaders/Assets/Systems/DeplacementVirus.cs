@@ -22,12 +22,13 @@ public class DeplacementVirus : FSystem {
 			int rayon_detection = go1.GetComponent<MouvantCible> ().rayon_detection;
 			go1.GetComponent<MouvantCible> ().temps += Time.deltaTime;
 			if (go1.GetComponent<MouvantCible> ().positionCible == Vector3.zero || go1.GetComponent<MouvantCible> ().temps > go1.GetComponent<MouvantCible> ().periode) {
-				go1.GetComponent<MouvantCible> ().temps = 0f;
 				if (collisionVirus (go1)) {
 					positionCibleAleatoire (go1);
 					go1.transform.position = Vector3.MoveTowards (go1.transform.position, go1.GetComponent<MouvantCible> ().positionCible, go1.GetComponent<MouvantCible> ().vitesse * Time.deltaTime);
+					go1.GetComponent<MouvantCible> ().temps /= 2;
 					break;
 				}
+				go1.GetComponent<MouvantCible> ().temps = 0f;
 				Transform tr1 = go1.GetComponent<Transform> ();
 				float dist = 10000;
 				foreach (GameObject go2 in _infectableGO) {

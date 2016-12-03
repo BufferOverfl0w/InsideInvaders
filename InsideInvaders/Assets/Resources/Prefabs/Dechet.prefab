@@ -178,6 +178,7 @@ GameObject:
   - 65: {fileID: 65000012761132462}
   - 114: {fileID: 114000010621411828}
   - 114: {fileID: 114000010989020418}
+  - 114: {fileID: 114000011275672824}
   m_Layer: 0
   m_Name: Dechet
   m_TagString: Dechet
@@ -612,7 +613,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!65 &65000012761132462
 BoxCollider:
@@ -650,6 +651,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 759da0366f654b14a8bd1bd2d9b2a7be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114000011275672824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014149729844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2881ddf86546d25479c5806ff7ccf4e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 6
 --- !u!114 &114000012291104620
 MonoBehaviour:
   m_ObjectHideFlags: 1

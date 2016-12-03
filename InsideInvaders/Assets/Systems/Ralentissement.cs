@@ -27,6 +27,8 @@ public class Ralentissement : FSystem {
 				if (distance < rayon_effet && go2.GetComponent<Ralentissable>().ralenti == false && go2.GetComponent<MouvantAleatoire>() != null) {
 					go2.GetComponent<Ralentissable> ().ralenti = true;
 					go2.GetComponent<MouvantAleatoire> ().vitesse /= 2;
+					if (go2.tag == "Bacterie")
+						go2.GetComponent<GenerateurToxines> ().periode *= 2;
 				}
 			}
 		}
