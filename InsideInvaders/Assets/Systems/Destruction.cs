@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using FYFY;
-using FYFY_plugins.TriggerManager;
+using FYFY_plugins.CollisionManager;
 
 public class Destruction : FSystem {
 	//private Family _destructibleGO = FamilyManager.getFamily(new AllOfComponents(typeof(Infectable)));
 	private Family _destructeurGO = FamilyManager.getFamily(new AllOfComponents(typeof(Destructeur)));
-	private Family _triggeredDestructibleGO = FamilyManager.getFamily(new AllOfComponents(typeof(Infectable), typeof(Triggered3D)));
+	private Family _triggeredDestructibleGO = FamilyManager.getFamily(new AllOfComponents(typeof(Infectable), typeof(InCollision3D)));
 
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
@@ -38,7 +38,7 @@ public class Destruction : FSystem {
 		foreach (GameObject go1 in _triggeredDestructibleGO) {
 			if (/*go1.tag == "Bacterie" && */go1.GetComponent<Infectable> ().infecte == true) {
 				foreach(GameObject go2 in _destructeurGO){
-					foreach(GameObject go3 in go1.GetComponent<Triggered3D> ().Targets){
+					foreach(GameObject go3 in go1.GetComponent<InCollision3D> ().Targets){
 						if (go2 == go3) {
 							GameObjectManager.destroyGameObject (go1);
 							Debug.Log ("objet infecte detruit");

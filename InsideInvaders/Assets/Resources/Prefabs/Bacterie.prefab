@@ -120,6 +120,7 @@ GameObject:
   - 23: {fileID: 23000013685463184}
   - 33: {fileID: 33000010855340362}
   - 136: {fileID: 136000010410125978}
+  - 114: {fileID: 114000013022868982}
   m_Layer: 0
   m_Name: Bacterie
   m_TagString: Bacterie
@@ -542,6 +543,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 5
+--- !u!114 &114000013022868982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012227682372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1215312603, guid: ff0184da6fa0b35479aefade36956361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000013159131146
 MonoBehaviour:
   m_ObjectHideFlags: 1

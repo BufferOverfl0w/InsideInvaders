@@ -44,6 +44,7 @@ GameObject:
   - 114: {fileID: 114000011734791512}
   - 114: {fileID: 114000011007966498}
   - 195: {fileID: 195000010348331396}
+  - 114: {fileID: 114000010665426428}
   m_Layer: 0
   m_Name: Lymphocyte B SpeViral
   m_TagString: Untagged
@@ -934,6 +935,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000010665426428
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011430484752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1215312603, guid: ff0184da6fa0b35479aefade36956361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000010804812172
 MonoBehaviour:
   m_ObjectHideFlags: 1

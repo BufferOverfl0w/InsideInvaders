@@ -63,6 +63,7 @@ GameObject:
   - 114: {fileID: 114000013559120086}
   - 114: {fileID: 114000010015738366}
   - 114: {fileID: 114000011415263002}
+  - 114: {fileID: 114000011269184226}
   m_Layer: 0
   m_Name: Cellule
   m_TagString: Untagged
@@ -391,6 +392,17 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: ProgressBar.Utils.OnCompleteEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114000011269184226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011872097346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1215312603, guid: ff0184da6fa0b35479aefade36956361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000011415263002
 MonoBehaviour:
   m_ObjectHideFlags: 1

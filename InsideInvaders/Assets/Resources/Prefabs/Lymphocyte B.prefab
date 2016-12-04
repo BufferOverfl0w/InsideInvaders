@@ -184,6 +184,7 @@ GameObject:
   - 114: {fileID: 114000012159486112}
   - 114: {fileID: 114000012506844398}
   - 195: {fileID: 195000012178715704}
+  - 114: {fileID: 114000011651606962}
   m_Layer: 0
   m_Name: Lymphocyte B
   m_TagString: Untagged
@@ -1009,6 +1010,17 @@ MonoBehaviour:
   infecte: 0
   progres_infection: 0
   timeForInfect: 5
+--- !u!114 &114000011651606962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012181218482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1215312603, guid: ff0184da6fa0b35479aefade36956361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000011705704900
 MonoBehaviour:
   m_ObjectHideFlags: 1
