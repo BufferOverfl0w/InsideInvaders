@@ -1407,6 +1407,26 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013746857850, guid: 12a3e9b1954282a4688df6fc9efce271,
+        type: 2}
+      propertyPath: m_Text
+      value: "Bien jou\xE9, pilote. Vous venez de remporter une victoire importante,
+        vous allez maintenant pouvoir vous d\xE9tendre\u2026\u2026 Attendez! Je d\xE9tecte
+        la pr\xE9sence de nombreuses nouvelles bact\xE9ries. Il faut les emp\xEAcher
+        de r\xE9pandre leurs toxines.  Votre rayon tracteur est capable de conserver
+        plusieurs unit\xE9s pr\xE8s de vous, puis de toutes les envoyer affronter
+        l\u2019ennemi, servez-vous-en!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013746857850, guid: 12a3e9b1954282a4688df6fc9efce271,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013746857850, guid: 12a3e9b1954282a4688df6fc9efce271,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 12a3e9b1954282a4688df6fc9efce271, type: 2}
   m_IsPrefabParent: 0

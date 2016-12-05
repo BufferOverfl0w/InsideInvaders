@@ -416,6 +416,27 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013746857850, guid: 12a3e9b1954282a4688df6fc9efce271,
+        type: 2}
+      propertyPath: m_Text
+      value: "Belle victoire, pilote, mais les bact\xE9ries sont toujours pr\xE9sentes!
+        Heureusement, des renforts sont apparus: les lymphocytes B \u201Cna\xEFfs\u201D.
+        Ils sont sensibles aux toxines et ne peuvent pas lutter contre les bact\xE9ries
+        dans cet \xE9tat, mais s\u2019ils restent suffisamment longtemps au contact
+        de ces derni\xE8res, ils peuvent se sp\xE9cialiser en plasmocytes antibact\xE9riens!
+        Ces plasmocytes cr\xE9ent des anticorps capables d\u2019affaiblir les bact\xE9ries.
+        Les macrophages n\u2019auront plus qu\u2019\xE0 finir le travail. Bonne chance."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013746857850, guid: 12a3e9b1954282a4688df6fc9efce271,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013746857850, guid: 12a3e9b1954282a4688df6fc9efce271,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 12a3e9b1954282a4688df6fc9efce271, type: 2}
   m_IsPrefabParent: 0

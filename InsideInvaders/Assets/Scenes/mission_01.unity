@@ -286,6 +286,34 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013746857850, guid: 12a3e9b1954282a4688df6fc9efce271,
+        type: 2}
+      propertyPath: m_Text
+      value: "Bonjour, pilote. \r\nNous avons r\xE9ussi \xE0 introduire un nanorobot
+        dans le corps d\u2019un patient. Vous allez pouvoir le diriger \xE0 distance
+        \xE0 l\u2019aide de votre souris et des touches \u201CZQSD\u201D. Pour l\u2019instant
+        il n\u2019y a pas de menaces pr\xE9sentes dans le corps du patient. C\u2019est
+        donc l\u2019occasion id\xE9ale pour apprendre \xE0 se servir de votre rayon
+        tracteur! Gr\xE2ce \xE0 lui, vous pourrez d\xE9placer les unit\xE9s des d\xE9fenses
+        immunitaire. Pour cela, ciblez une unit\xE9 puis appuyez sur le bouton gauche
+        de la souris: l\u2019unit\xE9 sera attir\xE9e vers vous et vous suivra.  Lorsque
+        vous voulez l\u2019envoyer au combat, ciblez la direction souhait\xE9e et
+        appuyez sur le bouton droit de la souris. \r\nNos capteurs nous signalent
+        la pr\xE9sence d\u2019un macrophage pr\xE8s de votre vaisseau. Les macrophages
+        sont des leucocytes capables de phagocyter leurs adversaires.  Entra\xEEnez-vous
+        avec lui. Une fois pr\xEAt, utilisez-le pour absorber les d\xE9chets pr\xE9sents
+        dans ce secteur!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013746857850, guid: 12a3e9b1954282a4688df6fc9efce271,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013746857850, guid: 12a3e9b1954282a4688df6fc9efce271,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 12a3e9b1954282a4688df6fc9efce271, type: 2}
   m_IsPrefabParent: 0

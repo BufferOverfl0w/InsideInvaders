@@ -923,6 +923,31 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013746857850, guid: 12a3e9b1954282a4688df6fc9efce271,
+        type: 2}
+      propertyPath: m_Text
+      value: "Toutes les bact\xE9ries ont \xE9t\xE9 \xE9limin\xE9es, bravo. Cependant,
+        un nouvel ennemi bien plus vicieux est apparu: un virus. Les virus sont des
+        agents pathog\xE8nes capables d\u2019infecter les autres cellules! Ces cellules
+        deviennent ensuite elles aussi des virus. Vous ne pouvez donc pas utiliser
+        vos macrophages contre eux. Vos lymphocytes B, par contre, sont capables de
+        se transformer en plasmocytes antiviraux. Ces plasmocytes peuvent agglutiner
+        les virus afin de les rendre inoffensifs, et donc absorbables par les macrophages.
+        Vous devriez donc \xE9loigner vos macrophages tant que vous n\u2019avez pas
+        agglutin\xE9 les virus.\r\nVotre vaisseau a \xE9t\xE9 d\xE9ploy\xE9 dans une
+        zone o\xF9 il y a peu de virus afin que vous puissiez vous entra\xEEner \xE0
+        lutter contre ce nouvel ennemi."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013746857850, guid: 12a3e9b1954282a4688df6fc9efce271,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013746857850, guid: 12a3e9b1954282a4688df6fc9efce271,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 12a3e9b1954282a4688df6fc9efce271, type: 2}
   m_IsPrefabParent: 0

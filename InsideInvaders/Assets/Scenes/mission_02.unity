@@ -299,6 +299,20 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013746857850, guid: 12a3e9b1954282a4688df6fc9efce271,
+        type: 2}
+      propertyPath: m_Text
+      value: "On nous signale l\u2019apparition d\u2019une bact\xE9rie pr\xE8s de
+        votre vaisseau, pilote. Les bact\xE9ries r\xE9pandent des toxines dans l\u2019organisme.
+        Prenez garde, votre vaisseau n\u2019est pas capable de r\xE9sister longtemps
+        \xE0 ces toxines! Heureusement, les macrophages sont capables de les absorber,
+        ainsi que les bact\xE9ries. D\xE9fendez-ce secteur!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013746857850, guid: 12a3e9b1954282a4688df6fc9efce271,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 12a3e9b1954282a4688df6fc9efce271, type: 2}
   m_IsPrefabParent: 0

@@ -1096,6 +1096,26 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013746857850, guid: 12a3e9b1954282a4688df6fc9efce271,
+        type: 2}
+      propertyPath: m_Text
+      value: "Beau combat, pilote, mais vos adversaires sont de plus en plus nombreux.
+        Le patient est en danger\u2026. Attendez, je d\xE9tecte la pr\xE9sence d\u2019un
+        lymphocyte T8 pr\xE8s de votre vaisseau. Les lymphocytes T8 sont capables
+        de d\xE9truire les autres cellules infect\xE9es avant qu\u2019elles ne deviennent
+        des virus.  C\u2019est notre dernier espoir. Vous devez sauver le patient,
+        pilote, ou les assurances vont couler notre compagnie. Nous comptons sur vous."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013746857850, guid: 12a3e9b1954282a4688df6fc9efce271,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013746857850, guid: 12a3e9b1954282a4688df6fc9efce271,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 12a3e9b1954282a4688df6fc9efce271, type: 2}
   m_IsPrefabParent: 0
