@@ -14,11 +14,6 @@ public class Specialisation : FSystem {
 	// Use this to update member variables when system resume.
 	// Advice: avoid to update your families inside this function.
 	protected override void onResume(int currentFrame){
-		foreach (GameObject go in _specialisableGO) {
-			if (go.GetComponent<Specialisable> ().vitesse_specialisation == 1) {
-				go.GetComponent<Specialisable> ().vitesse_specialisation = 1 + Random.Range(-0.5f, 0.5f);
-			}
-		}
 	}
 
 	// Use to process your families.
@@ -27,9 +22,9 @@ public class Specialisation : FSystem {
 		foreach (GameObject go1 in _specialisantGO) {
 			Transform tr1 = go1.GetComponent<Transform> ();
 			foreach (GameObject go2 in _specialisableGO) {
-				
+
 				float rayon_effet = go2.GetComponent<Specialisable> ().rayon_effet;
-				float pas_specialisation = go2.GetComponent<Specialisable> ().vitesse_specialisation;
+				int pas_specialisation = go2.GetComponent<Specialisable> ().vitesse_specialisation;
 				Transform tr2 = go2.GetComponent<Transform> ();
 
 				float distance = Mathf.Sqrt ((tr1.position.x - tr2.position.x) * (tr1.position.x - tr2.position.x)
@@ -39,29 +34,41 @@ public class Specialisation : FSystem {
 						if (go2.GetComponent<Specialisable> ().progres_spec_viral < seuil_specialisation) {
 							Debug.Log ("specialisation virale en cours");
 							go2.GetComponent<Specialisable> ().progres_spec_viral += pas_specialisation;
+							go2.tag = "ToSpecViral";
 						} else {
-							//Object.Instantiate(go2.GetComponent<Specialisable> ().LymphocyteBViral, tr2.position, Quaternion.identity);
-							if(go2 ==null) continue;
-							GameObjectManager.destroyGameObject(go2);
-							GameObject go = GameObjectManager.instantiatePrefab ("Prefabs/Lymphocyte B SpeViral");
-							go.transform.position = tr2.position;
-							Debug.Log ("specialisation virale completee");
+							go2.tag = "ToSpecViral";
 						}
 					}
 					if(go1.tag == "Bacterie"){
 						if (go2.GetComponent<Specialisable> ().progres_spec_bacterien < seuil_specialisation) {
 							Debug.Log ("specialisation bacterienne en cours");
 							go2.GetComponent<Specialisable> ().progres_spec_bacterien += pas_specialisation;
+							go2.tag = "ToSpecBacterien";
 						} else {
-							//Object.Instantiate(go2.GetComponent<Specialisable> ().LymphocyteBBacterien, tr2.position, Quaternion.identity);
-							if(go2 ==null) continue;
-							GameObjectManager.destroyGameObject(go2);
-							GameObject go = GameObjectManager.instantiatePrefab ("Prefabs/Lymphocyte B SpeBacterien");
-							go.transform.position = tr2.position;
-							Debug.Log ("specialisation bacterienne completee");
+							go2.tag = "ToSpecBacterien";
 						}
 					}
 				}
+			}
+		}
+		foreach (GameObject go2 in _specialisableGO) {
+			if (go2.GetComponent<Specialisable> ().progres_spec_viral >= seuil_specialisation) {
+				Transform tr2 = go2.GetComponent<Transform> ();
+				Debug.Log ("Tag:" + go2.tag);
+				GameObject go;
+				GameObjectManager.destroyGameObject (go2);
+				go = GameObjectManager.instantiatePrefab ("Prefabs/Lymphocyte B SpeViral");
+				Debug.Log ("specialisation virale completee");
+				go.transform.position = tr2.position;
+
+			} 
+			else if (go2.GetComponent<Specialisable> ().progres_spec_bacterien >= seuil_specialisation) {
+				Transform tr2 = go2.GetComponent<Transform> ();
+				GameObject go;
+				GameObjectManager.destroyGameObject (go2);
+				go = GameObjectManager.instantiatePrefab ("Prefabs/Lymphocyte B SpeBacterien");
+				Debug.Log ("specialisation bacterienne completee");
+				go.transform.position = tr2.position;
 			}
 		}
 	}

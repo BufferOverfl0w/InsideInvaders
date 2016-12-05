@@ -16,6 +16,8 @@ TagManager:
   - unites
   - NavMesh
   - Dechet
+  - ToSpecViral
+  - ToSpecBacterien
   layers:
   - Default
   - TransparentFX

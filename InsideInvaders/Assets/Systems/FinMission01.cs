@@ -71,6 +71,9 @@ public class FinMission01 : FSystem {
 			case "mission_07":
 				SceneManager.LoadScene("mission_08",LoadSceneMode.Single);
 				break;
+			case "mission_08":
+				SceneManager.LoadScene("fin",LoadSceneMode.Single);
+				break;
 		}
 	}
 	void recommencer_mission(){

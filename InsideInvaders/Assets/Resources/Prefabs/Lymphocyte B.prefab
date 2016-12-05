@@ -1186,7 +1186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56aeef24c4b86b34880d190dacb10627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayon_effet: 30
+  rayon_effet: 40
   vitesse_specialisation: 1
   progres_spec_viral: 0
   progres_spec_bacterien: 0
