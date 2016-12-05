@@ -57,3 +57,6 @@ C:\Users\MP\Documents\GitHub\InsideInvaders\InsideInvaders\obj\Debug\Assembly-CS
 C:\Users\MP\Documents\GitHub\InsideInvaders\InsideInvaders\obj\Debug\Assembly-CSharp.dll
 C:\Users\MP\Documents\GitHub\InsideInvaders\InsideInvaders\obj\Debug\Assembly-CSharp.pdb
 C:\Users\Frederic\Documents\GitHub\InsideInvaders\InsideInvaders\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+C:\Users\Frederic\Documents\GitHub\InsideInvaders\InsideInvaders\Temp\bin\Debug\InputSimulator.dll
+C:\Users\Frederic\Documents\GitHub\InsideInvaders\InsideInvaders\Temp\bin\Debug\InputSimulator.pdb
+C:\Users\Frederic\Documents\GitHub\InsideInvaders\InsideInvaders\Temp\bin\Debug\InputSimulator.xml

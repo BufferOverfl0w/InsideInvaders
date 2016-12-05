@@ -20,7 +20,7 @@ public class Agglutinement : FSystem {
 	protected override void onProcess(int familiesUpdateCount) {
 		foreach (GameObject go1 in _agglutineurGO) {
 			float rayon_effet = go1.GetComponent<Agglutineur> ().rayon_effet;
-			int pas_agglutinement = go1.GetComponent<Agglutineur> ().vitesse_agglutinement;
+			float pas_agglutinement = go1.GetComponent<Agglutineur> ().vitesse_agglutinement;
 			Transform tr1 = go1.GetComponent<Transform> ();
 			foreach (GameObject go2 in _agglutinableGO) {
 				Transform tr2 = go2.GetComponent<Transform> ();
@@ -33,7 +33,10 @@ public class Agglutinement : FSystem {
 					} else {
 						Debug.Log ("agglutinement complete");
 						//Object.Instantiate(go2.GetComponent<Agglutinable> ().VirusAgglutine, tr2.position, Quaternion.identity);
-						GameObjectManager.destroyGameObject(go2);
+						if (go2 != null) {
+							GameObjectManager.destroyGameObject(go2);
+						}
+
 						GameObject go = GameObjectManager.instantiatePrefab ("Prefabs/Virus Agglutine");
 						go.transform.position = tr2.position;
 

@@ -3,11 +3,11 @@ using FYFY;
 
 public class ManageTimeSleep : FSystem {
 	private Family _pauseMenuGO = FamilyManager.getFamily(new AllOfComponents(typeof(PauseMenu)));
-
+	private string nameSound = "Underwater_Ambient";
 
 	// Permet de savoir si le jeu est en pause ou non.
-	private bool isPaused = true; 
-
+	static public bool isPaused = false; 
+	private bool firthTick = true; 
 
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
@@ -26,8 +26,10 @@ public class ManageTimeSleep : FSystem {
 			isPaused = !isPaused;
 
 		if (isPaused) {
+			muteSound ();
 			Cursor.visible = true;
 			Cursor.lockState = CursorLockMode.None;
+			stopAllSystem ();
 			Time.timeScale = 0f; // Le temps s'arrete
 			foreach (GameObject go in _pauseMenuGO)
 				go.SetActive (true);
@@ -36,11 +38,50 @@ public class ManageTimeSleep : FSystem {
 			Cursor.visible = false;
 			Cursor.lockState = CursorLockMode.Locked;
 			Time.timeScale = 1.0f; // Le temps reprend
+			startAllSystem();
+			deMuteSound();
 			foreach (GameObject go in _pauseMenuGO)
 				go.SetActive (false);
 		}
+		if (firthTick) {
+			firthTick = false;
+			isPaused = true;
+		}
+	}
+	private void muteSound(){
+		GameObject obj = GameObject.Find (nameSound);
+		if (obj == null) return;
+		AudioSource audio = obj.GetComponent<AudioSource> ();
+		if (audio == null) return;
+		audio.mute = true;
+		
 	}
 
+	private void deMuteSound(){
+		GameObject obj = GameObject.Find (nameSound);
+		if (obj == null) return;
+		AudioSource audio = obj.GetComponent<AudioSource> ();
+		if (audio == null) return;
+		audio.mute = false;
+
+	}
+
+	private void stopAllSystem(){
+		foreach (FYFY.FSystem syst in FSystemManager.updateSystems()) {
+			if(!syst.GetType().Name.Equals("ManageTimeSleep")){
+				syst.Pause = true;
+			}
+		}
+			
+	}
+	private void startAllSystem(){
+		foreach (FYFY.FSystem syst in FSystemManager.updateSystems()) {
+			if(!syst.GetType().Name.Equals("ManageTimeSleep")){
+				syst.Pause = false;
+			}
+		}
+
+	}
 	void OnGUI ()
 	{
 		/*if(isPaused)

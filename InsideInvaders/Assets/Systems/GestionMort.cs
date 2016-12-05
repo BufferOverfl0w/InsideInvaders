@@ -27,15 +27,20 @@ public class GestionMort : FSystem {
 
 		foreach (GameObject go in _vivantsInfectablesGO){
 			if (go.GetComponent<BarreDeVie>().current_pv <= 0){
+				tr = go.GetComponent<Transform> ();
+
 				if (go.GetComponent<Infectable> ().infecte == true) {
-					tr = go.GetComponent<Transform> ();
 					GameObjectManager.destroyGameObject (go);
-					GameObject new_go = GameObjectManager.instantiatePrefab("Prefabs/Virus");
+					GameObject new_go = GameObjectManager.instantiatePrefab ("Prefabs/Virus");
 					new_go.transform.position = tr.position;
-				} 
-				else {
-					if (go.tag == "Bacterie") {
-						tr = go.GetComponent<Transform> ();
+				} else {
+					if (go.tag == "Bacterie") { 
+						// on génére peut de déchet 
+						GameObjectManager.destroyGameObject (go);
+						GameObject new_go1 = GameObjectManager.instantiatePrefab ("Prefabs/Dechet");
+						new_go1.transform.position = tr.position;
+					} else {
+						// les autres générent bc de déchet
 						GameObjectManager.destroyGameObject (go);
 						GameObject new_go1 = GameObjectManager.instantiatePrefab ("Prefabs/Dechet");
 						GameObject new_go2 = GameObjectManager.instantiatePrefab ("Prefabs/Dechet");
@@ -43,13 +48,8 @@ public class GestionMort : FSystem {
 						new_go1.transform.position = tr.position;
 						new_go2.transform.position = tr.position;
 						new_go3.transform.position = tr.position;
-					} else {
-						GameObjectManager.destroyGameObject(go);
 					}
-
 				}
-
-
 			}
 		}
 	}

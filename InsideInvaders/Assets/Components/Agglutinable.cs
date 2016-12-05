@@ -5,5 +5,5 @@ public class Agglutinable : MonoBehaviour {
 	[HideInInspector]
 	public Transform VirusAgglutine;
 	[HideInInspector]
-	public int progres_agglutinement = 0;
+	public float progres_agglutinement = 0;
 }

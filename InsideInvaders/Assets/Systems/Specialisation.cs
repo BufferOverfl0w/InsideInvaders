@@ -14,6 +14,11 @@ public class Specialisation : FSystem {
 	// Use this to update member variables when system resume.
 	// Advice: avoid to update your families inside this function.
 	protected override void onResume(int currentFrame){
+		foreach (GameObject go in _specialisableGO) {
+			if (go.GetComponent<Specialisable> ().vitesse_specialisation == 1) {
+				go.GetComponent<Specialisable> ().vitesse_specialisation = 1 + Random.Range(-0.5f, 0.5f);
+			}
+		}
 	}
 
 	// Use to process your families.
@@ -24,7 +29,7 @@ public class Specialisation : FSystem {
 			foreach (GameObject go2 in _specialisableGO) {
 				
 				float rayon_effet = go2.GetComponent<Specialisable> ().rayon_effet;
-				int pas_specialisation = go2.GetComponent<Specialisable> ().vitesse_specialisation;
+				float pas_specialisation = go2.GetComponent<Specialisable> ().vitesse_specialisation;
 				Transform tr2 = go2.GetComponent<Transform> ();
 
 				float distance = Mathf.Sqrt ((tr1.position.x - tr2.position.x) * (tr1.position.x - tr2.position.x)

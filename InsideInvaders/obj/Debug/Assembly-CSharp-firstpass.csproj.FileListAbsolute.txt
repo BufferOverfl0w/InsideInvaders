@@ -27,3 +27,6 @@ C:\Users\Frederic\Documents\GitHub\InsideInvaders\InsideInvaders\Temp\bin\Debug\
 C:\Users\Frederic\Documents\GitHub\InsideInvaders\InsideInvaders\obj\Debug\Assembly-CSharp-firstpass.csprojResolveAssemblyReference.cache
 C:\Users\Frederic\Documents\GitHub\InsideInvaders\InsideInvaders\obj\Debug\Assembly-CSharp-firstpass.dll
 C:\Users\Frederic\Documents\GitHub\InsideInvaders\InsideInvaders\obj\Debug\Assembly-CSharp-firstpass.pdb
+C:\Users\Frederic\Documents\GitHub\InsideInvaders\InsideInvaders\Temp\bin\Debug\InputSimulator.dll
+C:\Users\Frederic\Documents\GitHub\InsideInvaders\InsideInvaders\Temp\bin\Debug\InputSimulator.pdb
+C:\Users\Frederic\Documents\GitHub\InsideInvaders\InsideInvaders\Temp\bin\Debug\InputSimulator.xml

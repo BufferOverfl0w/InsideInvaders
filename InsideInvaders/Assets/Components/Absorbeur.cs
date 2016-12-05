@@ -3,5 +3,5 @@
 public class Absorbeur : MonoBehaviour {
 	// Advice: FYFY component aims to contain only public members (according to Entity-Component-System paradigm).
 	public float rayon_effet = 30;
-	public int degats_absorbtion = 1;
+	public float degats_absorbtion = 1;
 }

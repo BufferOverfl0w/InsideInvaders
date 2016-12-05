@@ -13,6 +13,11 @@ public class DegatsAbsorbtion : FSystem {
 	// Use this to update member variables when system resume.
 	// Advice: avoid to update your families inside this function.
 	protected override void onResume(int currentFrame){
+
+		foreach (GameObject go1 in _absorbeurGO) {
+			if(go1.GetComponent<Absorbeur> ().degats_absorbtion == 1)
+				go1.GetComponent<Absorbeur> ().degats_absorbtion = 1 + Random.Range(-0.5f, 0.5f);
+		}
 	}
 
 	// Use to process your families.
@@ -20,7 +25,7 @@ public class DegatsAbsorbtion : FSystem {
 		
 		foreach (GameObject go1 in _absorbeurGO) {
 			float rayon_effet = go1.GetComponent<Absorbeur> ().rayon_effet;
-			int degats_absorbtion = go1.GetComponent<Absorbeur> ().degats_absorbtion;
+			float degats_absorbtion = go1.GetComponent<Absorbeur> ().degats_absorbtion;
 			Transform tr1 = go1.GetComponent<Transform> ();
 			foreach (GameObject go2 in _absorbableGO) {
 				Transform tr2 = go2.GetComponent<Transform> ();

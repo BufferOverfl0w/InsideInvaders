@@ -14,6 +14,7 @@ public class ManagePlayerMouvement : FSystem {
 	static public bool playerPressBackward =false;
 	static public bool playerPressRight =false;
 	static public bool playerPressLeft =false;
+	private string nameSound ="flames";
 	protected override void onPause(int currentFrame) {
 	}
 
@@ -87,6 +88,10 @@ public class ManagePlayerMouvement : FSystem {
 			rb.velocity = rb.velocity.normalized * controlBKey.maxSpeed;
 			playerPressForward =true;
 		}
+		if (playerPressForward || playerPressBackward || playerPressLeft || playerPressRight) {
+			playSound ();
+		} else
+			stopSound ();
 	}
 
 	private void rotatePlayer(GameObject go ){
@@ -108,5 +113,24 @@ public class ManagePlayerMouvement : FSystem {
 
 	}
 		
+	private void stopSound(){
+		GameObject obj = GameObject.Find (nameSound);
+		if (obj == null) return;
+		AudioSource audio = obj.GetComponent<AudioSource> ();
+		if (audio == null) return;
+		audio.Stop ();
 
+	}
+
+	private void playSound(){
+		GameObject obj = GameObject.Find (nameSound);
+		if (obj == null) return;
+		AudioSource audio = obj.GetComponent<AudioSource> ();
+		if (audio == null) return;
+		if (!audio.isPlaying) {
+			audio.Play ();
+		}
+
+
+	}
 }

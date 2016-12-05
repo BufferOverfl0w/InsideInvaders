@@ -14,6 +14,10 @@ public class Infection : FSystem {
 	// Use this to update member variables when system resume.
 	// Advice: avoid to update your families inside this function.
 	protected override void onResume(int currentFrame){
+		foreach (GameObject go1 in _infectieuxGO) {
+			if(go1.GetComponent<Infectieux> ().vitesse_infection == 1)
+				go1.GetComponent<Infectieux> ().vitesse_infection = 1 + Random.Range(-0.5f, 0.5f);
+		}
 	}
 
 	// Use to process your families.

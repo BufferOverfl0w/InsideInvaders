@@ -13,6 +13,7 @@ public class DegatsInfection : FSystem {
 	// Use this to update member variables when system resume.
 	// Advice: avoid to update your families inside this function.
 	protected override void onResume(int currentFrame){
+		degats_infection =  0.25f + Random.Range(-0.1f, 0.1f);
 	}
 
 	// Use to process your families.
