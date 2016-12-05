@@ -28,7 +28,6 @@ public class DeplacementVirus : FSystem {
 					go1.GetComponent<MouvantCible> ().temps /= 2;
 					break;
 				}
-				go1.GetComponent<MouvantCible> ().temps = 0f;
 				Transform tr1 = go1.GetComponent<Transform> ();
 				float dist = 10000;
 				foreach (GameObject go2 in _infectableGO) {
@@ -41,11 +40,13 @@ public class DeplacementVirus : FSystem {
 						if (dist < distMin) {
 							dist = distMin;
 							go1.GetComponent<MouvantCible> ().positionCible = go2.transform.position;
+							go1.GetComponent<MouvantCible> ().temps = 0f;
 							//go1.transform.position = Vector3.MoveTowards (go1.transform.position, go1.GetComponent<MouvantCible> ().positionCible, go1.GetComponent<MouvantCible> ().vitesse * Time.deltaTime);
 						}
 					} else {
 						if (go1.GetComponent<MouvantCible> ().positionCible == Vector3.zero || go1.GetComponent<MouvantCible> ().positionCible == go1.transform.position) {
 							positionCibleAleatoire (go1);
+							go1.GetComponent<MouvantCible> ().temps = 0f;
 						}
 						//go1.transform.position = Vector3.MoveTowards (go1.transform.position, go1.GetComponent<MouvantCible> ().positionCible, go1.GetComponent<MouvantCible> ().vitesse * Time.deltaTime);
 					}
