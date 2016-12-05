@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using WindowsInput;
+using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour {
 
 	public void SelectMission(){
-		Application.LoadLevel ("menu missions");
+		SceneManager.LoadScene ("menu missions");
 	}
 
 	public void Quitter(){
@@ -13,39 +14,39 @@ public class Menu : MonoBehaviour {
 	}
 
 	public void m1(){
-		Application.LoadLevel ("mission_01");
+		SceneManager.LoadScene ("mission_01");
 	}
 
 	public void m2(){
-		Application.LoadLevel ("mission_02");
+		SceneManager.LoadScene ("mission_02");
 	}
 
 	public void m3(){
-		Application.LoadLevel ("mission_03");
+		SceneManager.LoadScene ("mission_03");
 	}
 
 	public void m4(){
-		Application.LoadLevel ("mission_04");
+		SceneManager.LoadScene ("mission_04");
 	}
 
 	public void m5(){
-		Application.LoadLevel ("mission_05");
+		SceneManager.LoadScene ("mission_05");
 	}
 
 	public void m6(){
-		Application.LoadLevel ("mission_06");
+		SceneManager.LoadScene ("mission_06");
 	}
 
 	public void m7(){
-		Application.LoadLevel ("mission_07");
+		SceneManager.LoadScene ("mission_07");
 	}
 
 	public void m8(){
-		Application.LoadLevel ("mission_08");
+		SceneManager.LoadScene ("mission_08");
 	}
 
 	public void Retour(){
-		Application.LoadLevel ("menu");
+		SceneManager.LoadScene ("menu");
 	}
 
 	public void TogglePause(){
