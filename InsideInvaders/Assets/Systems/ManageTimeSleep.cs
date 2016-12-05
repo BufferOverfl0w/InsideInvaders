@@ -2,14 +2,15 @@
 using FYFY;
 
 public class ManageTimeSleep : FSystem {
-	// Use this to update member variables when system pause. 
-	// Advice: avoid to update your families inside this function.
+	private Family _pauseMenuGO = FamilyManager.getFamily(new AllOfComponents(typeof(PauseMenu)));
 
 
 	// Permet de savoir si le jeu est en pause ou non.
-	private bool isPaused = false; 
+	private bool isPaused = true; 
 
 
+	// Use this to update member variables when system pause. 
+	// Advice: avoid to update your families inside this function.
 	protected override void onPause(int currentFrame) {
 	}
 
@@ -27,19 +28,22 @@ public class ManageTimeSleep : FSystem {
 		if (isPaused) {
 			Cursor.visible = true;
 			Cursor.lockState = CursorLockMode.None;
-
 			Time.timeScale = 0f; // Le temps s'arrete
+			foreach (GameObject go in _pauseMenuGO)
+				go.SetActive (true);
 
 		}else{
 			Cursor.visible = false;
 			Cursor.lockState = CursorLockMode.Locked;
 			Time.timeScale = 1.0f; // Le temps reprend
+			foreach (GameObject go in _pauseMenuGO)
+				go.SetActive (false);
 		}
 	}
 
 	void OnGUI ()
 	{
-		if(isPaused)
+		/*if(isPaused)
 		{
 
 			// Si le bouton est présser alors isPaused devient faux donc le jeu reprend.
@@ -57,6 +61,6 @@ public class ManageTimeSleep : FSystem {
 
 			}
 
-		}
+		}*/
 	}
 }
