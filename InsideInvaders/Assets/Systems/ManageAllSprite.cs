@@ -47,7 +47,9 @@ public class ManageAllSprite : FSystem {
 	private void manageCercleSelection(){
 		foreach (GameObject go in _recuperableGO) {
 			bool recup = go.GetComponent<Recuperable> ().recupere;
-			GameObject cercle_Go = go.transform.Find ("Canvas/cercle").gameObject;
+			Transform transform_Go = go.transform.Find("Canvas/cercle");
+			if (transform_Go == null) continue;
+			GameObject cercle_Go = transform_Go.gameObject;
 			if (cercle_Go == null) continue;
 			cercle_Go.SetActive (recup);
 			Component halo = go.GetComponent("Halo"); 

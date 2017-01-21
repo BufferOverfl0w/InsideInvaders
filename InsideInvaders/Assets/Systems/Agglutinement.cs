@@ -18,6 +18,7 @@ public class Agglutinement : FSystem {
 
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
+		Debug.Log ("ici");
 		foreach (GameObject go1 in _agglutineurGO) {
 			float rayon_effet = go1.GetComponent<Agglutineur> ().rayon_effet;
 			float pas_agglutinement = go1.GetComponent<Agglutineur> ().vitesse_agglutinement;
