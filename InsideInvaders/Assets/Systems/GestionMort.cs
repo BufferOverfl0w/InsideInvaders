@@ -7,6 +7,8 @@ public class GestionMort : FSystem {
 	private Family _vivantsGO = FamilyManager.getFamily(new AllOfComponents(typeof(BarreDeVie)), new NoneOfComponents(typeof(Infectable)));
 	private Family _bacteries_puresGO = FamilyManager.getFamily(new AnyOfTags("Bacterie"));
 	private Family _vivantsInfectablesGO = FamilyManager.getFamily(new AllOfComponents(typeof(BarreDeVie),typeof(Infectable)));
+	private Family _recuperablesGO = FamilyManager.getFamily(new AllOfComponents(typeof(Recuperable)));
+
 	protected override void onPause(int currentFrame) {
 	}
 
@@ -21,6 +23,19 @@ public class GestionMort : FSystem {
 		Transform tr;
 		foreach (GameObject go in _vivantsGO){
 			if (go.GetComponent<BarreDeVie>().current_pv <= 0){
+				foreach (GameObject go2 in _recuperablesGO){
+					if (go2.GetComponent<Recuperable> ().cible_poursuite != null) {
+						if (go2.GetComponent<Recuperable> ().cible_poursuite.Equals (go)) {
+							go2.GetComponent<Recuperable> ().cible_poursuite = null;
+						}
+					}
+
+					if (go2.GetComponent<Recuperable> ().cible_protection != null) {
+						if (go2.GetComponent<Recuperable> ().cible_protection.Equals (go)) {
+							go2.GetComponent<Recuperable> ().cible_protection = null;
+						}
+					}
+				}
 				GameObjectManager.destroyGameObject(go);
 			}
 		}

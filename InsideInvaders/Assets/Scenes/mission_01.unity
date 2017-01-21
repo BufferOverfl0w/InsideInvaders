@@ -505,6 +505,10 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     _typeFullName: ManageBehaviours
     _pause: 0
+  - _typeAssemblyQualifiedName: Behaviour01Patrouille, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: Behaviour01Patrouille
+    _pause: 0
   - _typeAssemblyQualifiedName: Behaviour02SuiviJoueur, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: Behaviour02SuiviJoueur

@@ -47,12 +47,8 @@ public class Recuperation : FSystem {
 		RaycastHit hit;
 		Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width/2,(Screen.height/2)+20,0));
 
-		img_Cursor.color = Color.red;
-		foreach (GameObject go in _recuperableGO)
-			if (go.GetComponent<Recuperable> ().recupere == true){
-				img_Cursor.color = Color.yellow;
-					break;
-			}
+		img_Cursor.color = Color.yellow;
+
 		if (Physics.Raycast (ray, out hit)) {
 			GameObject go_hit = hit.transform.gameObject;
 			if (_recuperableGO.contains (go_hit.GetInstanceID ())) { // test if is a Recuperable Object
@@ -63,18 +59,10 @@ public class Recuperation : FSystem {
 					go_hit.GetComponent<Recuperable> ().cible_protection = null;
 
 				}
-			}
+			} else if (_intrusGO.contains (go_hit.GetInstanceID ())) {
+				img_Cursor.color = Color.red;
 
-//			foreach (GameObject go in _recuperableGO) {
-//				if (go.Equals (go_hit)) {
-//					img_Cursor.color = Color.green;
-//					if (Input.GetMouseButton (0)) {
-//						go_hit.GetComponent<Recuperable> ().recupere = true;
-//					}
-//				} else {
-//					img_Cursor.color = Color.red;
-//				}
-//			}
+			}
 		}
 	}
 	private void envoi(Camera camera){

@@ -28,15 +28,30 @@ public class ManageBehaviours : FSystem {
 			go.GetComponent<LastBehaviour> ().index_behaviour = last_index;
 		}
 		foreach (GameObject go in _defensesGO) {
-			Debug.Log ("go obtenu");
 			CurrentBehaviour cb = go.GetComponent<CurrentBehaviour> ();
-			if (cb == null)
-				Debug.Log ("BLEMMME");
-			//last_index = go.GetComponent<CurrentBehaviour> ().index_behaviour;
+
+			last_index = go.GetComponent<CurrentBehaviour> ().index_behaviour;
 			go.GetComponent<LastBehaviour> ().index_behaviour = last_index;
 		}
 		//1-Patrouille
-		//TODO
+		foreach (GameObject go in _recuperableGO) {
+			//Quelques booléens préliminaires
+			bool en_deplacement = true;
+			bool pas_de_cible = false;
+			Rigidbody go_rb = go.GetComponent<Rigidbody> ();
+			if ((Mathf.Abs(go_rb.velocity.x)+Mathf.Abs(go_rb.velocity.z)) < 15){
+				en_deplacement = false;
+			}
+			if ((go.GetComponent<Recuperable> ().cible_poursuite == null) && (go.GetComponent<Recuperable> ().cible_protection == null)) {
+				pas_de_cible = true;
+			}
+
+			if (/*(go.GetComponent<Recuperable> ().recupere == false)&&*/(!en_deplacement)&&(pas_de_cible)) {
+				go.GetComponent<CurrentBehaviour> ().index_behaviour = 1;
+			} else if ((pas_de_cible)&&((go.GetComponent<LastBehaviour> ().index_behaviour==2)||(go.GetComponent<LastBehaviour> ().index_behaviour==3))){
+				go.GetComponent<CurrentBehaviour> ().index_behaviour = 1;
+			}
+		}
 
 		//2-Suivi joueur
 		foreach (GameObject go in _recuperableGO) {
@@ -47,7 +62,6 @@ public class ManageBehaviours : FSystem {
 		//3-Poursuite
 		foreach (GameObject go in _recuperableGO) {
 			if (go.GetComponent<Recuperable> ().cible_poursuite != null) {
-				Debug.Log ("je met index à 3");
 				go.GetComponent<CurrentBehaviour> ().index_behaviour = 3;
 			}
 		}
