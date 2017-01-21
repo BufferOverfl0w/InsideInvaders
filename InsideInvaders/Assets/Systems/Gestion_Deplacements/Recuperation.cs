@@ -8,6 +8,9 @@ public class Recuperation : FSystem {
 	private Family _recuperableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Recuperable)));
 	private Family _playerGO = FamilyManager.getFamily(new AllOfComponents(typeof(ControllableByKeyboard)));
 	private Family _cameraGO = FamilyManager.getFamily(new AllOfComponents(typeof(CameraPlayer)));
+	private Family _intrusGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamIntrus)));
+	private Family _defensesGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamDefense)));
+
 	private Image img_Cursor;
 
 
@@ -56,6 +59,9 @@ public class Recuperation : FSystem {
 				img_Cursor.color = Color.green;
 				if (Input.GetMouseButton (0)) {
 					go_hit.GetComponent<Recuperable> ().recupere = true;
+					go_hit.GetComponent<Recuperable> ().cible_poursuite = null;
+					go_hit.GetComponent<Recuperable> ().cible_protection = null;
+
 				}
 			}
 
@@ -79,24 +85,64 @@ public class Recuperation : FSystem {
 			RaycastHit hit;
 			Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width/2,(Screen.height/2)+20,0));
 			if (Physics.Raycast (ray, out hit)) {
-
-				foreach (GameObject go in _recuperableGO) {
-					if (go.GetComponent<Recuperable> ().recupere == true) {
-						Rigidbody rb = go.GetComponent<Rigidbody> ();
-						Vector3 v = hit.point - go.transform.position;
-						go.GetComponent<Recuperable> ().recupere = false;
-						v.x = v.x * force_envoi;
-						v.y = 0;
-						v.z = v.z * force_envoi;
-						float vitesse = Mathf.Sqrt (v.x * v.x + v.z * v.z);
-						if (vitesse > 8000) {
-							Debug.Log ("dans le if");
-							v.x /= (vitesse / 8000);
-							v.z /= (vitesse / 8000);
+				GameObject go_hit = hit.transform.gameObject;
+				if (_defensesGO.contains (go_hit.GetInstanceID ())) { // si on a ciblé une unité alliée
+					foreach (GameObject go in _recuperableGO) {
+						if (go.GetComponent<Recuperable> ().recupere == true) {
+							Rigidbody rb = go.GetComponent<Rigidbody> ();
+							Vector3 v = hit.point - go.transform.position;
+							go.GetComponent<Recuperable> ().recupere = false;
+							go.GetComponent<Recuperable> ().cible_protection = go_hit;
+							v.x = v.x * force_envoi;
+							v.y = 0;
+							v.z = v.z * force_envoi;
+							float vitesse = Mathf.Sqrt (v.x * v.x + v.z * v.z);
+							if (vitesse > 8000) {
+								v.x /= (vitesse / 8000);
+								v.z /= (vitesse / 8000);
+							}
+							rb.velocity = Vector3.zero;
+							rb.AddForce (v);
 						}
+					}
+				} else if (_intrusGO.contains (go_hit.GetInstanceID ())) { // si on a ciblé une unité ennemie
+					Debug.Log("Unité ennemie ciblée");
+					foreach (GameObject go in _recuperableGO) {
+						if (go.GetComponent<Recuperable> ().recupere == true) {
+							Rigidbody rb = go.GetComponent<Rigidbody> ();
+							Vector3 v = hit.point - go.transform.position;
+							go.GetComponent<Recuperable> ().recupere = false;
+							go.GetComponent<Recuperable> ().cible_poursuite = go_hit;
+							v.x = v.x * force_envoi;
+							v.y = 0;
+							v.z = v.z * force_envoi;
+							float vitesse = Mathf.Sqrt (v.x * v.x + v.z * v.z);
+							if (vitesse > 8000) {
+								v.x /= (vitesse / 8000);
+								v.z /= (vitesse / 8000);
+							}
+							rb.velocity = Vector3.zero;
+							rb.AddForce (v);
+						}
+					}
+				} else {
+					foreach (GameObject go in _recuperableGO) {
+						if (go.GetComponent<Recuperable> ().recupere == true) {
+							Rigidbody rb = go.GetComponent<Rigidbody> ();
+							Vector3 v = hit.point - go.transform.position;
+							go.GetComponent<Recuperable> ().recupere = false;
+							v.x = v.x * force_envoi;
+							v.y = 0;
+							v.z = v.z * force_envoi;
+							float vitesse = Mathf.Sqrt (v.x * v.x + v.z * v.z);
+							if (vitesse > 8000) {
+								v.x /= (vitesse / 8000);
+								v.z /= (vitesse / 8000);
+							}
 
-						rb.velocity = Vector3.zero;
-						rb.AddForce (v);
+							rb.velocity = Vector3.zero;
+							rb.AddForce (v);
+						}
 					}
 				}
 			}

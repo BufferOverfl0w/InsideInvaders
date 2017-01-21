@@ -40,10 +40,21 @@ public class ManageBehaviours : FSystem {
 
 		//2-Suivi joueur
 		foreach (GameObject go in _recuperableGO) {
-			Debug.Log ("go obtenu");
 			if (go.GetComponent<Recuperable> ().recupere == true) {
 				go.GetComponent<CurrentBehaviour> ().index_behaviour = 2;
-				Debug.Log ("index mis a 2");
+			}
+		}
+		//3-Poursuite
+		foreach (GameObject go in _recuperableGO) {
+			if (go.GetComponent<Recuperable> ().cible_poursuite != null) {
+				Debug.Log ("je met index à 3");
+				go.GetComponent<CurrentBehaviour> ().index_behaviour = 3;
+			}
+		}
+		//4-Protection
+		foreach (GameObject go in _recuperableGO) {
+			if (go.GetComponent<Recuperable> ().cible_protection != null) {
+				go.GetComponent<CurrentBehaviour> ().index_behaviour = 4;
 			}
 		}
 	}

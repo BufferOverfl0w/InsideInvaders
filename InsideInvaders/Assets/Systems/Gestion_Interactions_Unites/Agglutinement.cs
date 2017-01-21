@@ -18,7 +18,6 @@ public class Agglutinement : FSystem {
 
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
-		Debug.Log ("ici");
 		foreach (GameObject go1 in _agglutineurGO) {
 			float rayon_effet = go1.GetComponent<Agglutineur> ().rayon_effet;
 			float pas_agglutinement = go1.GetComponent<Agglutineur> ().vitesse_agglutinement;
@@ -31,19 +30,16 @@ public class Agglutinement : FSystem {
 					if (go2.GetComponent<Agglutinable> ().progres_agglutinement < seuil_agglutinement) {
 						Debug.Log ("agglutinement en cours");
 						go2.GetComponent<Agglutinable> ().progres_agglutinement += pas_agglutinement;
-					} else {
-						Debug.Log ("agglutinement complete");
-						//Object.Instantiate(go2.GetComponent<Agglutinable> ().VirusAgglutine, tr2.position, Quaternion.identity);
-						if (go2 != null) {
-							GameObjectManager.destroyGameObject(go2);
-						}
-
-						GameObject go = GameObjectManager.instantiatePrefab ("Prefabs/Virus Agglutine");
-						go.transform.position = tr2.position;
-
-						// + TODO: changement couleur?
 					}
 				}
+			}
+		}
+		foreach (GameObject go2 in _agglutinableGO) {
+			if (go2.GetComponent<Agglutinable> ().progres_agglutinement >= seuil_agglutinement) {
+				Transform tr2 = go2.GetComponent<Transform> ();
+				GameObjectManager.destroyGameObject (go2);
+				GameObject go = GameObjectManager.instantiatePrefab ("Prefabs/Virus Agglutine");
+				go.transform.position = tr2.position;
 			}
 		}
 	}
