@@ -500,6 +500,14 @@ MonoBehaviour:
       PublicKeyToken=null
     _typeFullName: FinMission01
     _pause: 0
+  - _typeAssemblyQualifiedName: ManageBehaviours, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: ManageBehaviours
+    _pause: 0
+  - _typeAssemblyQualifiedName: Behaviour02SuiviJoueur, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: Behaviour02SuiviJoueur
+    _pause: 0
   _lateUpdateSystemDescriptions: []
 --- !u!4 &784400377
 Transform:

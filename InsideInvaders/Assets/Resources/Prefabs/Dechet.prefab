@@ -179,6 +179,8 @@ GameObject:
   - 114: {fileID: 114000010621411828}
   - 114: {fileID: 114000010989020418}
   - 114: {fileID: 114000011275672824}
+  - 114: {fileID: 114000010380500446}
+  - 114: {fileID: 114000010679754716}
   m_Layer: 0
   m_Name: Dechet
   m_TagString: Dechet
@@ -627,6 +629,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 4.6817365, z: 10}
   m_Center: {x: -1.7600021, y: -0.6, z: -1.55}
+--- !u!114 &114000010380500446
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014149729844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f9d63777e367f4982311202435446e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_behaviour: 0
 --- !u!114 &114000010621411828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -640,6 +654,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_pv: 20
   current_pv: 200
+--- !u!114 &114000010679754716
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014149729844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e77989846e906b240aaa8d071020b760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_behaviour: 0
 --- !u!114 &114000010989020418
 MonoBehaviour:
   m_ObjectHideFlags: 1

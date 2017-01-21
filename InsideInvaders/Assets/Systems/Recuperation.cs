@@ -38,7 +38,6 @@ public class Recuperation : FSystem {
 
 		saisie (tr, camera);
 		envoi (camera);
-		suivi (tr);
 	}
 
 	private void saisie(Transform tr, Camera camera){
@@ -99,32 +98,6 @@ public class Recuperation : FSystem {
 						rb.velocity = Vector3.zero;
 						rb.AddForce (v);
 					}
-				}
-			}
-		}
-	}
-	private void suivi(Transform tr){
-		float distance_de_suivi = 20;
-		foreach (GameObject go in _recuperableGO) {
-			if (go.GetComponent<Recuperable> ().recupere == true) {
-				Transform tr2 = go.transform;
-					
-				float distance = Mathf.Sqrt ((tr.position.x - tr2.position.x) * (tr.position.x - tr2.position.x)
-				               			 	 + (tr.position.z - tr2.position.z) * (tr.position.z - tr2.position.z));
-				Rigidbody rb = go.GetComponent<Rigidbody> ();
-				//Debug.Log ("test distance " + distance);
-
-				if (distance > distance_de_suivi) {
-
-					Vector3 v = tr.position - tr2.position;
-					//v.x = v.x * (distance-distance_de_suivi)/100;
-					//v.y = v.y * (distance-distance_de_suivi)/100;
-					//v.z = v.z * (distance-distance_de_suivi)/100;
-					//rb.AddForce (v);
-					rb.velocity = v;
-				}
-				else {
-					rb.velocity = Vector3.zero;
 				}
 			}
 		}
