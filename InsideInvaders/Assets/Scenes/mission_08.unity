@@ -576,6 +576,26 @@ MonoBehaviour:
       PublicKeyToken=null
     _typeFullName: Destruction
     _pause: 0
+  - _typeAssemblyQualifiedName: ManageBehaviours, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: ManageBehaviours
+    _pause: 0
+  - _typeAssemblyQualifiedName: Behaviour01Patrouille, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: Behaviour01Patrouille
+    _pause: 0
+  - _typeAssemblyQualifiedName: Behaviour02SuiviJoueur, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: Behaviour02SuiviJoueur
+    _pause: 0
+  - _typeAssemblyQualifiedName: Behaviour03Poursuite, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: Behaviour03Poursuite
+    _pause: 0
+  - _typeAssemblyQualifiedName: Behaviour04Protection, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: Behaviour04Protection
+    _pause: 0
   _lateUpdateSystemDescriptions: []
 --- !u!4 &784400377
 Transform:

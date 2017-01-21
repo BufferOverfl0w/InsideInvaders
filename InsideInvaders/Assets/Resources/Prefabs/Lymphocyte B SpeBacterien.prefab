@@ -202,6 +202,8 @@ GameObject:
   - 195: {fileID: 195000012394201246}
   - 114: {fileID: 114000012501813196}
   - 122: {fileID: 122000014242682812}
+  - 114: {fileID: 114000010601988486}
+  - 114: {fileID: 114000011214560070}
   m_Layer: 0
   m_Name: Lymphocyte B SpeBacterien
   m_TagString: Untagged
@@ -910,6 +912,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000010601988486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011463128364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f9d63777e367f4982311202435446e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_behaviour: 0
 --- !u!114 &114000010728629078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -954,6 +968,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: ProgressBar.Utils.OnCompleteEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114000011214560070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011463128364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e77989846e906b240aaa8d071020b760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_behaviour: 0
 --- !u!114 &114000011790888474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1052,6 +1078,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recupere: 0
+  cible_poursuite: {fileID: 0}
+  cible_protection: {fileID: 0}
 --- !u!114 &114000013040284788
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -45,6 +45,8 @@ GameObject:
   - 114: {fileID: 114000014226231428}
   - 114: {fileID: 114000013970801708}
   - 114: {fileID: 114000013907093962}
+  - 114: {fileID: 114000012511598744}
+  - 114: {fileID: 114000010245075692}
   m_Layer: 0
   m_Name: Virus Agglutine
   m_TagString: Untagged
@@ -266,6 +268,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 20
+--- !u!114 &114000010245075692
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011679809644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e77989846e906b240aaa8d071020b760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_behaviour: 0
 --- !u!114 &114000010368101864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -401,6 +415,18 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114000012511598744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011679809644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f9d63777e367f4982311202435446e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_behaviour: 0
 --- !u!114 &114000012983150396
 MonoBehaviour:
   m_ObjectHideFlags: 1

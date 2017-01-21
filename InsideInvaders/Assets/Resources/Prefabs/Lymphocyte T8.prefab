@@ -133,6 +133,8 @@ GameObject:
   - 195: {fileID: 195000012904827560}
   - 114: {fileID: 114000014000407130}
   - 122: {fileID: 122000010025932048}
+  - 114: {fileID: 114000011609356044}
+  - 114: {fileID: 114000011194897690}
   m_Layer: 0
   m_Name: Lymphocyte T8
   m_TagString: Untagged
@@ -294,6 +296,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recupere: 0
+  cible_poursuite: {fileID: 0}
+  cible_protection: {fileID: 0}
 --- !u!114 &114000010323640928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -433,6 +437,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 0
   m_FillOrigin: 2
+--- !u!114 &114000011194897690
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012347417584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e77989846e906b240aaa8d071020b760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_behaviour: 0
 --- !u!114 &114000011387116248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -463,6 +479,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: ProgressBar.Utils.OnCompleteEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114000011609356044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012347417584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f9d63777e367f4982311202435446e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_behaviour: 0
 --- !u!114 &114000011822491700
 MonoBehaviour:
   m_ObjectHideFlags: 1

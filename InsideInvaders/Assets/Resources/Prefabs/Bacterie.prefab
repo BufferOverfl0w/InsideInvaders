@@ -121,6 +121,8 @@ GameObject:
   - 33: {fileID: 33000010855340362}
   - 136: {fileID: 136000010410125978}
   - 114: {fileID: 114000013022868982}
+  - 114: {fileID: 114000010445604554}
+  - 114: {fileID: 114000012288536710}
   m_Layer: 0
   m_Name: Bacterie
   m_TagString: Bacterie
@@ -290,6 +292,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vitesse: 20
   positionCible: {x: 0, y: 0, z: 0}
+--- !u!114 &114000010445604554
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012227682372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f9d63777e367f4982311202435446e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_behaviour: 0
 --- !u!114 &114000010517755578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -518,6 +532,18 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114000012288536710
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012227682372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e77989846e906b240aaa8d071020b760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_behaviour: 0
 --- !u!114 &114000012765416936
 MonoBehaviour:
   m_ObjectHideFlags: 1

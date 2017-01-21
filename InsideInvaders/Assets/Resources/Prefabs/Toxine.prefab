@@ -44,6 +44,8 @@ GameObject:
   - 114: {fileID: 114000010599700608}
   - 114: {fileID: 114000014086006136}
   - 114: {fileID: 114000013577697166}
+  - 114: {fileID: 114000012569765868}
+  - 114: {fileID: 114000010900931146}
   m_Layer: 0
   m_Name: Toxine
   m_TagString: Untagged
@@ -78,6 +80,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayon_effet: 10
   degats_toxiques: 0.25
+--- !u!114 &114000010900931146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013547658664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e77989846e906b240aaa8d071020b760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_behaviour: 0
 --- !u!114 &114000011566495532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,6 +142,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_pv: 20
   current_pv: 20
+--- !u!114 &114000012569765868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013547658664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f9d63777e367f4982311202435446e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_behaviour: 0
 --- !u!114 &114000013577697166
 MonoBehaviour:
   m_ObjectHideFlags: 1

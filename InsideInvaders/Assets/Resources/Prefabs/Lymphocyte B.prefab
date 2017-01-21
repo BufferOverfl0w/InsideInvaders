@@ -186,6 +186,8 @@ GameObject:
   - 195: {fileID: 195000012178715704}
   - 114: {fileID: 114000011651606962}
   - 122: {fileID: 122000011342355266}
+  - 114: {fileID: 114000011527369112}
+  - 114: {fileID: 114000013246223366}
   m_Layer: 0
   m_Name: Lymphocyte B
   m_TagString: Untagged
@@ -1040,6 +1042,18 @@ MonoBehaviour:
   infecte: 0
   progres_infection: 0
   timeForInfect: 5
+--- !u!114 &114000011527369112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012181218482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f9d63777e367f4982311202435446e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_behaviour: 0
 --- !u!114 &114000011651606962
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1162,6 +1176,18 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114000013246223366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012181218482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e77989846e906b240aaa8d071020b760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_behaviour: 0
 --- !u!114 &114000013268370830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1232,6 +1258,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recupere: 0
+  cible_poursuite: {fileID: 0}
+  cible_protection: {fileID: 0}
 --- !u!114 &114000014266941962
 MonoBehaviour:
   m_ObjectHideFlags: 1
