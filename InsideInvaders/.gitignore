@@ -11,10 +11,12 @@ ExportedObj/
 obj/
 *.svd
 *.userprefs
-/*.csproj
+*.userprefs.meta
+*.csproj
 *.pidb
 *.suo
-/*.sln
+*.sln
+*.sln.meta
 *.user
 *.unityproj
 *.booproj
