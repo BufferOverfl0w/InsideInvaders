@@ -2,13 +2,15 @@
 using FYFY;
 using UnityEngine.UI;
 using ProgressBar;
-
 public class ManageAllSprite : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
 
 	private Family _infectableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Infectable)));
 	private Family _livingGO = FamilyManager.getFamily(new AllOfComponents(typeof(BarreDeVie)),new NoneOfComponents(typeof(Toxique)), new NoneOfTags("Dechet"));
+
+	private Family _recuperableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Recuperable)));
+
 	Gradient g;
 	protected override void onPause(int currentFrame) {
 	}
@@ -38,12 +40,26 @@ public class ManageAllSprite : FSystem {
 	protected override void onProcess(int familiesUpdateCount) {
 		manageProgressInfections ();
 		manageHealthBar ();
+		manageCercleSelection();
+
+	}
+
+	private void manageCercleSelection(){
+		foreach (GameObject go in _recuperableGO) {
+			bool recup = go.GetComponent<Recuperable> ().recupere;
+			GameObject cercle_Go = go.transform.Find ("Canvas/cercle").gameObject;
+			if (cercle_Go == null) continue;
+			cercle_Go.SetActive (recup);
+			Component halo = go.GetComponent("Halo"); 
+			if (halo == null) continue;
+			halo.GetType().GetProperty("enabled").SetValue(halo, recup, null);
+
+		}
 	}
 
 
 	private void manageProgressInfections(){
 		foreach (GameObject go in _infectableGO) {
-			
 			GameObject go_Progress = go.transform.Find ("Canvas/ProgressInfect").gameObject;
 			ProgressRadialBehaviour progressInfect = go_Progress.GetComponent<ProgressRadialBehaviour> ();
 			Image img_progress = progressInfect.GetComponent<Image> ();
