@@ -1,48 +1,21 @@
 fileFormatVersion: 2
-guid: 05d0c41db22c214418578910b922c051
-timeCreated: 1480208290
+guid: 8488fc8048e76e14a8bd3a4db9eefbbc
+timeCreated: 1485001645
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: leukocyte_MeshPart0
-    100002: leukocyte_MeshPart1
-    100004: leukocyte_MeshPart2
-    100006: leukocyte_MeshPart3
-    100008: leukocyte_MeshPart4
-    100010: //RootNode
-    400000: leukocyte_MeshPart0
-    400002: leukocyte_MeshPart1
-    400004: leukocyte_MeshPart2
-    400006: leukocyte_MeshPart3
-    400008: leukocyte_MeshPart4
-    400010: //RootNode
-    2300000: leukocyte_MeshPart0
-    2300002: leukocyte_MeshPart1
-    2300004: leukocyte_MeshPart2
-    2300006: leukocyte_MeshPart3
-    2300008: leukocyte_MeshPart4
-    2300010: //RootNode
-    3300000: leukocyte_MeshPart0
-    3300002: leukocyte_MeshPart1
-    3300004: leukocyte_MeshPart2
-    3300006: leukocyte_MeshPart3
-    3300008: leukocyte_MeshPart4
-    3300010: //RootNode
-    4300000: leukocyte_MeshPart0
-    4300002: leukocyte_MeshPart1
-    4300004: leukocyte_MeshPart2
-    4300006: leukocyte_MeshPart3
-    4300008: leukocyte_MeshPart4
-    4300010: leukocyte
-    4300012: macrophage
-    6400000: //RootNode
-    7400000: Default Take
-    9500000: //RootNode
+    100000: default
+    100002: //RootNode
+    400000: default
+    400002: //RootNode
+    2300000: default
+    3300000: default
+    4300000: default
   materials:
     importMaterials: 1
     materialName: 0
-    materialSearch: 0
+    materialSearch: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -64,7 +37,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 2
+    meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
@@ -81,7 +54,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 2
+    tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -97,7 +70,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
