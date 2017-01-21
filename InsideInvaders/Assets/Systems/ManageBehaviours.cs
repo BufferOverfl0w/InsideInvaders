@@ -7,7 +7,7 @@ public class ManageBehaviours : FSystem {
 
 	private Family _recuperableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Recuperable)));
 	private Family _intrusGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamIntrus)));
-	private Family _defensesGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamDefense)));
+	private Family _defensesGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamDefense)),new NoneOfComponents(typeof(ControllableByKeyboard)));
 
 
 
@@ -21,15 +21,18 @@ public class ManageBehaviours : FSystem {
 
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
-
+		int last_index = 0;
 		//maj de LastBehaviour
 		foreach (GameObject go in _intrusGO) {
-			int last_index = go.GetComponent<CurrentBehaviour> ().index_behaviour;
+			last_index = go.GetComponent<CurrentBehaviour> ().index_behaviour;
 			go.GetComponent<LastBehaviour> ().index_behaviour = last_index;
 		}
 		foreach (GameObject go in _defensesGO) {
 			Debug.Log ("go obtenu");
-			int last_index = go.GetComponent<CurrentBehaviour> ().index_behaviour;
+			CurrentBehaviour cb = go.GetComponent<CurrentBehaviour> ();
+			if (cb == null)
+				Debug.Log ("BLEMMME");
+			//last_index = go.GetComponent<CurrentBehaviour> ().index_behaviour;
 			go.GetComponent<LastBehaviour> ().index_behaviour = last_index;
 		}
 		//1-Patrouille
