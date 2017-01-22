@@ -145,7 +145,7 @@ GameObject:
   - 54: {fileID: 54000010775427990}
   - 114: {fileID: 114000010881273702}
   - 114: {fileID: 114000010863756262}
-  - 114: {fileID: 114000011324341310}
+  - 114: {fileID: 114000012697576286}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -707,19 +707,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114000011324341310
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011816531036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f75979ee04dcc09449c056b7a19b7a5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  max_pv: 200
-  current_pv: 200
 --- !u!114 &114000011616469114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -770,6 +757,30 @@ MonoBehaviour:
   LightColor: {r: 1, g: 0, b: 0, a: 0.6}
   dustStorm: {fileID: 0}
   dustStorm_2: {fileID: 0}
+--- !u!114 &114000012697576286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011816531036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 929ad14c0dfcf174dbcd352cb6137513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max_pv: 200
+  current_pv: 200
+  centreOfSphere: {x: 0, y: 0, z: 0}
+  objectif: {x: 0, y: 0, z: 0}
+  speed: 20
+  angularSpeed: 5
+  acceleration: 15
+  rayonPatrouille: 50
+  rayonVue: 50
+  agent: {fileID: 0}
+  lastDistance: 0
+  nbSecBlocked: 0
+  waiForMaj: 0
 --- !u!114 &114000013261459042
 MonoBehaviour:
   m_ObjectHideFlags: 1

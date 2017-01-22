@@ -4,7 +4,7 @@ using FYFY;
 public class EffectInfection : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
-	private Family _infectableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Infectable)),new AllOfComponents(typeof(BarreDeVie)));
+	private Family _infectableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Infectable)),new AllOfComponents(typeof(Vivant)));
 
 	protected override void onPause(int currentFrame) {
 	}
@@ -19,12 +19,12 @@ public class EffectInfection : FSystem {
 
 		float val;;
 		Infectable infectable;
-		BarreDeVie vie;
+		Vivant vie;
 		MeshRenderer[] meshList;
 		Material[] lastListMat;
 		foreach (GameObject go in _infectableGO) {
 			infectable = go.GetComponent<Infectable> ();
-			vie = go.GetComponent<BarreDeVie> ();
+			vie = go.GetComponent<Vivant> ();
 			meshList = go.GetComponentsInChildren<MeshRenderer>(true );
 			foreach (MeshRenderer mesh in meshList) {
 				lastListMat = mesh.materials;

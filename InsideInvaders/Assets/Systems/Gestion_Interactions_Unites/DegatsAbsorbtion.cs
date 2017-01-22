@@ -33,7 +33,7 @@ public class DegatsAbsorbtion : FSystem {
 					+ (tr1.position.z - tr2.position.z) * (tr1.position.z - tr2.position.z));
 				if (distance < rayon_effet) {
 					Debug.Log ("je fais des degats");
-					go2.GetComponent<BarreDeVie> ().current_pv -= degats_absorbtion;
+					go2.GetComponent<Vivant> ().current_pv -= degats_absorbtion;
 				}
 			}
 
@@ -43,8 +43,8 @@ public class DegatsAbsorbtion : FSystem {
 					+ (tr1.position.z - tr3.position.z) * (tr1.position.z - tr3.position.z));
 				if (distance < rayon_effet) {
 					Debug.Log ("je fais des degats");
-					go3.GetComponent<BarreDeVie> ().current_pv -= degats_absorbtion;
-					if (go3.GetComponent<BarreDeVie> ().current_pv <= 0) {
+					go3.GetComponent<Vivant> ().current_pv -= degats_absorbtion;
+					if (go3.GetComponent<Vivant> ().current_pv <= 0) {
 						go3.GetComponent<Infectable> ().infecte = false;
 					}
 				}

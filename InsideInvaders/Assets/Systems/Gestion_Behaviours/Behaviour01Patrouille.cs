@@ -36,9 +36,9 @@ public class Behaviour01Patrouille : FSystem {
 
 	private void updateComponents(GameObject go )
 	{
-		BarreDeVie bdv = null;
+		Vivant bdv = null;
 		NavMeshAgent newAgent = null;
-		bdv = go.GetComponent<BarreDeVie> ();
+		bdv = go.GetComponent<Vivant> ();
 		if (bdv == null) {
 			Debug.Log ("FUCK");
 		}
@@ -70,7 +70,7 @@ public class Behaviour01Patrouille : FSystem {
 		}
 	}
 
-	private bool isBlocked(NavMeshAgent agent,BarreDeVie bdv){
+	private bool isBlocked(NavMeshAgent agent,Vivant bdv){
 		//Debug.Log ("isBlocked");
 
 		float distance = Mathf.Sqrt ((agent.transform.position.x - bdv.objectif.x) * (agent.transform.position.x - bdv.objectif.x)
@@ -95,7 +95,7 @@ public class Behaviour01Patrouille : FSystem {
 	}
 
 	private void patrouille(GameObject go ){
-		BarreDeVie bdv = go.GetComponent<BarreDeVie> ();
+		Vivant bdv = go.GetComponent<Vivant> ();
 		if (!bdv.agent.enabled) return;
 
 		float distance = Mathf.Sqrt ((go.transform.position.x - bdv.objectif.x) * (go.transform.position.x - bdv.objectif.x)
@@ -112,7 +112,7 @@ public class Behaviour01Patrouille : FSystem {
 
 	private void scanView(GameObject him){
 		
-		BarreDeVie bdv = him.GetComponent<BarreDeVie> ();
+		Vivant bdv = him.GetComponent<Vivant> ();
 		// Une unité de defense n'a besoin de voir que la TeamIntrus, alors que les intrus ont besoin de voir la TeamIntrus et Defense
 		// Car un virus peut attaquer une bacterie
 		bool AIsDef = him.GetComponent<TeamDefense> () != null;

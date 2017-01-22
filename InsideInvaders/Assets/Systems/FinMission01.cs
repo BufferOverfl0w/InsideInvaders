@@ -30,7 +30,7 @@ public class FinMission01 : FSystem {
 		} 
 		count = 0;
 		foreach (GameObject player in _playerGO){
-			if (player.GetComponent<BarreDeVie> ().current_pv <= 0) {
+			if (player.GetComponent<Vivant> ().current_pv <= 0) {
 				Debug.Log ("Mission Echouée !!!");
 				recommencer_mission ();
 			}

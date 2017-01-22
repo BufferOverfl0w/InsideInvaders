@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011801378926}
+  - 114: {fileID: 114000011320763680}
   m_Layer: 0
   m_Name: Anticorps SpeViral
   m_TagString: Untagged
@@ -173,3 +174,16 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013784167304}
   m_Mesh: {fileID: 4300002, guid: a37c5fc9c70cbd14a88a8aabd9f6dd7d, type: 3}
+--- !u!114 &114000011320763680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011416553684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7328783b9c3267549a7de900fd16a74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayon_effet: 30
+  vitesse_agglutinement: 1

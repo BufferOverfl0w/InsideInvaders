@@ -57,13 +57,13 @@ GameObject:
   - 54: {fileID: 54000010120989168}
   - 135: {fileID: 135000011987994968}
   - 114: {fileID: 114000010036572730}
-  - 114: {fileID: 114000011888747692}
   - 114: {fileID: 114000014226231428}
   - 114: {fileID: 114000013970801708}
   - 114: {fileID: 114000013907093962}
   - 114: {fileID: 114000012511598744}
   - 114: {fileID: 114000010245075692}
   - 114: {fileID: 114000013915283198}
+  - 114: {fileID: 114000011423009636}
   m_Layer: 0
   m_Name: Virus Agglutine
   m_TagString: Untagged
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114000011888747692
+--- !u!114 &114000011423009636
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -419,11 +419,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000011679809644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f75979ee04dcc09449c056b7a19b7a5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 929ad14c0dfcf174dbcd352cb6137513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_pv: 1000
-  current_pv: 1000
+  max_pv: 200
+  current_pv: 200
   centreOfSphere: {x: 0, y: 0, z: 0}
   objectif: {x: 0, y: 0, z: 0}
   speed: 20

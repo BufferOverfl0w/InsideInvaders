@@ -27,7 +27,7 @@ public class DegatsToxiques : FSystem {
 					+ (tr1.position.z - tr2.position.z) * (tr1.position.z - tr2.position.z));
 				if (distance < rayon_effet) {
 					Debug.Log ("degats toxine");
-					go2.GetComponent<BarreDeVie> ().current_pv -= degats_toxiques;
+					go2.GetComponent<Vivant> ().current_pv -= degats_toxiques;
 				}
 			}
 		}

@@ -4,9 +4,9 @@ using FYFY;
 public class GestionMort : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
-	private Family _vivantsGO = FamilyManager.getFamily(new AllOfComponents(typeof(BarreDeVie)), new NoneOfComponents(typeof(Infectable)));
+	private Family _vivantsGO = FamilyManager.getFamily(new AllOfComponents(typeof(Vivant)), new NoneOfComponents(typeof(Infectable)));
 	private Family _bacteries_puresGO = FamilyManager.getFamily(new AnyOfTags("Bacterie"));
-	private Family _vivantsInfectablesGO = FamilyManager.getFamily(new AllOfComponents(typeof(BarreDeVie),typeof(Infectable)));
+	private Family _vivantsInfectablesGO = FamilyManager.getFamily(new AllOfComponents(typeof(Vivant),typeof(Infectable)));
 	private Family _recuperablesGO = FamilyManager.getFamily(new AllOfComponents(typeof(Recuperable)));
 
 	protected override void onPause(int currentFrame) {
@@ -22,7 +22,7 @@ public class GestionMort : FSystem {
 	protected override void onProcess(int familiesUpdateCount) {
 		Transform tr;
 		foreach (GameObject go in _vivantsGO){
-			if (go.GetComponent<BarreDeVie>().current_pv <= 0){
+			if (go.GetComponent<Vivant>().current_pv <= 0){
 				foreach (GameObject go2 in _recuperablesGO){
 					if (go2.GetComponent<Recuperable> ().cible_poursuite != null) {
 						if (go2.GetComponent<Recuperable> ().cible_poursuite.Equals (go)) {
@@ -41,7 +41,7 @@ public class GestionMort : FSystem {
 		}
 
 		foreach (GameObject go in _vivantsInfectablesGO){
-			if (go.GetComponent<BarreDeVie>().current_pv <= 0){
+			if (go.GetComponent<Vivant>().current_pv <= 0){
 				tr = go.GetComponent<Transform> ();
 
 				if (go.GetComponent<Infectable> ().infecte == true) {

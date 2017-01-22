@@ -9,7 +9,7 @@ public class ManageAllSprite : FSystem {
 	// Advice: avoid to update your families inside this function.
 
 	private Family _infectableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Infectable)));
-	private Family _livingGO = FamilyManager.getFamily(new AllOfComponents(typeof(BarreDeVie)),new NoneOfComponents(typeof(Toxique)), new NoneOfTags("Dechet"));
+	private Family _livingGO = FamilyManager.getFamily(new AllOfComponents(typeof(Vivant)),new NoneOfComponents(typeof(Toxique)), new NoneOfTags("Dechet"));
 
 	private Family _recuperableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Recuperable)));
 	private Family _intrusGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamIntrus)));
@@ -121,8 +121,8 @@ public class ManageAllSprite : FSystem {
 	private void manageHealthBar(){
 
 		foreach (GameObject go in _livingGO) {
-			float life = go.GetComponent<BarreDeVie> ().current_pv;
-			int maxPv = go.GetComponent<BarreDeVie> ().max_pv;
+			float life = go.GetComponent<Vivant> ().current_pv;
+			int maxPv = go.GetComponent<Vivant> ().max_pv;
 			GameObject healthBar_Go = go.transform.Find ("Canvas/healthBar").gameObject;
 			ProgressBarBehaviour healthBar = healthBar_Go.GetComponent<ProgressBarBehaviour> ();
 			GameObject Filler  = healthBar_Go.transform.Find ("Filler").gameObject;

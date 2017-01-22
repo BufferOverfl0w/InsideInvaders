@@ -193,9 +193,7 @@ GameObject:
   - 4: {fileID: 4000012056630156}
   - 114: {fileID: 114000012812387256}
   - 114: {fileID: 114000013002663378}
-  - 114: {fileID: 114000010728629078}
   - 54: {fileID: 54000011050751854}
-  - 114: {fileID: 114000013453832960}
   - 114: {fileID: 114000013480815830}
   - 114: {fileID: 114000014172662574}
   - 195: {fileID: 195000012394201246}
@@ -203,9 +201,10 @@ GameObject:
   - 122: {fileID: 122000014242682812}
   - 114: {fileID: 114000010601988486}
   - 114: {fileID: 114000011214560070}
+  - 114: {fileID: 114000012134339552}
   m_Layer: 0
   m_Name: Lymphocyte B SpeBacterien
-  m_TagString: Untagged
+  m_TagString: longRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -952,30 +951,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index_behaviour: 0
---- !u!114 &114000010728629078
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011463128364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f75979ee04dcc09449c056b7a19b7a5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  max_pv: 200
-  current_pv: 200
-  centreOfSphere: {x: 0, y: 0, z: 0}
-  objectif: {x: 0, y: 0, z: 0}
-  speed: 20
-  angularSpeed: 5
-  acceleration: 15
-  rayonPatrouille: 50
-  rayonVue: 50
-  agent: {fileID: 0}
-  lastDistance: 0
-  nbSecBlocked: 0
-  waiForMaj: 0
 --- !u!114 &114000010955564232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1082,6 +1057,30 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: ProgressBar.Utils.OnCompleteEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114000012134339552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011463128364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 929ad14c0dfcf174dbcd352cb6137513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max_pv: 200
+  current_pv: 200
+  centreOfSphere: {x: 0, y: 0, z: 0}
+  objectif: {x: 0, y: 0, z: 0}
+  speed: 20
+  angularSpeed: 5
+  acceleration: 15
+  rayonPatrouille: 50
+  rayonVue: 50
+  agent: {fileID: 0}
+  lastDistance: 0
+  nbSecBlocked: 0
+  waiForMaj: 0
 --- !u!114 &114000012501813196
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1167,18 +1166,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114000013453832960
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011463128364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eac912ce87c701e4397c6f237fe413fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rayon_effet: 30
 --- !u!114 &114000013480815830
 MonoBehaviour:
   m_ObjectHideFlags: 1

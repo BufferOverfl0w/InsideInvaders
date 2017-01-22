@@ -18,6 +18,7 @@ TagManager:
   - Dechet
   - ToSpecViral
   - ToSpecBacterien
+  - longRange
   layers:
   - Default
   - TransparentFX

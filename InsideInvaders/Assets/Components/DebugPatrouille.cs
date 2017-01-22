@@ -10,7 +10,7 @@ public class DebugPatrouille : MonoBehaviour {
 			CurrentBehaviour behav = obj.GetComponent<CurrentBehaviour> ();
 			if (behav == null) continue;
 			if (behav.index_behaviour != 1) continue;
-			BarreDeVie bdv = obj.GetComponent<BarreDeVie> ();
+			Vivant bdv = obj.GetComponent<Vivant> ();
 			if (bdv != null) {
 				Gizmos.color = new Color(255f,255f,0f,0.2f);
 				Gizmos.DrawSphere (bdv.centreOfSphere, bdv.rayonPatrouille);  // on dessine le cercle de la patrouille

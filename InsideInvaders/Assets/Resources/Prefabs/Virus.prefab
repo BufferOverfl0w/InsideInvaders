@@ -23,7 +23,6 @@ GameObject:
   - 23: {fileID: 23000010350759664}
   - 54: {fileID: 54000013820864368}
   - 135: {fileID: 135000011463994628}
-  - 114: {fileID: 114000012023496584}
   - 114: {fileID: 114000012969367158}
   - 114: {fileID: 114000013643813748}
   - 114: {fileID: 114000014158380378}
@@ -32,6 +31,7 @@ GameObject:
   - 114: {fileID: 114000010228732974}
   - 114: {fileID: 114000012371224066}
   - 114: {fileID: 114000012452956364}
+  - 114: {fileID: 114000013908939366}
   m_Layer: 0
   m_Name: Virus
   m_TagString: Virus
@@ -429,30 +429,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0 %
---- !u!114 &114000012023496584
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010329856722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f75979ee04dcc09449c056b7a19b7a5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  max_pv: 200
-  current_pv: 200
-  centreOfSphere: {x: 0, y: 0, z: 0}
-  objectif: {x: 0, y: 0, z: 0}
-  speed: 20
-  angularSpeed: 5
-  acceleration: 15
-  rayonPatrouille: 50
-  rayonVue: 50
-  agent: {fileID: 0}
-  lastDistance: 0
-  nbSecBlocked: 0
-  waiForMaj: 0
 --- !u!114 &114000012371224066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -548,6 +524,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e60f71cd16f1a448605f67a5b76b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114000013908939366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010329856722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 929ad14c0dfcf174dbcd352cb6137513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max_pv: 200
+  current_pv: 200
+  centreOfSphere: {x: 0, y: 0, z: 0}
+  objectif: {x: 0, y: 0, z: 0}
+  speed: 20
+  angularSpeed: 5
+  acceleration: 15
+  rayonPatrouille: 50
+  rayonVue: 50
+  agent: {fileID: 0}
+  lastDistance: 0
+  nbSecBlocked: 0
+  waiForMaj: 0
 --- !u!114 &114000014158380378
 MonoBehaviour:
   m_ObjectHideFlags: 1

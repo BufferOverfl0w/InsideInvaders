@@ -60,10 +60,10 @@ GameObject:
   - 23: {fileID: 23000012051190162}
   - 54: {fileID: 54000011609407198}
   - 114: {fileID: 114000012378342296}
-  - 114: {fileID: 114000013559120086}
   - 114: {fileID: 114000010015738366}
   - 114: {fileID: 114000011415263002}
   - 114: {fileID: 114000011269184226}
+  - 114: {fileID: 114000013586321070}
   m_Layer: 0
   m_Name: Cellule
   m_TagString: Untagged
@@ -469,7 +469,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 0
   m_FillOrigin: 2
---- !u!114 &114000013559120086
+--- !u!114 &114000013586321070
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -477,11 +477,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000011872097346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f75979ee04dcc09449c056b7a19b7a5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 929ad14c0dfcf174dbcd352cb6137513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   max_pv: 200
   current_pv: 200
+  centreOfSphere: {x: 0, y: 0, z: 0}
+  objectif: {x: 0, y: 0, z: 0}
+  speed: 20
+  angularSpeed: 5
+  acceleration: 15
+  rayonPatrouille: 50
+  rayonVue: 50
+  agent: {fileID: 0}
+  lastDistance: 0
+  nbSecBlocked: 0
+  waiForMaj: 0
 --- !u!114 &114000013897358592
 MonoBehaviour:
   m_ObjectHideFlags: 1

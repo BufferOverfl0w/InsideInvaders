@@ -584,9 +584,9 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     _typeFullName: Behaviour02SuiviJoueur
     _pause: 0
-  - _typeAssemblyQualifiedName: Behaviour03Poursuite, Assembly-CSharp, Version=0.0.0.0,
+  - _typeAssemblyQualifiedName: Behaviour03Attaque, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-    _typeFullName: Behaviour03Poursuite
+    _typeFullName: Behaviour03Attaque
     _pause: 0
   - _typeAssemblyQualifiedName: Behaviour04Protection, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null

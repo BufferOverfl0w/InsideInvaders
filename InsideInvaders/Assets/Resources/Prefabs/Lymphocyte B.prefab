@@ -193,9 +193,7 @@ GameObject:
   - 114: {fileID: 114000014266941962}
   - 114: {fileID: 114000014034601466}
   - 114: {fileID: 114000013988234270}
-  - 114: {fileID: 114000010211043296}
   - 114: {fileID: 114000010974691864}
-  - 114: {fileID: 114000010226445044}
   - 54: {fileID: 54000010562300140}
   - 114: {fileID: 114000012159486112}
   - 195: {fileID: 195000012178715704}
@@ -203,6 +201,7 @@ GameObject:
   - 122: {fileID: 122000011342355266}
   - 114: {fileID: 114000011527369112}
   - 114: {fileID: 114000013246223366}
+  - 114: {fileID: 114000011632119848}
   m_Layer: 0
   m_Name: Lymphocyte B
   m_TagString: Untagged
@@ -941,42 +940,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114000010211043296
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012181218482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f75979ee04dcc09449c056b7a19b7a5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  max_pv: 200
-  current_pv: 200
-  centreOfSphere: {x: 0, y: 0, z: 0}
-  objectif: {x: 0, y: 0, z: 0}
-  speed: 20
-  angularSpeed: 5
-  acceleration: 15
-  rayonPatrouille: 50
-  rayonVue: 50
-  agent: {fileID: 0}
-  lastDistance: 0
-  nbSecBlocked: 0
-  waiForMaj: 0
---- !u!114 &114000010226445044
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012181218482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eac912ce87c701e4397c6f237fe413fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rayon_effet: 30
 --- !u!114 &114000010273390752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1093,6 +1056,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index_behaviour: 0
+--- !u!114 &114000011632119848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012181218482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 929ad14c0dfcf174dbcd352cb6137513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max_pv: 200
+  current_pv: 200
+  centreOfSphere: {x: 0, y: 0, z: 0}
+  objectif: {x: 0, y: 0, z: 0}
+  speed: 20
+  angularSpeed: 5
+  acceleration: 15
+  rayonPatrouille: 50
+  rayonVue: 50
+  agent: {fileID: 0}
+  lastDistance: 0
+  nbSecBlocked: 0
+  waiForMaj: 0
 --- !u!114 &114000011651606962
 MonoBehaviour:
   m_ObjectHideFlags: 1
