@@ -194,6 +194,11 @@ Prefab:
       propertyPath: current_pv
       value: 2000
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010283055792, guid: b554576cd131a4648a18ea2412b5aa1d,
+        type: 2}
+      propertyPath: vitesse
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b554576cd131a4648a18ea2412b5aa1d, type: 2}
   m_IsPrefabParent: 0
@@ -536,10 +541,6 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     _typeFullName: ManageAllSprite
     _pause: 0
-  - _typeAssemblyQualifiedName: ManagePatrouille, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    _typeFullName: ManagePatrouille
-    _pause: 1
   - _typeAssemblyQualifiedName: FinMission01, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     _typeFullName: FinMission01
@@ -563,6 +564,10 @@ MonoBehaviour:
   - _typeAssemblyQualifiedName: Behaviour04Protection, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: Behaviour04Protection
+    _pause: 0
+  - _typeAssemblyQualifiedName: RayDraw, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    _typeFullName: RayDraw
     _pause: 0
   _lateUpdateSystemDescriptions: []
 --- !u!4 &784400377

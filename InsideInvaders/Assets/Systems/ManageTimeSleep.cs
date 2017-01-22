@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using FYFY;
-
+using System.Collections;
+using System.Collections.Generic;
 public class ManageTimeSleep : FSystem {
 	private Family _pauseMenuGO = FamilyManager.getFamily(new AllOfComponents(typeof(PauseMenu)));
 	private string nameSound = "Underwater_Ambient";
@@ -8,6 +9,8 @@ public class ManageTimeSleep : FSystem {
 	// Permet de savoir si le jeu est en pause ou non.
 	static public bool isPaused = false; 
 	private bool firthTick = true; 
+	private bool firthTick2 = true; 
+	List<FYFY.FSystem> listSystemImunised = new List<FYFY.FSystem>();
 
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
@@ -17,11 +20,26 @@ public class ManageTimeSleep : FSystem {
 	// Use this to update member variables when system resume.
 	// Advice: avoid to update your families inside this function.
 	protected override void onResume(int currentFrame){
+
+
 	}
 
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
 		// Si le joueur appuis sur Echap alors la valeur de isPaused devient le contraire.
+		if (firthTick2) {
+			firthTick2 = false;
+			Debug.Log ("ici ");
+			foreach (FYFY.FSystem syst in FSystemManager.updateSystems()) {
+				Debug.Log ("là "+syst.GetType().Name );
+				if (syst.Pause == true)
+					listSystemImunised.Add (syst);
+				if(syst.GetType().Name.Equals("ManageTimeSleep")){
+					Debug.Log ("la");
+					listSystemImunised.Add (syst);
+				}
+			}
+		}
 		if(Input.GetKeyDown(KeyCode.Escape))
 			isPaused = !isPaused;
 
@@ -68,15 +86,16 @@ public class ManageTimeSleep : FSystem {
 
 	private void stopAllSystem(){
 		foreach (FYFY.FSystem syst in FSystemManager.updateSystems()) {
-			if(!syst.GetType().Name.Equals("ManageTimeSleep")){
+			if(!listSystemImunised.Contains(syst)){
 				syst.Pause = true;
 			}
+				
 		}
 			
 	}
 	private void startAllSystem(){
 		foreach (FYFY.FSystem syst in FSystemManager.updateSystems()) {
-			if(!syst.GetType().Name.Equals("ManageTimeSleep")){
+			if(!listSystemImunised.Contains(syst)){
 				syst.Pause = false;
 			}
 		}

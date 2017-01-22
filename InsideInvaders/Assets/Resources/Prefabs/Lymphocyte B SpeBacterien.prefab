@@ -198,7 +198,6 @@ GameObject:
   - 114: {fileID: 114000013453832960}
   - 114: {fileID: 114000013480815830}
   - 114: {fileID: 114000014172662574}
-  - 114: {fileID: 114000013925082758}
   - 195: {fileID: 195000012394201246}
   - 114: {fileID: 114000012501813196}
   - 122: {fileID: 122000014242682812}
@@ -243,7 +242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000012414435152
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,6 +936,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_pv: 200
   current_pv: 200
+  centreOfSphere: {x: 0, y: 0, z: 0}
+  objectif: {x: 0, y: 0, z: 0}
+  speed: 20
+  angularSpeed: 5
+  acceleration: 15
+  rayonPatrouille: 50
+  rayonVue: 50
+  agent: {fileID: 0}
+  lastDistance: 0
+  nbSecBlocked: 0
+  waiForMaj: 0
 --- !u!114 &114000010955564232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1224,27 +1234,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114000013925082758
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011463128364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5453133490ba90b45b04f201285a9f1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  centreOfSphere: {x: 0, y: 0, z: 0}
-  objectif: {x: 0, y: 0, z: 0}
-  speed: 5
-  angularSpeed: 5
-  acceleration: 5
-  rayon: 50
-  agent: {fileID: 0}
-  lastDistance: 0
-  nbSecBlocked: 0
-  seeTarget: 0
 --- !u!114 &114000014172662574
 MonoBehaviour:
   m_ObjectHideFlags: 1

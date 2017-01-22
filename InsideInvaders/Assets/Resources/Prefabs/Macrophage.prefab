@@ -43,7 +43,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000011393598288
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +97,6 @@ GameObject:
   - 114: {fileID: 114000012987585386}
   - 114: {fileID: 114000012935679814}
   - 114: {fileID: 114000013460289720}
-  - 114: {fileID: 114000014201233638}
   - 195: {fileID: 195000010358329498}
   - 114: {fileID: 114000013876168758}
   - 122: {fileID: 122000012573791978}
@@ -410,6 +409,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recupere: 0
+  cible_poursuite: {fileID: 0}
+  cible_protection: {fileID: 0}
 --- !u!114 &114000011792950740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -423,6 +424,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_pv: 200
   current_pv: 200
+  centreOfSphere: {x: 0, y: 0, z: 0}
+  objectif: {x: 0, y: 0, z: 0}
+  speed: 20
+  angularSpeed: 5
+  acceleration: 15
+  rayonPatrouille: 50
+  rayonVue: 50
+  agent: {fileID: 0}
+  lastDistance: 0
+  nbSecBlocked: 0
+  waiForMaj: 0
 --- !u!114 &114000012155248782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -619,27 +631,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index_behaviour: 0
---- !u!114 &114000014201233638
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013354479154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5453133490ba90b45b04f201285a9f1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  centreOfSphere: {x: 0, y: 0, z: 0}
-  objectif: {x: 0, y: 0, z: 0}
-  speed: 5
-  angularSpeed: 5
-  acceleration: 5
-  rayon: 50
-  agent: {fileID: 0}
-  lastDistance: 0
-  nbSecBlocked: 0
-  seeTarget: 0
 --- !u!114 &114000014243031850
 MonoBehaviour:
   m_ObjectHideFlags: 1

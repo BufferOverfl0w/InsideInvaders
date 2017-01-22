@@ -182,7 +182,6 @@ GameObject:
   - 114: {fileID: 114000010226445044}
   - 54: {fileID: 54000010562300140}
   - 114: {fileID: 114000012159486112}
-  - 114: {fileID: 114000012506844398}
   - 195: {fileID: 195000012178715704}
   - 114: {fileID: 114000011651606962}
   - 122: {fileID: 122000011342355266}
@@ -262,7 +261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000012998283636
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,6 +925,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_pv: 200
   current_pv: 200
+  centreOfSphere: {x: 0, y: 0, z: 0}
+  objectif: {x: 0, y: 0, z: 0}
+  speed: 20
+  angularSpeed: 5
+  acceleration: 15
+  rayonPatrouille: 50
+  rayonVue: 50
+  agent: {fileID: 0}
+  lastDistance: 0
+  nbSecBlocked: 0
+  waiForMaj: 0
 --- !u!114 &114000010226445044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1134,27 +1144,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: ProgressBar.Utils.OnCompleteEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114000012506844398
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012181218482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5453133490ba90b45b04f201285a9f1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  centreOfSphere: {x: 0, y: 0, z: 0}
-  objectif: {x: 0, y: 0, z: 0}
-  speed: 5
-  angularSpeed: 5
-  acceleration: 5
-  rayon: 50
-  agent: {fileID: 0}
-  lastDistance: 0
-  nbSecBlocked: 0
-  seeTarget: 0
 --- !u!114 &114000013004150838
 MonoBehaviour:
   m_ObjectHideFlags: 1

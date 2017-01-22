@@ -538,10 +538,6 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     _typeFullName: ManageAllSprite
     _pause: 0
-  - _typeAssemblyQualifiedName: ManagePatrouille, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    _typeFullName: ManagePatrouille
-    _pause: 1
   - _typeAssemblyQualifiedName: EffectInfection, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: EffectInfection

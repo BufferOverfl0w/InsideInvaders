@@ -593,10 +593,6 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     _typeFullName: ManageAllSprite
     _pause: 0
-  - _typeAssemblyQualifiedName: ManagePatrouille, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    _typeFullName: ManagePatrouille
-    _pause: 1
   - _typeAssemblyQualifiedName: FinMission01, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     _typeFullName: FinMission01
@@ -648,6 +644,10 @@ MonoBehaviour:
   - _typeAssemblyQualifiedName: Behaviour04Protection, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: Behaviour04Protection
+    _pause: 0
+  - _typeAssemblyQualifiedName: RayDraw, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    _typeFullName: RayDraw
     _pause: 0
   _lateUpdateSystemDescriptions: []
 --- !u!4 &784400377

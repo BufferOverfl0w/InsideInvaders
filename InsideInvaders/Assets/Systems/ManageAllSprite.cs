@@ -2,6 +2,8 @@
 using FYFY;
 using UnityEngine.UI;
 using ProgressBar;
+using System.Collections;
+using System.Collections.Generic;
 public class ManageAllSprite : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
@@ -10,7 +12,7 @@ public class ManageAllSprite : FSystem {
 	private Family _livingGO = FamilyManager.getFamily(new AllOfComponents(typeof(BarreDeVie)),new NoneOfComponents(typeof(Toxique)), new NoneOfTags("Dechet"));
 
 	private Family _recuperableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Recuperable)));
-
+	private Family _intrusGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamIntrus)));
 	Gradient g;
 	protected override void onPause(int currentFrame) {
 	}
@@ -41,7 +43,7 @@ public class ManageAllSprite : FSystem {
 		manageProgressInfections ();
 		manageHealthBar ();
 		manageCercleSelection();
-
+		manageCercleCible ();
 	}
 
 	private void manageCercleSelection(){
@@ -56,6 +58,23 @@ public class ManageAllSprite : FSystem {
 			if (halo == null) continue;
 			halo.GetType().GetProperty("enabled").SetValue(halo, recup, null);
 
+		}
+	}
+	private void manageCercleCible(){
+		List<GameObject> listPoursuivit = new List<GameObject>();
+		foreach (GameObject go in _recuperableGO) {
+			GameObject poursuivit = go.GetComponent<Recuperable> ().cible_poursuite;
+			if (poursuivit != null) {
+				listPoursuivit.Add(poursuivit);
+			}
+		}
+		foreach (GameObject intrus in _intrusGO) {
+		//	if (_recuperableGO.contains (go_hit.GetInstanceID ()))
+			Transform transform_Go = intrus.transform.Find("Canvas/cible");
+			if (transform_Go == null) continue;
+			GameObject cible_Go = transform_Go.gameObject;
+			if (cible_Go == null) continue;
+			cible_Go.SetActive (listPoursuivit.Contains(intrus));
 		}
 	}
 
