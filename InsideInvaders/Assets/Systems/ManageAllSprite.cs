@@ -9,7 +9,8 @@ public class ManageAllSprite : FSystem {
 	// Advice: avoid to update your families inside this function.
 
 	private Family _infectableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Infectable)));
-	private Family _livingGO = FamilyManager.getFamily(new AllOfComponents(typeof(Vivant)),new NoneOfComponents(typeof(Toxique)), new NoneOfTags("Dechet"));
+	private Family _livingGO = FamilyManager.getFamily(new AllOfComponents(typeof(Vivant)),new NoneOfComponents(typeof(Toxique)), 
+		new NoneOfTags("Dechet"),new NoneOfTags("Anticorps"));
 
 	private Family _recuperableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Recuperable)));
 	private Family _intrusGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamIntrus)));
@@ -65,7 +66,7 @@ public class ManageAllSprite : FSystem {
 	private void manageCercleCible(){
 		List<GameObject> listPoursuivit = new List<GameObject>();
 		foreach (GameObject go in _recuperableGO) {
-			GameObject poursuivit = go.GetComponent<Recuperable> ().cible_poursuite;
+			GameObject poursuivit = go.GetComponent<Behaviour> ().cible_poursuite;
 			if (poursuivit != null) {
 				listPoursuivit.Add(poursuivit);
 			}
@@ -82,7 +83,7 @@ public class ManageAllSprite : FSystem {
 	private void manageShield(){
 		List<GameObject> listProtege = new List<GameObject>();
 		foreach (GameObject go in _recuperableGO) {
-			GameObject protege = go.GetComponent<Recuperable> ().cible_protection;
+			GameObject protege = go.GetComponent<Behaviour> ().cible_protection;
 			if (protege != null) {
 				listProtege.Add(protege);
 			}

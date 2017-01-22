@@ -5,16 +5,16 @@ public class Vivant : MonoBehaviour {
 	public int max_pv = 200;
 	public float current_pv = 200;
 
-
+	//Parametre 
 	[HideInInspector] 
-	public Vector3 centreOfSphere = Vector3.zero;
+	public Vector3 centreOfPatrouille = Vector3.zero;
 	[HideInInspector] 
-	public Vector3 objectif = Vector3.zero;
-	public float speed = 20;
-	public float angularSpeed = 5;
-	public float acceleration = 15;
+	public Vector3 objectifCoord = Vector3.zero;
+	public float speedAgent = 20;
+	public float angularSpeedAgent = 5;
+	public float accelerationAgent = 15;
 	public float rayonPatrouille=50;
-	public float rayonVue = 50;
+	public float rayonVueAlerte = 50;
 
 	[HideInInspector] 
 	public NavMeshAgent agent;
@@ -23,7 +23,7 @@ public class Vivant : MonoBehaviour {
 	[HideInInspector] 
 	public float nbSecBlocked =0.0f;
 	[HideInInspector] 
-	public bool waiForMaj = false;
+	public bool waiForMajCentreOfPatrouille = false;
 	// Varibale à utiliser pour stoper le comportement patrouille, pour attaquer ça cible. 
 	//public bool seeTarget = false;
 

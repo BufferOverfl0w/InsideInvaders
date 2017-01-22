@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class Behaviour01Patrouille : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
-	private Family _allUnitsBehaviourGO = FamilyManager.getFamily(new AllOfComponents(typeof(CurrentBehaviour),typeof(LastBehaviour),typeof(NavMeshAgent)));
+	private Family _allUnitsBehaviourGO = FamilyManager.getFamily(new AllOfComponents(typeof(Behaviour),typeof(NavMeshAgent)));
 
 	private Family _intrusGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamIntrus)));
 	private Family _allUnitsGO = FamilyManager.getFamily(new AnyOfComponents(typeof(TeamIntrus),typeof(TeamDefense)));
@@ -27,7 +27,7 @@ public class Behaviour01Patrouille : FSystem {
 
 
 		foreach (GameObject go in _allUnitsBehaviourGO) {
-			if (go.GetComponent<CurrentBehaviour> ().index_behaviour != 1) continue;
+			if (go.GetComponent<Behaviour> ().index_currentBehaviour != 1) continue;
 			updateComponents (go);
 			patrouille (go);
 			scanView (go);
@@ -43,29 +43,29 @@ public class Behaviour01Patrouille : FSystem {
 			Debug.Log ("FUCK");
 		}
 
-		if (bdv.centreOfSphere == Vector3.zero) {
-			bdv.centreOfSphere = go.transform.position; // on mets à jours le centre du cerle
-			bdv.objectif = go.transform.position;
+		if (bdv.centreOfPatrouille == Vector3.zero) {
+			bdv.centreOfPatrouille = go.transform.position; // on mets à jours le centre du cerle
+			bdv.objectifCoord = go.transform.position;
 			newAgent = go.GetComponent<NavMeshAgent> ();
-			newAgent.speed = bdv.speed;
-			newAgent.angularSpeed = bdv.angularSpeed;
-			newAgent.acceleration = bdv.acceleration;
-			newAgent.SetDestination (bdv.objectif);
+			newAgent.speed = bdv.speedAgent;
+			newAgent.angularSpeed = bdv.angularSpeedAgent;
+			newAgent.acceleration = bdv.accelerationAgent;
+			newAgent.SetDestination (bdv.objectifCoord);
 			bdv.agent = newAgent;
 		}
-		int last_Behav = go.GetComponent<LastBehaviour> ().index_behaviour;
+		int last_Behav = go.GetComponent<Behaviour> ().index_lastBehaviour;
 		if (last_Behav != 1) {
 			// on vient de rentrer dans le Behaviour01Patrouille
-			bdv.waiForMaj = true;
+			bdv.waiForMajCentreOfPatrouille = true;
 		}
-		if (bdv.waiForMaj) {
+		if (bdv.waiForMajCentreOfPatrouille) {
 			Rigidbody go_rb = go.GetComponent<Rigidbody> ();
 			float velocity = Mathf.Abs (go_rb.velocity.x) + Mathf.Abs (go_rb.velocity.z);
 			if ((velocity>= 0.5f) && (velocity<=25.0f)){
-				bdv.centreOfSphere = go.transform.position; // on mets à jours le centre du cerle
-				bdv.objectif = go.transform.position;
-				bdv.agent.SetDestination (bdv.objectif);
-				bdv.waiForMaj = false;
+				bdv.centreOfPatrouille = go.transform.position; // on mets à jours le centre du cerle
+				bdv.objectifCoord = go.transform.position;
+				bdv.agent.SetDestination (bdv.objectifCoord);
+				bdv.waiForMajCentreOfPatrouille = false;
 			}
 		}
 	}
@@ -73,8 +73,8 @@ public class Behaviour01Patrouille : FSystem {
 	private bool isBlocked(NavMeshAgent agent,Vivant bdv){
 		//Debug.Log ("isBlocked");
 
-		float distance = Mathf.Sqrt ((agent.transform.position.x - bdv.objectif.x) * (agent.transform.position.x - bdv.objectif.x)
-			+ (agent.transform.position.z - bdv.objectif.z) * (agent.transform.position.z - bdv.objectif.z));
+		float distance = Mathf.Sqrt ((agent.transform.position.x - bdv.objectifCoord.x) * (agent.transform.position.x - bdv.objectifCoord.x)
+			+ (agent.transform.position.z - bdv.objectifCoord.z) * (agent.transform.position.z - bdv.objectifCoord.z));
 		bool sameDist = Mathf.Approximately (distance, bdv.lastDistance);
 		bdv.lastDistance =  distance;
 		if (sameDist) 
@@ -98,15 +98,15 @@ public class Behaviour01Patrouille : FSystem {
 		Vivant bdv = go.GetComponent<Vivant> ();
 		if (!bdv.agent.enabled) return;
 
-		float distance = Mathf.Sqrt ((go.transform.position.x - bdv.objectif.x) * (go.transform.position.x - bdv.objectif.x)
-			+ (go.transform.position.z - bdv.objectif.z) * (go.transform.position.z - bdv.objectif.z));
+		float distance = Mathf.Sqrt ((go.transform.position.x - bdv.objectifCoord.x) * (go.transform.position.x - bdv.objectifCoord.x)
+			+ (go.transform.position.z - bdv.objectifCoord.z) * (go.transform.position.z - bdv.objectifCoord.z));
 		//Debug.Log ("distance " + distance);
 		if( isBlocked( bdv.agent,bdv) || (distance<=2.5f) ){
 			//Debug.Log ("in");
-			Vector3 pos = (Random.insideUnitSphere * bdv.rayonPatrouille) + bdv.centreOfSphere;
-			bdv.objectif =  new Vector3 (pos.x, go.transform.position.y, pos.z);
+			Vector3 pos = (Random.insideUnitSphere * bdv.rayonPatrouille) + bdv.centreOfPatrouille;
+			bdv.objectifCoord =  new Vector3 (pos.x, go.transform.position.y, pos.z);
 			//Debug.Log (spe.objectif);
-			bdv.agent.SetDestination(bdv.objectif);
+			bdv.agent.SetDestination(bdv.objectifCoord);
 		}
 	}
 
@@ -134,15 +134,15 @@ public class Behaviour01Patrouille : FSystem {
 		foreach (KeyValuePair<GameObject, float> value in List) {
 			GameObject otherGo = value.Key;
 			float distance = value.Value;
-			if (distance < bdv.rayonVue) {
+			if (distance < bdv.rayonVueAlerte) {
 				int valueAttaque = ManageBehaviours.myTargetIs (him, otherGo);
 				if (valueAttaque == 1) { // je peux attaquer
-					him.GetComponent<Recuperable> ().cible_poursuite = otherGo;
+					him.GetComponent<Behaviour> ().cible_poursuite = otherGo;
 					return;// on a trouvé une action pas besoin d'annalyser les autres
 				}else if(valueAttaque == -1){ // je dois fuire
-					// TODO ??? 
-					bdv.objectif = ManageBehaviours.poinBbackToEnnemi(him,otherGo,bdv.rayonVue) ;
-					bdv.agent.SetDestination(bdv.objectif);
+			
+					bdv.objectifCoord = ManageBehaviours.poinBbackToEnnemi(him,otherGo,bdv.rayonVueAlerte) ;
+					bdv.agent.SetDestination(bdv.objectifCoord);
 					return;// on a trouvé une action pas besoin d'annalyser les autres
 				}
 				// else même equipe on ne fait rien.

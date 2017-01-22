@@ -48,15 +48,14 @@ public class Recuperation : FSystem {
 		Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width/2,(Screen.height/2)+20,0));
 
 		img_Cursor.color = Color.yellow;
-
 		if (Physics.Raycast (ray, out hit)) {
 			GameObject go_hit = hit.transform.gameObject;
 			if (_recuperableGO.contains (go_hit.GetInstanceID ())) { // test if is a Recuperable Object
 				img_Cursor.color = Color.green;
 				if (Input.GetMouseButton (0)) {
 					go_hit.GetComponent<Recuperable> ().recupere = true;
-					go_hit.GetComponent<Recuperable> ().cible_poursuite = null;
-					go_hit.GetComponent<Recuperable> ().cible_protection = null;
+					go_hit.GetComponent<Behaviour> ().cible_poursuite = null;
+					go_hit.GetComponent<Behaviour> ().cible_protection = null;
 
 				}
 			} else if (_intrusGO.contains (go_hit.GetInstanceID ())) {
@@ -83,7 +82,7 @@ public class Recuperation : FSystem {
 								Rigidbody rb = go.GetComponent<Rigidbody> ();
 								Vector3 v = hit.point - go.transform.position;
 								go.GetComponent<Recuperable> ().recupere = false;
-								go.GetComponent<Recuperable> ().cible_protection = go_hit;
+								go.GetComponent<Behaviour> ().cible_protection = go_hit;
 								v.x = v.x * force_envoi;
 								v.y = 0;
 								v.z = v.z * force_envoi;
@@ -105,17 +104,23 @@ public class Recuperation : FSystem {
 							Rigidbody rb = go.GetComponent<Rigidbody> ();
 							Vector3 v = hit.point - go.transform.position;
 							go.GetComponent<Recuperable> ().recupere = false;
-							go.GetComponent<Recuperable> ().cible_poursuite = go_hit;
-							v.x = v.x * force_envoi;
-							v.y = 0;
-							v.z = v.z * force_envoi;
-							float vitesse = Mathf.Sqrt (v.x * v.x + v.z * v.z);
-							if (vitesse > 8000) {
-								v.x /= (vitesse / 8000);
-								v.z /= (vitesse / 8000);
+							go.GetComponent<Behaviour> ().cible_poursuite = go_hit;
+
+							if(!go.CompareTag("longRange")){
+								// on lance l'unité si elle n'attaque pas à distance.
+								v.x = v.x * force_envoi;
+								v.y = 0;
+								v.z = v.z * force_envoi;
+								float vitesse = Mathf.Sqrt (v.x * v.x + v.z * v.z);
+								if (vitesse > 8000) {
+									v.x /= (vitesse / 8000);
+									v.z /= (vitesse / 8000);
+								}
+								rb.velocity = Vector3.zero;
+								rb.AddForce (v);
 							}
-							rb.velocity = Vector3.zero;
-							rb.AddForce (v);
+
+
 						}
 					}
 				} else {

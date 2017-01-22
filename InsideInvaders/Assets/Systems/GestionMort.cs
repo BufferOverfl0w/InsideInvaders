@@ -24,15 +24,16 @@ public class GestionMort : FSystem {
 		foreach (GameObject go in _vivantsGO){
 			if (go.GetComponent<Vivant>().current_pv <= 0){
 				foreach (GameObject go2 in _recuperablesGO){
-					if (go2.GetComponent<Recuperable> ().cible_poursuite != null) {
-						if (go2.GetComponent<Recuperable> ().cible_poursuite.Equals (go)) {
-							go2.GetComponent<Recuperable> ().cible_poursuite = null;
+					Behaviour behav = go2.GetComponent<Behaviour> ();
+					if (behav.cible_poursuite != null) {
+						if (behav.cible_poursuite.Equals (go)){
+							behav.cible_poursuite = null;
 						}
 					}
 
-					if (go2.GetComponent<Recuperable> ().cible_protection != null) {
-						if (go2.GetComponent<Recuperable> ().cible_protection.Equals (go)) {
-							go2.GetComponent<Recuperable> ().cible_protection = null;
+					if (behav.cible_protection != null) {
+						if (behav.cible_protection.Equals (go)) {
+							behav.cible_protection = null;
 						}
 					}
 				}

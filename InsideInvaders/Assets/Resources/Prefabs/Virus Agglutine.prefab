@@ -60,10 +60,9 @@ GameObject:
   - 114: {fileID: 114000014226231428}
   - 114: {fileID: 114000013970801708}
   - 114: {fileID: 114000013907093962}
-  - 114: {fileID: 114000012511598744}
-  - 114: {fileID: 114000010245075692}
   - 114: {fileID: 114000013915283198}
   - 114: {fileID: 114000011423009636}
+  - 114: {fileID: 114000011705913940}
   m_Layer: 0
   m_Name: Virus Agglutine
   m_TagString: Untagged
@@ -298,18 +297,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 20
---- !u!114 &114000010245075692
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011679809644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e77989846e906b240aaa8d071020b760, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index_behaviour: 0
 --- !u!114 &114000010368101864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -424,17 +411,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_pv: 200
   current_pv: 200
-  centreOfSphere: {x: 0, y: 0, z: 0}
-  objectif: {x: 0, y: 0, z: 0}
-  speed: 20
-  angularSpeed: 5
-  acceleration: 15
+  centreOfPatrouille: {x: 0, y: 0, z: 0}
+  objectifCoord: {x: 0, y: 0, z: 0}
+  speedAgent: 20
+  angularSpeedAgent: 5
+  accelerationAgent: 15
   rayonPatrouille: 50
-  rayonVue: 50
+  rayonVueAlerte: 50
   agent: {fileID: 0}
   lastDistance: 0
   nbSecBlocked: 0
-  waiForMaj: 0
+  waiForMajCentreOfPatrouille: 0
+--- !u!114 &114000011705913940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011679809644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eacbf46b819c364880f2244aee8bea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_currentBehaviour: 0
+  index_lastBehaviour: 0
+  cible_poursuite: {fileID: 0}
+  cible_protection: {fileID: 0}
 --- !u!114 &114000012143537220
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -456,18 +458,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114000012511598744
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011679809644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97f9d63777e367f4982311202435446e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index_behaviour: 0
 --- !u!114 &114000012983150396
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -29,13 +29,10 @@ public class ManageTimeSleep : FSystem {
 		// Si le joueur appuis sur Echap alors la valeur de isPaused devient le contraire.
 		if (firthTick2) {
 			firthTick2 = false;
-			Debug.Log ("ici ");
 			foreach (FYFY.FSystem syst in FSystemManager.updateSystems()) {
-				Debug.Log ("là "+syst.GetType().Name );
 				if (syst.Pause == true)
 					listSystemImunised.Add (syst);
 				if(syst.GetType().Name.Equals("ManageTimeSleep")){
-					Debug.Log ("la");
 					listSystemImunised.Add (syst);
 				}
 			}

@@ -5,9 +5,9 @@ public class ManageBehaviours : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
 
-	private Family _recuperableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Recuperable)));
-	private Family _intrusGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamIntrus)));
-	private Family _defensesGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamDefense),typeof(CurrentBehaviour),typeof(LastBehaviour)),new NoneOfComponents(typeof(ControllableByKeyboard)));
+	private Family _behaviourGO = FamilyManager.getFamily(new AllOfComponents(typeof(Behaviour)));
+	//private Family _intrusGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamIntrus),typeof(Behaviour)));
+	//private Family _defensesGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamDefense),typeof(Behaviour)),new NoneOfComponents(typeof(ControllableByKeyboard)));
 
 	protected override void onPause(int currentFrame) {
 	}
@@ -22,53 +22,58 @@ public class ManageBehaviours : FSystem {
 		int last_index = 0;
 
 		//maj de LastBehaviour
-		foreach (GameObject go in _intrusGO) {
-			last_index = go.GetComponent<CurrentBehaviour> ().index_behaviour;
-			go.GetComponent<LastBehaviour> ().index_behaviour = last_index;
+		foreach (GameObject go in _behaviourGO) {
+			Behaviour behav = go.GetComponent<Behaviour> ();
+			last_index = behav.index_currentBehaviour;
+			behav.index_lastBehaviour = last_index;
 		}
-		foreach (GameObject go in _defensesGO) {
-			CurrentBehaviour cb = go.GetComponent<CurrentBehaviour> ();
 
-			last_index = go.GetComponent<CurrentBehaviour> ().index_behaviour;
-			go.GetComponent<LastBehaviour> ().index_behaviour = last_index;
-		}
+//		foreach (GameObject go in _defensesGO) {
+//			Behaviour behav = go.GetComponent<Behaviour> ();
+//			last_index = behav.index_currentBehaviour;
+//			behav.index_lastBehaviour = last_index;
+//		}
+
 		//1-Patrouille
-		foreach (GameObject go in _recuperableGO) {
+		foreach (GameObject go in _behaviourGO) {
 			//Quelques booléens préliminaires
 			bool en_deplacement = true;
 			bool pas_de_cible = false;
 			Rigidbody go_rb = go.GetComponent<Rigidbody> ();
+			Behaviour behavior = go.GetComponent<Behaviour> ();
 			float velocity = Mathf.Abs (go_rb.velocity.x) + Mathf.Abs (go_rb.velocity.z);
 			if ((velocity>= 0.5f) && (velocity<=12.0f)){
 				en_deplacement = false;
 			}
-			if ((go.GetComponent<Recuperable> ().cible_poursuite == null) && (go.GetComponent<Recuperable> ().cible_protection == null)) {
+			if ((behavior.cible_poursuite == null) && (behavior.cible_protection == null)) {
 				pas_de_cible = true;
 			}
 
 			if (/*(go.GetComponent<Recuperable> ().recupere == false)&&*/(!en_deplacement)&&(pas_de_cible)) {
-				go.GetComponent<CurrentBehaviour> ().index_behaviour = 1;
-			} else if ((pas_de_cible)&&((go.GetComponent<LastBehaviour> ().index_behaviour==2)||(go.GetComponent<LastBehaviour> ().index_behaviour==3))){
-				go.GetComponent<CurrentBehaviour> ().index_behaviour = 1;
+				behavior.index_currentBehaviour = 1;
+			} else if ((pas_de_cible)&&((behavior.index_lastBehaviour==2)||(behavior.index_lastBehaviour==3))){
+				behavior.index_currentBehaviour = 1;
 			}
 		}
 
 		//2-Suivi joueur
-		foreach (GameObject go in _recuperableGO) {
-			if (go.GetComponent<Recuperable> ().recupere == true) {
-				go.GetComponent<CurrentBehaviour> ().index_behaviour = 2;
+		foreach (GameObject go in _behaviourGO) {
+			Recuperable recuperable = go.GetComponent<Recuperable> ();
+			bool recup = (recuperable == null) ? false : recuperable.recupere;
+			if (recup) {
+				go.GetComponent<Behaviour> ().index_currentBehaviour = 2;
 			}
 		}
 		//3-Poursuite
-		foreach (GameObject go in _recuperableGO) {
-			if (go.GetComponent<Recuperable> ().cible_poursuite != null) {
-				go.GetComponent<CurrentBehaviour> ().index_behaviour = 3;
+		foreach (GameObject go in _behaviourGO) {
+			if (go.GetComponent<Behaviour> ().cible_poursuite != null) {
+				go.GetComponent<Behaviour> ().index_currentBehaviour = 3;
 			}
 		}
 		//4-Protection
-		foreach (GameObject go in _recuperableGO) {
-			if (go.GetComponent<Recuperable> ().cible_protection != null) {
-				go.GetComponent<CurrentBehaviour> ().index_behaviour = 4;
+		foreach (GameObject go in _behaviourGO) {
+			if (go.GetComponent<Behaviour> ().cible_protection != null) {
+				go.GetComponent<Behaviour> ().index_currentBehaviour = 4;
 			}
 		}
 

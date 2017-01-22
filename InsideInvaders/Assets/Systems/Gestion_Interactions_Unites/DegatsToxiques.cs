@@ -26,7 +26,7 @@ public class DegatsToxiques : FSystem {
 				float distance = Mathf.Sqrt ((tr1.position.x - tr2.position.x) * (tr1.position.x - tr2.position.x)
 					+ (tr1.position.z - tr2.position.z) * (tr1.position.z - tr2.position.z));
 				if (distance < rayon_effet) {
-					Debug.Log ("degats toxine");
+					//Debug.Log ("degats toxine");
 					go2.GetComponent<Vivant> ().current_pv -= degats_toxiques;
 				}
 			}

@@ -59,8 +59,6 @@ GameObject:
   - 114: {fileID: 114000010599700608}
   - 114: {fileID: 114000014086006136}
   - 114: {fileID: 114000013577697166}
-  - 114: {fileID: 114000012569765868}
-  - 114: {fileID: 114000010900931146}
   - 114: {fileID: 114000010360858304}
   m_Layer: 0
   m_Name: Toxine
@@ -109,17 +107,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_pv: 200
   current_pv: 200
-  centreOfSphere: {x: 0, y: 0, z: 0}
-  objectif: {x: 0, y: 0, z: 0}
-  speed: 20
-  angularSpeed: 5
-  acceleration: 15
+  centreOfPatrouille: {x: 0, y: 0, z: 0}
+  objectifCoord: {x: 0, y: 0, z: 0}
+  speedAgent: 20
+  angularSpeedAgent: 5
+  accelerationAgent: 15
   rayonPatrouille: 50
-  rayonVue: 50
+  rayonVueAlerte: 50
   agent: {fileID: 0}
   lastDistance: 0
   nbSecBlocked: 0
-  waiForMaj: 0
+  waiForMajCentreOfPatrouille: 0
 --- !u!114 &114000010599700608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,18 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayon_effet: 10
   degats_toxiques: 0.25
---- !u!114 &114000010900931146
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013547658664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e77989846e906b240aaa8d071020b760, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index_behaviour: 0
 --- !u!114 &114000011566495532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,18 +168,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114000012569765868
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013547658664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97f9d63777e367f4982311202435446e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index_behaviour: 0
 --- !u!114 &114000013577697166
 MonoBehaviour:
   m_ObjectHideFlags: 1

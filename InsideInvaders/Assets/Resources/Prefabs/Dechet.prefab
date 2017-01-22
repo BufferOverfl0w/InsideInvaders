@@ -194,8 +194,6 @@ GameObject:
   - 65: {fileID: 65000012761132462}
   - 114: {fileID: 114000010989020418}
   - 114: {fileID: 114000011275672824}
-  - 114: {fileID: 114000010380500446}
-  - 114: {fileID: 114000010679754716}
   - 114: {fileID: 114000010243942990}
   m_Layer: 0
   m_Name: Dechet
@@ -671,41 +669,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_pv: 200
   current_pv: 200
-  centreOfSphere: {x: 0, y: 0, z: 0}
-  objectif: {x: 0, y: 0, z: 0}
-  speed: 20
-  angularSpeed: 5
-  acceleration: 15
+  centreOfPatrouille: {x: 0, y: 0, z: 0}
+  objectifCoord: {x: 0, y: 0, z: 0}
+  speedAgent: 20
+  angularSpeedAgent: 5
+  accelerationAgent: 15
   rayonPatrouille: 50
-  rayonVue: 50
+  rayonVueAlerte: 50
   agent: {fileID: 0}
   lastDistance: 0
   nbSecBlocked: 0
-  waiForMaj: 0
---- !u!114 &114000010380500446
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000014149729844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97f9d63777e367f4982311202435446e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index_behaviour: 0
---- !u!114 &114000010679754716
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000014149729844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e77989846e906b240aaa8d071020b760, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index_behaviour: 0
+  waiForMajCentreOfPatrouille: 0
 --- !u!114 &114000010989020418
 MonoBehaviour:
   m_ObjectHideFlags: 1

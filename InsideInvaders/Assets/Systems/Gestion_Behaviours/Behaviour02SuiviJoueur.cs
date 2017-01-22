@@ -4,7 +4,7 @@ using FYFY;
 public class Behaviour02SuiviJoueur : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
-	private Family _allUnitsGO = FamilyManager.getFamily(new AllOfComponents(typeof(CurrentBehaviour)));
+	private Family _allUnitsGO = FamilyManager.getFamily(new AllOfComponents(typeof(Behaviour)));
 	private Family _playerGO = FamilyManager.getFamily(new AllOfComponents(typeof(ControllableByKeyboard)));
 
 
@@ -25,7 +25,7 @@ public class Behaviour02SuiviJoueur : FSystem {
 			tr1 = go.GetComponent<Transform> ();
 		}
 		foreach (GameObject go in _allUnitsGO) {
-			if (go.GetComponent<CurrentBehaviour> ().index_behaviour == 2) {
+			if (go.GetComponent<Behaviour> ().index_currentBehaviour == 2) {
 				Transform tr2 = go.transform;
 
 				float distance = Mathf.Sqrt ((tr1.position.x - tr2.position.x) * (tr1.position.x - tr2.position.x)

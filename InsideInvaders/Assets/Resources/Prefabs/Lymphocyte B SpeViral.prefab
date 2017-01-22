@@ -75,9 +75,9 @@ GameObject:
   - 195: {fileID: 195000010348331396}
   - 114: {fileID: 114000010665426428}
   - 122: {fileID: 122000012315790584}
-  - 114: {fileID: 114000011865637926}
-  - 114: {fileID: 114000010761651662}
   - 114: {fileID: 114000014285956412}
+  - 114: {fileID: 114000013315274654}
+  - 114: {fileID: 114000013854089806}
   m_Layer: 0
   m_Name: Lymphocyte B SpeViral
   m_TagString: longRange
@@ -905,8 +905,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recupere: 0
-  cible_poursuite: {fileID: 0}
-  cible_protection: {fileID: 0}
 --- !u!114 &114000010353730734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -994,18 +992,6 @@ MonoBehaviour:
   m_Script: {fileID: 1215312603, guid: ff0184da6fa0b35479aefade36956361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114000010761651662
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011430484752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e77989846e906b240aaa8d071020b760, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index_behaviour: 0
 --- !u!114 &114000010804812172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1056,18 +1042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de38b1cc1f84dd845894ab35caf483c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114000011865637926
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011430484752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97f9d63777e367f4982311202435446e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index_behaviour: 0
 --- !u!114 &114000012165346950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1089,6 +1063,19 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114000013315274654
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011430484752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f939d734b3207489b12eb8b8e84089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VirusAgglutine: {fileID: 0}
+  progres_agglutinement: 0
 --- !u!114 &114000013367758268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1120,6 +1107,21 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: ProgressBar.Utils.OnCompleteEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114000013854089806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011430484752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eacbf46b819c364880f2244aee8bea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_currentBehaviour: 0
+  index_lastBehaviour: 0
+  cible_poursuite: {fileID: 0}
+  cible_protection: {fileID: 0}
 --- !u!114 &114000014208441938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1160,17 +1162,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_pv: 200
   current_pv: 200
-  centreOfSphere: {x: 0, y: 0, z: 0}
-  objectif: {x: 0, y: 0, z: 0}
-  speed: 20
-  angularSpeed: 5
-  acceleration: 15
+  centreOfPatrouille: {x: 0, y: 0, z: 0}
+  objectifCoord: {x: 0, y: 0, z: 0}
+  speedAgent: 20
+  angularSpeedAgent: 5
+  accelerationAgent: 15
   rayonPatrouille: 50
-  rayonVue: 50
+  rayonVueAlerte: 50
   agent: {fileID: 0}
   lastDistance: 0
   nbSecBlocked: 0
-  waiForMaj: 0
+  waiForMajCentreOfPatrouille: 0
 --- !u!122 &122000012315790584
 Halo:
   m_ObjectHideFlags: 1

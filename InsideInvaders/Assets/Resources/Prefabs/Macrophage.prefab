@@ -99,9 +99,8 @@ GameObject:
   - 195: {fileID: 195000010358329498}
   - 114: {fileID: 114000013876168758}
   - 122: {fileID: 122000012573791978}
-  - 114: {fileID: 114000010804261464}
-  - 114: {fileID: 114000014182066240}
   - 114: {fileID: 114000011601485466}
+  - 114: {fileID: 114000013414901082}
   m_Layer: 0
   m_Name: Macrophage
   m_TagString: Untagged
@@ -363,18 +362,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114000010804261464
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013354479154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97f9d63777e367f4982311202435446e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index_behaviour: 0
 --- !u!114 &114000011363636466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -439,17 +426,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_pv: 200
   current_pv: 200
-  centreOfSphere: {x: 0, y: 0, z: 0}
-  objectif: {x: 0, y: 0, z: 0}
-  speed: 20
-  angularSpeed: 5
-  acceleration: 15
+  centreOfPatrouille: {x: 0, y: 0, z: 0}
+  objectifCoord: {x: 0, y: 0, z: 0}
+  speedAgent: 20
+  angularSpeedAgent: 5
+  accelerationAgent: 15
   rayonPatrouille: 50
-  rayonVue: 50
+  rayonVueAlerte: 50
   agent: {fileID: 0}
   lastDistance: 0
   nbSecBlocked: 0
-  waiForMaj: 0
+  waiForMajCentreOfPatrouille: 0
 --- !u!114 &114000011630904764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -462,8 +449,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recupere: 0
-  cible_poursuite: {fileID: 0}
-  cible_protection: {fileID: 0}
 --- !u!114 &114000012155248782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -577,6 +562,21 @@ MonoBehaviour:
   infecte: 0
   progres_infection: 0
   timeForInfect: 5
+--- !u!114 &114000013414901082
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013354479154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eacbf46b819c364880f2244aee8bea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_currentBehaviour: 0
+  index_lastBehaviour: 0
+  cible_poursuite: {fileID: 0}
+  cible_protection: {fileID: 0}
 --- !u!114 &114000013460289720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -648,18 +648,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114000014182066240
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013354479154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e77989846e906b240aaa8d071020b760, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index_behaviour: 0
 --- !u!114 &114000014243031850
 MonoBehaviour:
   m_ObjectHideFlags: 1
