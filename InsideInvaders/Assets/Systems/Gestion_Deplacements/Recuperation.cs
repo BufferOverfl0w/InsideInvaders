@@ -77,26 +77,31 @@ public class Recuperation : FSystem {
 				if (_defensesGO.contains (go_hit.GetInstanceID ())) { // si on a ciblé une unité alliée
 					foreach (GameObject go in _recuperableGO) {
 						if (go.GetComponent<Recuperable> ().recupere == true) {
-							Rigidbody rb = go.GetComponent<Rigidbody> ();
-							Vector3 v = hit.point - go.transform.position;
-							go.GetComponent<Recuperable> ().recupere = false;
-							go.GetComponent<Recuperable> ().cible_protection = go_hit;
-							v.x = v.x * force_envoi;
-							v.y = 0;
-							v.z = v.z * force_envoi;
-							float vitesse = Mathf.Sqrt (v.x * v.x + v.z * v.z);
-							if (vitesse > 8000) {
-								v.x /= (vitesse / 8000);
-								v.z /= (vitesse / 8000);
+
+							//Test si le joueur à cliqué sur la même unité ( une unité ne peux pas se defendre seul
+							if(!go_hit.Equals(go)){
+								Rigidbody rb = go.GetComponent<Rigidbody> ();
+								Vector3 v = hit.point - go.transform.position;
+								go.GetComponent<Recuperable> ().recupere = false;
+								go.GetComponent<Recuperable> ().cible_protection = go_hit;
+								v.x = v.x * force_envoi;
+								v.y = 0;
+								v.z = v.z * force_envoi;
+								float vitesse = Mathf.Sqrt (v.x * v.x + v.z * v.z);
+								if (vitesse > 8000) {
+									v.x /= (vitesse / 8000);
+									v.z /= (vitesse / 8000);
+								}
+								rb.velocity = Vector3.zero;
+								rb.AddForce (v);
 							}
-							rb.velocity = Vector3.zero;
-							rb.AddForce (v);
 						}
 					}
 				} else if (_intrusGO.contains (go_hit.GetInstanceID ())) { // si on a ciblé une unité ennemie
 					Debug.Log("Unité ennemie ciblée");
 					foreach (GameObject go in _recuperableGO) {
 						if (go.GetComponent<Recuperable> ().recupere == true) {
+
 							Rigidbody rb = go.GetComponent<Rigidbody> ();
 							Vector3 v = hit.point - go.transform.position;
 							go.GetComponent<Recuperable> ().recupere = false;
