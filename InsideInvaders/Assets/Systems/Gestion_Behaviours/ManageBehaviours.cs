@@ -7,7 +7,7 @@ public class ManageBehaviours : FSystem {
 
 	private Family _recuperableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Recuperable)));
 	private Family _intrusGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamIntrus)));
-	private Family _defensesGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamDefense)),new NoneOfComponents(typeof(ControllableByKeyboard)));
+	private Family _defensesGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamDefense),typeof(CurrentBehaviour),typeof(LastBehaviour)),new NoneOfComponents(typeof(ControllableByKeyboard)));
 
 	protected override void onPause(int currentFrame) {
 	}

@@ -13,6 +13,7 @@ public class ManageAllSprite : FSystem {
 
 	private Family _recuperableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Recuperable)));
 	private Family _intrusGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamIntrus)));
+	private Family _defensesGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamDefense)));
 	Gradient g;
 	protected override void onPause(int currentFrame) {
 	}
@@ -44,6 +45,7 @@ public class ManageAllSprite : FSystem {
 		manageHealthBar ();
 		manageCercleSelection();
 		manageCercleCible ();
+		manageShield ();
 	}
 
 	private void manageCercleSelection(){
@@ -69,7 +71,6 @@ public class ManageAllSprite : FSystem {
 			}
 		}
 		foreach (GameObject intrus in _intrusGO) {
-		//	if (_recuperableGO.contains (go_hit.GetInstanceID ()))
 			Transform transform_Go = intrus.transform.Find("Canvas/cible");
 			if (transform_Go == null) continue;
 			GameObject cible_Go = transform_Go.gameObject;
@@ -78,6 +79,22 @@ public class ManageAllSprite : FSystem {
 		}
 	}
 
+	private void manageShield(){
+		List<GameObject> listProtege = new List<GameObject>();
+		foreach (GameObject go in _recuperableGO) {
+			GameObject protege = go.GetComponent<Recuperable> ().cible_protection;
+			if (protege != null) {
+				listProtege.Add(protege);
+			}
+		}
+		foreach (GameObject defense in _defensesGO) {
+			Transform transform_Go = defense.transform.Find("Canvas/bouclier");
+			if (transform_Go == null) continue;
+			GameObject Shield_Go = transform_Go.gameObject;
+			if (Shield_Go == null) continue;
+			Shield_Go.SetActive (listProtege.Contains(defense));
+		}
+	}
 
 	private void manageProgressInfections(){
 		foreach (GameObject go in _infectableGO) {
