@@ -19,7 +19,7 @@ public class Behaviour03Attaque : FSystem {
 	{
 		foreach (GameObject go in _allUnitsGO) 
 		{
-			if (go.GetComponent<Behaviour> ().index_currentBehaviour == 3) 
+			if (go.GetComponent<Behaviour> ().index_currentBehaviour == EnumBehaviour.Attaque) 
 			{
 				//Debug.Log ("Dans la behaviour 3");
 				if(_distanceUnitsGO.contains(go.GetInstanceID())){
@@ -56,8 +56,8 @@ public class Behaviour03Attaque : FSystem {
 
 	private void attaqueDistance(GameObject go){
 
-		int last_Behav = go.GetComponent<Behaviour> ().index_lastBehaviour;
-		if (last_Behav != 3) {
+		EnumBehaviour last_Behav = go.GetComponent<Behaviour> ().index_lastBehaviour;
+		if (last_Behav != EnumBehaviour.Attaque) {
 			// on vient de rentrer dans le Behaviour03Attaque
 			// pour ne lancer qu'un Anticorps par ennemis
 			Debug.Log ("Pop");

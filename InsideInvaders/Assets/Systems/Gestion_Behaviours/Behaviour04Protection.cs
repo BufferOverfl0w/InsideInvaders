@@ -17,7 +17,7 @@ public class Behaviour04Protection : FSystem {
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
 		foreach (GameObject go in _allUnitsGO) {
-			if (go.GetComponent<Behaviour> ().index_currentBehaviour == 4) {
+			if (go.GetComponent<Behaviour> ().index_currentBehaviour == EnumBehaviour.Protection) {
 				float distance_de_suivi = 10;
 
 				Transform tr1 = go.GetComponent<Behaviour> ().cible_protection.transform;

@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
 using FYFY;
 
+
+public enum EnumBehaviour {
+	Patrouille = 1,
+	SuiviJoueur = 2,
+	Attaque = 3,
+	Protection = 4
+}
 public class ManageBehaviours : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
@@ -19,7 +26,7 @@ public class ManageBehaviours : FSystem {
 
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
-		int last_index = 0;
+		EnumBehaviour last_index;
 
 		//maj de LastBehaviour
 		foreach (GameObject go in _behaviourGO) {
@@ -50,30 +57,31 @@ public class ManageBehaviours : FSystem {
 			}
 
 			if (/*(go.GetComponent<Recuperable> ().recupere == false)&&*/(!en_deplacement)&&(pas_de_cible)) {
-				behavior.index_currentBehaviour = 1;
-			} else if ((pas_de_cible)&&((behavior.index_lastBehaviour==2)||(behavior.index_lastBehaviour==3))){
-				behavior.index_currentBehaviour = 1;
+				behavior.index_currentBehaviour = EnumBehaviour.Patrouille;
+			} else if ((pas_de_cible)&&((behavior.index_lastBehaviour==EnumBehaviour.SuiviJoueur)||(behavior.index_lastBehaviour==EnumBehaviour.Attaque))){
+				behavior.index_currentBehaviour = EnumBehaviour.Patrouille;
 			}
 		}
 
 		//2-Suivi joueur
 		foreach (GameObject go in _behaviourGO) {
 			Recuperable recuperable = go.GetComponent<Recuperable> ();
-			bool recup = (recuperable == null) ? false : recuperable.recupere;
+			bool recup = (recuperable == null) ? false : recuperable.recupere; 
+			// Si une unité n'est pas récuperable alors n'est pas récupéré 
 			if (recup) {
-				go.GetComponent<Behaviour> ().index_currentBehaviour = 2;
+				go.GetComponent<Behaviour> ().index_currentBehaviour = EnumBehaviour.SuiviJoueur;
 			}
 		}
 		//3-Poursuite
 		foreach (GameObject go in _behaviourGO) {
 			if (go.GetComponent<Behaviour> ().cible_poursuite != null) {
-				go.GetComponent<Behaviour> ().index_currentBehaviour = 3;
+				go.GetComponent<Behaviour> ().index_currentBehaviour = EnumBehaviour.Attaque;
 			}
 		}
 		//4-Protection
 		foreach (GameObject go in _behaviourGO) {
 			if (go.GetComponent<Behaviour> ().cible_protection != null) {
-				go.GetComponent<Behaviour> ().index_currentBehaviour = 4;
+				go.GetComponent<Behaviour> ().index_currentBehaviour = EnumBehaviour.Patrouille;
 			}
 		}
 

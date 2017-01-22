@@ -27,7 +27,7 @@ public class Behaviour01Patrouille : FSystem {
 
 
 		foreach (GameObject go in _allUnitsBehaviourGO) {
-			if (go.GetComponent<Behaviour> ().index_currentBehaviour != 1) continue;
+			if (go.GetComponent<Behaviour> ().index_currentBehaviour != EnumBehaviour.Patrouille) continue;
 			updateComponents (go);
 			patrouille (go);
 			scanView (go);
@@ -53,8 +53,8 @@ public class Behaviour01Patrouille : FSystem {
 			newAgent.SetDestination (bdv.objectifCoord);
 			bdv.agent = newAgent;
 		}
-		int last_Behav = go.GetComponent<Behaviour> ().index_lastBehaviour;
-		if (last_Behav != 1) {
+		EnumBehaviour last_Behav = go.GetComponent<Behaviour> ().index_lastBehaviour;
+		if (last_Behav != EnumBehaviour.Patrouille) {
 			// on vient de rentrer dans le Behaviour01Patrouille
 			bdv.waiForMajCentreOfPatrouille = true;
 		}

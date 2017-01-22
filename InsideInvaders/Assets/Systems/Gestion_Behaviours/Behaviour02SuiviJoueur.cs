@@ -25,7 +25,7 @@ public class Behaviour02SuiviJoueur : FSystem {
 			tr1 = go.GetComponent<Transform> ();
 		}
 		foreach (GameObject go in _allUnitsGO) {
-			if (go.GetComponent<Behaviour> ().index_currentBehaviour == 2) {
+			if (go.GetComponent<Behaviour> ().index_currentBehaviour == EnumBehaviour.SuiviJoueur) {
 				Transform tr2 = go.transform;
 
 				float distance = Mathf.Sqrt ((tr1.position.x - tr2.position.x) * (tr1.position.x - tr2.position.x)

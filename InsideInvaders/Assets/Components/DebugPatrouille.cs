@@ -9,7 +9,7 @@ public class DebugPatrouille : MonoBehaviour {
 		{
 			Behaviour behav = obj.GetComponent<Behaviour> ();
 			if (behav == null) continue;
-			if (behav.index_currentBehaviour != 1) continue;
+			if (behav.index_currentBehaviour != EnumBehaviour.Patrouille) continue;
 			Vivant bdv = obj.GetComponent<Vivant> ();
 			if (bdv != null) {
 				Gizmos.color = new Color(255f,255f,0f,0.2f);
