@@ -143,48 +143,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000011483039880, guid: b554576cd131a4648a18ea2412b5aa1d,
     type: 2}
   m_PrefabInternal: {fileID: 108596561}
---- !u!1001 &229127812
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4000012056630156, guid: db5a0a817d9e08543831bb1384ce8477, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -99
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012056630156, guid: db5a0a817d9e08543831bb1384ce8477, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012056630156, guid: db5a0a817d9e08543831bb1384ce8477, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -271.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012056630156, guid: db5a0a817d9e08543831bb1384ce8477, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012056630156, guid: db5a0a817d9e08543831bb1384ce8477, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012056630156, guid: db5a0a817d9e08543831bb1384ce8477, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012056630156, guid: db5a0a817d9e08543831bb1384ce8477, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012056630156, guid: db5a0a817d9e08543831bb1384ce8477, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: db5a0a817d9e08543831bb1384ce8477, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &255726762
 Prefab:
   m_ObjectHideFlags: 0
@@ -483,10 +441,6 @@ MonoBehaviour:
       PublicKeyToken=null
     _typeFullName: Recuperation
     _pause: 0
-  - _typeAssemblyQualifiedName: DeplacementAleatoire, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    _typeFullName: DeplacementAleatoire
-    _pause: 0
   - _typeAssemblyQualifiedName: DegatsToxiques, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: DegatsToxiques
@@ -542,6 +496,18 @@ MonoBehaviour:
   - _typeAssemblyQualifiedName: Behaviour04Protection, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: Behaviour04Protection
+    _pause: 0
+  - _typeAssemblyQualifiedName: Behaviour05DeplacementAleatoire, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    _typeFullName: Behaviour05DeplacementAleatoire
+    _pause: 0
+  - _typeAssemblyQualifiedName: Behaviour06Infection, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: Behaviour06Infection
+    _pause: 0
+  - _typeAssemblyQualifiedName: Behaviour07Fuite, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: Behaviour07Fuite
     _pause: 0
   - _typeAssemblyQualifiedName: RayDraw, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null

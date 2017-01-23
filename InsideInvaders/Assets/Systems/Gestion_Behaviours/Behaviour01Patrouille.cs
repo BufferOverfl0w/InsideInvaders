@@ -134,12 +134,11 @@ public class Behaviour01Patrouille : FSystem {
 			if (distance < bdv.rayonVueAlerte) {
 				int valueAttaque = ManageBehaviours.myTargetIs (him, otherGo);
 				if (valueAttaque == 1) { // je peux attaquer
-					Debug.Log("Attaque");
+					//Debug.Log("Attaque");
 					him.GetComponent<Behaviour> ().cible_poursuite = otherGo;
 					return;// on a trouvé une action pas besoin d'annalyser les autres
 				}else if(valueAttaque == -1){ // je dois fuire
-					Debug.Log("fuite");
-					bdv.objectifCoord = ManageBehaviours.poinBbackToEnnemi(him,otherGo,bdv.rayonVueAlerte) ;
+					bdv.objectifCoord = ManageBehaviours.poinBbackToEnemy(him,otherGo,bdv.rayonVueAlerte) ;
 					bdv.agent.SetDestination(bdv.objectifCoord);
 					return;// on a trouvé une action pas besoin d'annalyser les autres
 				}

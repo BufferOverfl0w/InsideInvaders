@@ -54,11 +54,11 @@ public class Specialisation : FSystem {
 		foreach (GameObject go2 in _specialisableGO) {
 			if (go2.GetComponent<Specialisable> ().progres_spec_viral >= seuil_specialisation) {
 				Transform tr2 = go2.GetComponent<Transform> ();
-				Debug.Log ("Tag:" + go2.tag);
+				//Debug.Log ("Tag:" + go2.tag);
 				GameObject go;
 				GameObjectManager.destroyGameObject (go2);
 				go = GameObjectManager.instantiatePrefab ("Prefabs/Lymphocyte B SpeViral");
-				Debug.Log ("specialisation virale completee");
+				//Debug.Log ("specialisation virale completee");
 				go.transform.position = tr2.position;
 
 			} 
@@ -67,7 +67,7 @@ public class Specialisation : FSystem {
 				GameObject go;
 				GameObjectManager.destroyGameObject (go2);
 				go = GameObjectManager.instantiatePrefab ("Prefabs/Lymphocyte B SpeBacterien");
-				Debug.Log ("specialisation bacterienne completee");
+				//Debug.Log ("specialisation bacterienne completee");
 				go.transform.position = tr2.position;
 			}
 		}

@@ -42,6 +42,11 @@ public class GestionMort : FSystem {
 							behav.cible_protection = null;
 						}
 					}
+					if (behav.cible_a_fuir != null) {
+						if (behav.cible_a_fuir.Equals (go)) {
+							behav.cible_a_fuir = null;
+						}
+					}
 				}
 				GameObjectManager.destroyGameObject(go);
 			}
