@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using FYFY;
 
-
+using System.Collections;
+using System.Collections.Generic;
 public enum EnumBehaviour {
 	Patrouille = 1,
 	SuiviJoueur = 2,
@@ -104,43 +105,40 @@ public class ManageBehaviours : FSystem {
 		//6-Infection
 		foreach (GameObject go1 in _behaviourGO) {
 			if (_infectieuxGO.contains (go1.GetInstanceID ())) {
-				foreach (GameObject go2 in _infectablesGO) {
-					Transform tr1 = go1.transform;
-					Transform tr2 = go2.transform;
-					float distance = Mathf.Sqrt ((tr1.position.x - tr2.position.x) * (tr1.position.x - tr2.position.x)
-					                 + (tr1.position.z - tr2.position.z) * (tr1.position.z - tr2.position.z));
-					if (distance < (go1.GetComponent<Vivant> ().rayonVueAlerte)) {
-						go1.GetComponent<Behaviour> ().cible_poursuite = go2;
-						go1.GetComponent<Behaviour> ().index_currentBehaviour = EnumBehaviour.Infection;
-					}
-				}
+				List<GameObject> List = getVisionUnitsSorted (go1, _infectablesGO);
+				GameObject target = List [0]; // on attaque le plus prés
+				go1.GetComponent<Behaviour> ().cible_poursuite = target;
+				go1.GetComponent<Behaviour> ().index_currentBehaviour = EnumBehaviour.Infection;
 			}
 		}
 		//7-Fuite
 		foreach (GameObject go1 in _behaviourGO) {
-			foreach (GameObject go2 in _vivantsGO) {
-				if (!go1.Equals (go2)) {
-					Transform tr1 = go1.transform;
-					Transform tr2 = go2.transform;
-					float distance = Mathf.Sqrt ((tr1.position.x - tr2.position.x) * (tr1.position.x - tr2.position.x)
-						+ (tr1.position.z - tr2.position.z) * (tr1.position.z - tr2.position.z));
-					
-					if (distance < (go1.GetComponent<Vivant> ().rayonVueAlerte)) {
-						if (myTargetIs (go1, go2) == -1) {
-							go1.GetComponent<Behaviour> ().cible_a_fuir = go2;
-							go1.GetComponent<Behaviour> ().index_currentBehaviour = EnumBehaviour.Fuite;
-						}
-					}
+			if (go1.GetComponent<Recuperable> () == null)
+				continue;
+			if (go1.GetComponent<Recuperable>().recupere==true)
+				continue;
+			if (go1.GetComponent<Behaviour>().cible_poursuite!=null)
+				continue;
+			if (go1.GetComponent<Behaviour>().cible_protection!=null)
+				continue;
+			// On ne fui pas si c'est le joueur qui a ordonné l'attaque
+
+			List<GameObject> List = getVisionUnitsSorted (go1, _vivantsGO);
+			foreach(GameObject other in List){
+				if (myTargetIs (go1, other) == -1) {
+					go1.GetComponent<Behaviour> ().cible_a_fuir = other;
+					go1.GetComponent<Behaviour> ().index_currentBehaviour = EnumBehaviour.Fuite;
+					break; // on fuit le plus proche 
 				}
 			}
 		}
+
 
 
 //		foreach (GameObject go in _behaviourGO) {
 //			Debug.Log ("Current : "+go.GetComponent<Behaviour> ().index_currentBehaviour);
 //			Debug.Log ("Last : "+go.GetComponent<Behaviour> ().index_lastBehaviour);
 //		}
-
 	}
 
 	//-----------------------Tools for all Behaviors-----------------------
@@ -219,7 +217,7 @@ public class ManageBehaviours : FSystem {
 		if (val == -1) { // test si on est à la 1er récursion
 			return whatIs (goB, goA, 1); // A devient B et B devient A
 		}
-
+		//Debug.Log ("-0-");
 		// Si on arrive ici c'est que l'on est à la 2eme récursion et que A n'a pas besoin de fuire B, mais que A ne peut attaquer B 
 		return 0; // A et B sont allié
 	}
@@ -232,5 +230,34 @@ public class ManageBehaviours : FSystem {
 		Ray r = new Ray (tr1, heading);
 		Vector3 tpoint = r.GetPoint(distanceBack);
 		return new Vector3 (tpoint.x, tr1.y, tpoint.z);
+	}
+
+	public static float getDistance(GameObject A, GameObject B){
+		Transform tr1 = A.GetComponent<Transform> ();
+		Transform tr2 = B.GetComponent<Transform> ();
+		return Mathf.Sqrt ((tr1.position.x - tr2.position.x) * (tr1.position.x - tr2.position.x)
+			+ (tr1.position.z - tr2.position.z) * (tr1.position.z - tr2.position.z));
+	}
+
+	public static List<GameObject> getVisionUnitsSorted(GameObject him, Family otherGo){
+		Dictionary<GameObject, float> dico = new Dictionary<GameObject, float>();
+		foreach (GameObject other in otherGo) {
+			if (!him.Equals (other)) {
+				float dist = getDistance (him, other);
+				if (dist < (him.GetComponent<Vivant> ().rayonVueAlerte)) {
+						dico.Add(other,dist);
+				}
+			}
+		}			
+		List<KeyValuePair<GameObject, float>> List = new List<KeyValuePair<GameObject, float>>(dico);
+		List.Sort(delegate(KeyValuePair<GameObject, float> firstPair,
+			KeyValuePair<GameObject, float> nextPair){
+			return firstPair.Value.CompareTo(nextPair.Value);
+		});
+		List<GameObject> resList = new List<GameObject>();
+		foreach(KeyValuePair<GameObject, float> value in List){
+			resList.Add (value.Key);
+		}
+		return resList;
 	}
 }

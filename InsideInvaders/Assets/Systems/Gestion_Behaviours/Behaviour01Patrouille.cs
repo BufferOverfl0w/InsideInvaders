@@ -115,43 +115,24 @@ public class Behaviour01Patrouille : FSystem {
 		bool AIsDef = him.GetComponent<TeamDefense> () != null;
 		Family analyseGo = (AIsDef) ? _intrusGO : _allUnitsGO;
 
-		Dictionary<GameObject, float> dico = new Dictionary<GameObject, float>();
-		foreach (GameObject otherGo in analyseGo) {
-			dico.Add(otherGo,getDistance(him,otherGo));
-		}
-			
-		List<KeyValuePair<GameObject, float>> List = new List<KeyValuePair<GameObject, float>>(dico);
-		List.Sort(delegate(KeyValuePair<GameObject, float> firstPair,
-				KeyValuePair<GameObject, float> nextPair){
-				return firstPair.Value.CompareTo(nextPair.Value);
-			}
-		);
-		//List est une list composé des unités trié par les plus proche en 1er
+		List<GameObject> list = ManageBehaviours.getVisionUnitsSorted (him, analyseGo);//List est une list composé des unités trié par les plus proche en 1er
 
-		foreach (KeyValuePair<GameObject, float> value in List) {
-			GameObject otherGo = value.Key;
-			float distance = value.Value;
-			if (distance < bdv.rayonVueAlerte) {
-				int valueAttaque = ManageBehaviours.myTargetIs (him, otherGo);
-				if (valueAttaque == 1) { // je peux attaquer
-					//Debug.Log("Attaque");
-					him.GetComponent<Behaviour> ().cible_poursuite = otherGo;
-					return;// on a trouvé une action pas besoin d'annalyser les autres
-				}else if(valueAttaque == -1){ // je dois fuire
-					bdv.objectifCoord = ManageBehaviours.poinBbackToEnemy(him,otherGo,bdv.rayonVueAlerte) ;
-					bdv.agent.SetDestination(bdv.objectifCoord);
-					return;// on a trouvé une action pas besoin d'annalyser les autres
-				}
-				// else même equipe on ne fait rien.
+		foreach (GameObject target in list) {
+			int valueAttaque = ManageBehaviours.myTargetIs (him, target);
+			if (valueAttaque == 1) { // je peux attaquer
+				Debug.Log("Attaque");
+				him.GetComponent<Behaviour> ().cible_poursuite = target;
+				return;// on a trouvé une action pas besoin d'annalyser les autres
+			}else if(valueAttaque == -1){ // je dois fuire
+				bdv.objectifCoord = ManageBehaviours.poinBbackToEnemy(him,target,bdv.rayonVueAlerte) ;
+				bdv.agent.SetDestination(bdv.objectifCoord);
+				Debug.Log("Fuite");
+				return;// on a trouvé une action pas besoin d'annalyser les autres
 			}
+			// else même equipe on ne fait rien.
 		}
 
 	}
 	
-	private float getDistance(GameObject A, GameObject B){
-		Transform tr1 = A.GetComponent<Transform> ();
-		Transform tr2 = B.GetComponent<Transform> ();
-		return Mathf.Sqrt ((tr1.position.x - tr2.position.x) * (tr1.position.x - tr2.position.x)
-			+ (tr1.position.z - tr2.position.z) * (tr1.position.z - tr2.position.z));
-	}
+
 }

@@ -28,7 +28,7 @@ public class Agglutinement : FSystem {
 					+ (tr1.position.z - tr2.position.z) * (tr1.position.z - tr2.position.z));
 				if (distance < rayon_effet) {
 					if (go2.GetComponent<Agglutinable> ().progres_agglutinement < seuil_agglutinement) {
-						Debug.Log ("agglutinement en cours");
+						//Debug.Log ("agglutinement en cours");
 						go2.GetComponent<Agglutinable> ().progres_agglutinement += pas_agglutinement;
 					}
 				}
