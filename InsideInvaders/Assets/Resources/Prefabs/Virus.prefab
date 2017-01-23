@@ -27,9 +27,10 @@ GameObject:
   - 114: {fileID: 114000013643813748}
   - 114: {fileID: 114000014158380378}
   - 114: {fileID: 114000010045693594}
-  - 114: {fileID: 114000011433399662}
   - 114: {fileID: 114000010228732974}
   - 114: {fileID: 114000013908939366}
+  - 114: {fileID: 114000011961420464}
+  - 114: {fileID: 114000010991715560}
   m_Layer: 0
   m_Name: Virus
   m_TagString: Virus
@@ -351,6 +352,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000010991715560
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010329856722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541f9dcbd0e9d414c894c0920c5f9af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vitesse: 20
+  positionCible: {x: 0, y: 0, z: 0}
 --- !u!114 &114000011089051724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -378,22 +392,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114000011433399662
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010329856722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca3439429b1cb554c88c4d53ba0bb9fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vitesse: 20
-  positionCible: {x: 0, y: 0, z: 0}
-  rayon_detection: 100
-  periode: 3
-  temps: 4
 --- !u!114 &114000011462837046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -427,6 +425,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0 %
+--- !u!114 &114000011961420464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010329856722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eacbf46b819c364880f2244aee8bea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_currentBehaviour: 5
+  index_lastBehaviour: 5
+  cible_poursuite: {fileID: 0}
+  cible_protection: {fileID: 0}
+  cible_a_fuir: {fileID: 0}
 --- !u!114 &114000012526288130
 MonoBehaviour:
   m_ObjectHideFlags: 1

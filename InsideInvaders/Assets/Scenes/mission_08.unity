@@ -544,10 +544,6 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     _typeFullName: DegatsInfection
     _pause: 0
-  - _typeAssemblyQualifiedName: DeplacementVirus, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    _typeFullName: DeplacementVirus
-    _pause: 1
   - _typeAssemblyQualifiedName: EffectInfection, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: EffectInfection
@@ -560,10 +556,6 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     _typeFullName: DegatsToxiques
     _pause: 0
-  - _typeAssemblyQualifiedName: DeplacementAleatoire, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    _typeFullName: DeplacementAleatoire
-    _pause: 1
   - _typeAssemblyQualifiedName: GenerationToxiines, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: GenerationToxiines

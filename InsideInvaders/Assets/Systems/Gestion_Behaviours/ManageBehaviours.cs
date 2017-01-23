@@ -18,13 +18,14 @@ public class ManageBehaviours : FSystem {
 
 	private Family _behaviourGO = FamilyManager.getFamily(new AllOfComponents(typeof(Behaviour)));
 	private Family _vivantsGO = FamilyManager.getFamily(new AllOfComponents(typeof(Vivant)));
+
 	private Family _randomMoverGO = FamilyManager.getFamily(new AllOfComponents(typeof(MouvantAleatoire)));
 	private Family _infectieuxGO = FamilyManager.getFamily(new AllOfComponents(typeof(Infectieux)));
 	private Family _infectablesGO = FamilyManager.getFamily(new AllOfComponents(typeof(Infectable)));
 
 
 
-	//private Family _intrusGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamIntrus),typeof(Behaviour)));
+	private Family _intrusGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamIntrus),typeof(Behaviour)));
 	//private Family _defensesGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamDefense),typeof(Behaviour)),new NoneOfComponents(typeof(ControllableByKeyboard)));
 
 	protected override void onPause(int currentFrame) {
@@ -67,9 +68,10 @@ public class ManageBehaviours : FSystem {
 				pas_de_cible = true;
 			}
 
+
 			if (/*(go.GetComponent<Recuperable> ().recupere == false)&&*/(!en_deplacement)&&(pas_de_cible)) {
 				behavior.index_currentBehaviour = EnumBehaviour.Patrouille;
-			} else if ((pas_de_cible)&&((behavior.index_lastBehaviour==EnumBehaviour.SuiviJoueur)||(behavior.index_lastBehaviour==EnumBehaviour.Attaque))){
+			} else if ((pas_de_cible)&&((behavior.index_lastBehaviour==EnumBehaviour.SuiviJoueur)||(behavior.index_lastBehaviour==EnumBehaviour.Attaque)||(behavior.index_lastBehaviour==EnumBehaviour.Fuite))){
 				behavior.index_currentBehaviour = EnumBehaviour.Patrouille;
 			}
 		}
@@ -97,39 +99,38 @@ public class ManageBehaviours : FSystem {
 			}
 		}
 		//5-DeplacementAleatoire
-		foreach (GameObject go in _behaviourGO) {
+		foreach (GameObject go in _intrusGO) {
 			if (_randomMoverGO.contains(go.GetInstanceID())) {
 				go.GetComponent<Behaviour> ().index_currentBehaviour = EnumBehaviour.Random;
 			}
 		}
 		//6-Infection
-		foreach (GameObject go1 in _behaviourGO) {
+		foreach (GameObject go1 in _intrusGO) {
+			go1.GetComponent<Behaviour> ().cible_poursuite = null;
 			if (_infectieuxGO.contains (go1.GetInstanceID ())) {
 				List<GameObject> List = getVisionUnitsSorted (go1, _infectablesGO);
-				GameObject target = List [0]; // on attaque le plus prés
-				go1.GetComponent<Behaviour> ().cible_poursuite = target;
-				go1.GetComponent<Behaviour> ().index_currentBehaviour = EnumBehaviour.Infection;
+				foreach (GameObject other in List) {
+					if (myTargetIs (other,go1) == -1) {
+						go1.GetComponent<Behaviour> ().cible_poursuite = other;
+						go1.GetComponent<Behaviour> ().index_currentBehaviour = EnumBehaviour.Infection;
+						break; // on poursuit le plus proche 
+					}
+				}
 			}
 		}
 		//7-Fuite
-		foreach (GameObject go1 in _behaviourGO) {
-			if (go1.GetComponent<Recuperable> () == null)
-				continue;
-			if (go1.GetComponent<Recuperable>().recupere==true)
-				continue;
-			if (go1.GetComponent<Behaviour>().cible_poursuite!=null)
-				continue;
-			if (go1.GetComponent<Behaviour>().cible_protection!=null)
-				continue;
-			// On ne fui pas si c'est le joueur qui a ordonné l'attaque
+		foreach (GameObject go1 in _intrusGO) {
+			go1.GetComponent<Behaviour> ().cible_a_fuir = null;
 
 			List<GameObject> List = getVisionUnitsSorted (go1, _vivantsGO);
 			foreach(GameObject other in List){
 				if (myTargetIs (go1, other) == -1) {
 					go1.GetComponent<Behaviour> ().cible_a_fuir = other;
-					go1.GetComponent<Behaviour> ().index_currentBehaviour = EnumBehaviour.Fuite;
 					break; // on fuit le plus proche 
 				}
+			}
+			if (go1.GetComponent<Behaviour> ().cible_a_fuir != null) {
+				go1.GetComponent<Behaviour> ().index_currentBehaviour = EnumBehaviour.Fuite;
 			}
 		}
 

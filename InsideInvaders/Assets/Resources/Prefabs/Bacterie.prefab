@@ -137,6 +137,7 @@ GameObject:
   - 136: {fileID: 136000010410125978}
   - 114: {fileID: 114000013022868982}
   - 114: {fileID: 114000013229306808}
+  - 114: {fileID: 114000010184343858}
   m_Layer: 0
   m_Name: Bacterie
   m_TagString: Bacterie
@@ -335,6 +336,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &114000010184343858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012227682372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eacbf46b819c364880f2244aee8bea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_currentBehaviour: 5
+  index_lastBehaviour: 5
+  cible_poursuite: {fileID: 0}
+  cible_protection: {fileID: 0}
+  cible_a_fuir: {fileID: 0}
 --- !u!114 &114000010283055792
 MonoBehaviour:
   m_ObjectHideFlags: 1

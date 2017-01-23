@@ -29,16 +29,21 @@ public class Behaviour06Infection : FSystem {
 
 				if (distance > distance_de_suivi) {
 
-					Vector3 v = tr1.position - tr2.position;
-					//v.x = v.x * (distance-distance_de_suivi)/100;
-					//v.y = v.y * (distance-distance_de_suivi)/100;
-					//v.z = v.z * (distance-distance_de_suivi)/100;
-					//rb.AddForce (v);
-					rb.velocity = v;
+					propulse (go, tr1.transform.position);
+
 				} else {
 					rb.velocity = Vector3.zero;
 				}
 			}
+		}
+	}
+	private static void propulse(GameObject him, Vector3 target){
+		Rigidbody rb = him.GetComponent<Rigidbody> ();
+		if (rb == null) return;
+		Vector3 v = target - him.transform.position;
+		rb.velocity = v;
+		if (rb.velocity.magnitude > him.GetComponent<Vivant> ().speedAgent) { // trop rapide !
+			rb.velocity = rb.velocity.normalized * him.GetComponent<Vivant> ().speedAgent * 4;
 		}
 	}
 }

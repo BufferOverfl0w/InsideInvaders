@@ -502,6 +502,10 @@ MonoBehaviour:
       PublicKeyToken=null
     _typeFullName: Flottement
     _pause: 0
+  - _typeAssemblyQualifiedName: Ralentissement, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: Ralentissement
+    _pause: 0
   - _typeAssemblyQualifiedName: ManageTimeSleep, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: ManageTimeSleep
@@ -522,10 +526,6 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     _typeFullName: ManageAllSprite
     _pause: 0
-  - _typeAssemblyQualifiedName: FinMission01, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-    _typeFullName: FinMission01
-    _pause: 0
   - _typeAssemblyQualifiedName: DegatsToxiques, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: DegatsToxiques
@@ -533,6 +533,10 @@ MonoBehaviour:
   - _typeAssemblyQualifiedName: GenerationToxiines, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: GenerationToxiines
+    _pause: 0
+  - _typeAssemblyQualifiedName: FinMission01, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    _typeFullName: FinMission01
     _pause: 0
   - _typeAssemblyQualifiedName: ManageBehaviours, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -569,10 +573,6 @@ MonoBehaviour:
   - _typeAssemblyQualifiedName: RayDraw, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     _typeFullName: RayDraw
-    _pause: 0
-  - _typeAssemblyQualifiedName: Ralentissement, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    _typeFullName: Ralentissement
     _pause: 0
   _lateUpdateSystemDescriptions: []
 --- !u!4 &784400377

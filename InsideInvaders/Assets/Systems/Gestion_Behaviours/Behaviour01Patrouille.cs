@@ -59,7 +59,7 @@ public class Behaviour01Patrouille : FSystem {
 			Rigidbody go_rb = go.GetComponent<Rigidbody> ();
 			float velocity = Mathf.Abs (go_rb.velocity.x) + Mathf.Abs (go_rb.velocity.z);
 			if ((velocity>= 0.5f) && (velocity<=25.0f)){
-				bdv.centreOfPatrouille = go.transform.position; // on mets à jours le centre du cerle
+				bdv.centreOfPatrouille = go.transform.position; // on met à jour le centre du cerle
 				bdv.objectifCoord = go.transform.position;
 				bdv.agent.SetDestination (bdv.objectifCoord);
 				bdv.waiForMajCentreOfPatrouille = false;

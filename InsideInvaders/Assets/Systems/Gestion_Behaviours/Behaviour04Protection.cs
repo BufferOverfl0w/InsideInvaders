@@ -18,7 +18,7 @@ public class Behaviour04Protection : FSystem {
 	protected override void onProcess(int familiesUpdateCount) {
 		foreach (GameObject go in _allUnitsGO) {
 			if (go.GetComponent<Behaviour> ().index_currentBehaviour == EnumBehaviour.Protection) {
-				float distance_de_suivi = 10;
+				float distance_de_suivi = 30;
 
 				Transform tr1 = go.GetComponent<Behaviour> ().cible_protection.transform;
 				Transform tr2 = go.transform;
@@ -27,17 +27,20 @@ public class Behaviour04Protection : FSystem {
 					+ (tr1.position.z - tr2.position.z) * (tr1.position.z - tr2.position.z));
 				Rigidbody rb = go.GetComponent<Rigidbody> ();
 				if (distance > distance_de_suivi) {
-					Vector3 v = tr1.position - tr2.position;
-					//v.x = v.x * (distance-distance_de_suivi)/100;
-					//v.y = v.y * (distance-distance_de_suivi)/100;
-					//v.z = v.z * (distance-distance_de_suivi)/100;
-					//rb.AddForce (v);
-					rb.velocity = v;
+					propulse (go, tr1.position);
 				}
-				else {
+				else 
 					rb.velocity = Vector3.zero;
-				}
 			}
+		}
+	}
+	private static void propulse(GameObject him, Vector3 target){
+		Rigidbody rb = him.GetComponent<Rigidbody> ();
+		if (rb == null) return;
+		Vector3 v = target - him.transform.position;
+		rb.velocity = v;
+		if (rb.velocity.magnitude > him.GetComponent<Vivant> ().speedAgent) { // trop rapide !
+			rb.velocity = rb.velocity.normalized * him.GetComponent<Vivant> ().speedAgent * 4;
 		}
 	}
 }

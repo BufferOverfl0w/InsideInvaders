@@ -39,20 +39,20 @@ public class Behaviour03Attaque : FSystem {
 	private void poursuivre(GameObject go){
 		float distance_de_suivi = 0;
 		Vector3 posEnnemi = go.GetComponent<Behaviour> ().cible_poursuite.transform.position;
-		Vector3 myPostion = go.transform.position;
-		float distance = Mathf.Sqrt ((posEnnemi.x - myPostion.x) * (posEnnemi.x - myPostion.x)
-			+ (posEnnemi.z - myPostion.z) * (posEnnemi.z - myPostion.z));
+		Vector3 myPosition = go.transform.position;
+		float distance = Mathf.Sqrt ((posEnnemi.x - myPosition.x) * (posEnnemi.x - myPosition.x)
+			+ (posEnnemi.z - myPosition.z) * (posEnnemi.z - myPosition.z));
 		Rigidbody rb = go.GetComponent<Rigidbody> ();
 		//Debug.Log ("test distance " + distance);
 
 		if (distance > distance_de_suivi) {
 
-			Vector3 v = posEnnemi - myPostion;
-			//v.x = v.x * (distance-distance_de_suivi)/100;
-			//v.y = v.y * (distance-distance_de_suivi)/100;
-			//v.z = v.z * (distance-distance_de_suivi)/100;
-			//rb.AddForce (v);
-			rb.velocity = v;
+			/*Vector3 v = posEnnemi - myPosition;
+			v=v.normalized;
+			v.x = v.x * go.GetComponent<Vivant> ().speedAgent; //* Time.deltaTime;
+			myPosition = v;
+			*/
+			propulse (go, posEnnemi);
 		} else {
 			rb.velocity = Vector3.zero;
 		}
@@ -108,8 +108,14 @@ public class Behaviour03Attaque : FSystem {
 			myBehaviour.cible_poursuite = null; 
 
 		}
-
-	
-
+	}
+	private static void propulse(GameObject him, Vector3 target){
+		Rigidbody rb = him.GetComponent<Rigidbody> ();
+		if (rb == null) return;
+		Vector3 v = target - him.transform.position;
+		rb.velocity = v;
+		if (rb.velocity.magnitude > him.GetComponent<Vivant> ().speedAgent) { // trop rapide !
+			rb.velocity = rb.velocity.normalized * him.GetComponent<Vivant> ().speedAgent * 4;
+		}
 	}
 }
