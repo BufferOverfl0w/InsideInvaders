@@ -528,7 +528,7 @@ MonoBehaviour:
   type: virus
   centreOfPatrouille: {x: 0, y: 0, z: 0}
   objectifCoord: {x: 0, y: 0, z: 0}
-  speedAgent: 20
+  speedAgent: 60
   angularSpeedAgent: 5
   accelerationAgent: 15
   rayonPatrouille: 50

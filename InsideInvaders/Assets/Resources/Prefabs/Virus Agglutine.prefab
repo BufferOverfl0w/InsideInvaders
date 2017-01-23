@@ -408,8 +408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929ad14c0dfcf174dbcd352cb6137513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_pv: 200
-  current_pv: 200
+  max_pv: 1500
+  current_pv: 1500
   type: virusagg
   centreOfPatrouille: {x: 0, y: 0, z: 0}
   objectifCoord: {x: 0, y: 0, z: 0}
