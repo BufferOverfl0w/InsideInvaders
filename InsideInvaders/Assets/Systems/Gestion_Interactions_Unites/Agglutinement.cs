@@ -4,7 +4,7 @@ using FYFY;
 public class Agglutinement : FSystem {
 	private Family _agglutinableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Agglutinable)));
 	private Family _agglutineurGO = FamilyManager.getFamily(new AllOfComponents(typeof(Agglutineur)));
-	public int seuil_agglutinement = 200;
+	public static int seuil_agglutinement = 200;
 
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.

@@ -9,6 +9,7 @@ public class ManageAllSprite : FSystem {
 	// Advice: avoid to update your families inside this function.
 
 	private Family _infectableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Infectable)));
+	private Family _agglutinableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Agglutinable)));
 	private Family _livingGO = FamilyManager.getFamily(new AllOfComponents(typeof(Vivant)),new NoneOfComponents(typeof(Toxique)), 
 		new NoneOfTags("Dechet"),new NoneOfTags("Anticorps"));
 
@@ -51,6 +52,7 @@ public class ManageAllSprite : FSystem {
 		manageCercleCible ();
 		manageShield ();
 		manageSlowingImg ();
+		manageProgressAgglutinement ();
 	}
 
 	private void manageCercleSelection(){
@@ -123,7 +125,27 @@ public class ManageAllSprite : FSystem {
 
 		}
 	}
+	private void manageProgressAgglutinement(){
+		foreach (GameObject go in _agglutinableGO) {
+			GameObject go_Progress = go.transform.Find ("Canvas/ProgressAgglutinement").gameObject;
+			ProgressRadialBehaviour progressInfect = go_Progress.GetComponent<ProgressRadialBehaviour> ();
+			Image img_progress = progressInfect.GetComponent<Image> ();
+			Agglutinable inf = go.GetComponent<Agglutinable> ();
+			float agglutinement = inf.progres_agglutinement;
 
+			if (agglutinement <= 0.0f)  {
+				img_progress.enabled = false;
+				progressInfect.Value = 0.0f;
+			} else {
+				img_progress.enabled = true;
+				float val = agglutinement;
+				val = (val * 100 / Agglutinement.seuil_agglutinement);
+				progressInfect.Value = val;
+			}
+			//Debug.Log ("value bar : " + progressInfect.Value);
+
+		}
+	}
 	private void manageHealthBar(){
 
 		foreach (GameObject go in _livingGO) {
