@@ -10,6 +10,7 @@ public class ManageAllSprite : FSystem {
 
 	private Family _infectableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Infectable)));
 	private Family _agglutinableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Agglutinable)));
+	private Family _specialisableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Specialisable)));
 	private Family _livingGO = FamilyManager.getFamily(new AllOfComponents(typeof(Vivant)),new NoneOfComponents(typeof(Toxique)), 
 		new NoneOfTags("Dechet"),new NoneOfTags("Anticorps"));
 
@@ -53,6 +54,7 @@ public class ManageAllSprite : FSystem {
 		manageShield ();
 		manageSlowingImg ();
 		manageProgressAgglutinement ();
+		manageProgressSpecialisation ();
 	}
 
 	private void manageCercleSelection(){
@@ -128,19 +130,42 @@ public class ManageAllSprite : FSystem {
 	private void manageProgressAgglutinement(){
 		foreach (GameObject go in _agglutinableGO) {
 			GameObject go_Progress = go.transform.Find ("Canvas/ProgressAgglutinement").gameObject;
-			ProgressRadialBehaviour progressInfect = go_Progress.GetComponent<ProgressRadialBehaviour> ();
-			Image img_progress = progressInfect.GetComponent<Image> ();
+			ProgressRadialBehaviour progressAggl = go_Progress.GetComponent<ProgressRadialBehaviour> ();
+			Image img_progress = progressAggl.GetComponent<Image> ();
 			Agglutinable inf = go.GetComponent<Agglutinable> ();
 			float agglutinement = inf.progres_agglutinement;
 
 			if (agglutinement <= 0.0f)  {
 				img_progress.enabled = false;
-				progressInfect.Value = 0.0f;
+				progressAggl.Value = 0.0f;
 			} else {
 				img_progress.enabled = true;
 				float val = agglutinement;
 				val = (val * 100 / Agglutinement.seuil_agglutinement);
-				progressInfect.Value = val;
+				progressAggl.Value = val;
+			}
+			//Debug.Log ("value bar : " + progressInfect.Value);
+
+		}
+	}
+	private void manageProgressSpecialisation(){
+		foreach (GameObject go in _specialisableGO) {
+			GameObject go_Progress = go.transform.Find ("Canvas/ProgressSpe").gameObject;
+			ProgressRadialBehaviour progressSpe = go_Progress.GetComponent<ProgressRadialBehaviour> ();
+			Image img_progress = progressSpe.GetComponent<Image> ();
+			Specialisable inf = go.GetComponent<Specialisable> ();
+			float spec_bact = inf.progres_spec_bacterien;
+			float spec_viral = inf.progres_spec_viral;
+			float value = (spec_bact >= spec_viral) ? spec_bact : spec_viral; // On affiche le plus avancé 
+
+			if (value <= 0.0f)  {
+				img_progress.enabled = false;
+				progressSpe.Value = 0.0f;
+			} else {
+				img_progress.enabled = true;
+				float val = value;
+				val = (val * 100 / Specialisation.seuil_specialisation);
+				progressSpe.Value = val;
 			}
 			//Debug.Log ("value bar : " + progressInfect.Value);
 

@@ -4,7 +4,7 @@ using FYFY;
 public class Specialisation : FSystem {
 	private Family _specialisableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Specialisable)));
 	private Family _specialisantGO = FamilyManager.getFamily(new AllOfComponents(typeof(Specialisant)));
-	public int seuil_specialisation = 150;
+	public static int seuil_specialisation = 150;
 
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
