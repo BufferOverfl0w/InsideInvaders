@@ -669,6 +669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_pv: 200
   current_pv: 200
+  type: dechet
   centreOfPatrouille: {x: 0, y: 0, z: 0}
   objectifCoord: {x: 0, y: 0, z: 0}
   speedAgent: 20

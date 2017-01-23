@@ -409,6 +409,18 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     _typeFullName: Behaviour04Protection
     _pause: 0
+  - _typeAssemblyQualifiedName: Behaviour05DeplacementAleatoire, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    _typeFullName: Behaviour05DeplacementAleatoire
+    _pause: 0
+  - _typeAssemblyQualifiedName: Behaviour06Infection, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: Behaviour06Infection
+    _pause: 0
+  - _typeAssemblyQualifiedName: Behaviour07Fuite, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: Behaviour07Fuite
+    _pause: 0
   - _typeAssemblyQualifiedName: RayDraw, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     _typeFullName: RayDraw

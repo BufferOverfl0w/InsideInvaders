@@ -4,6 +4,7 @@ public class Vivant : MonoBehaviour {
 	// Advice: FYFY component aims to contain only public members (according to Entity-Component-System paradigm).
 	public int max_pv = 200;
 	public float current_pv = 200;
+	public string type = "";
 
 	//Parametre 
 	[HideInInspector] 

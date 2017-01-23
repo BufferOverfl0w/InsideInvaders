@@ -197,7 +197,7 @@ Prefab:
     - target: {fileID: 114000010283055792, guid: b554576cd131a4648a18ea2412b5aa1d,
         type: 2}
       propertyPath: vitesse
-      value: 100
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b554576cd131a4648a18ea2412b5aa1d, type: 2}
@@ -505,10 +505,6 @@ MonoBehaviour:
       PublicKeyToken=null
     _typeFullName: Recuperation
     _pause: 0
-  - _typeAssemblyQualifiedName: DeplacementAleatoire, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    _typeFullName: DeplacementAleatoire
-    _pause: 0
   - _typeAssemblyQualifiedName: DegatsToxiques, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: DegatsToxiques
@@ -564,6 +560,18 @@ MonoBehaviour:
   - _typeAssemblyQualifiedName: Behaviour04Protection, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     _typeFullName: Behaviour04Protection
+    _pause: 0
+  - _typeAssemblyQualifiedName: Behaviour05DeplacementAleatoire, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    _typeFullName: Behaviour05DeplacementAleatoire
+    _pause: 0
+  - _typeAssemblyQualifiedName: Behaviour06Infection, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: Behaviour06Infection
+    _pause: 0
+  - _typeAssemblyQualifiedName: Behaviour07Fuite, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _typeFullName: Behaviour07Fuite
     _pause: 0
   - _typeAssemblyQualifiedName: RayDraw, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null

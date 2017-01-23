@@ -770,17 +770,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_pv: 200
   current_pv: 200
-  centreOfSphere: {x: 0, y: 0, z: 0}
-  objectif: {x: 0, y: 0, z: 0}
-  speed: 20
-  angularSpeed: 5
-  acceleration: 15
+  type: player
+  centreOfPatrouille: {x: 0, y: 0, z: 0}
+  objectifCoord: {x: 0, y: 0, z: 0}
+  speedAgent: 20
+  angularSpeedAgent: 5
+  accelerationAgent: 15
   rayonPatrouille: 50
-  rayonVue: 50
+  rayonVueAlerte: 50
   agent: {fileID: 0}
   lastDistance: 0
   nbSecBlocked: 0
-  waiForMaj: 0
+  waiForMajCentreOfPatrouille: 0
 --- !u!114 &114000013261459042
 MonoBehaviour:
   m_ObjectHideFlags: 1

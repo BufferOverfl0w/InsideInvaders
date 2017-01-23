@@ -6,13 +6,23 @@ public enum EnumBehaviour {
 	Patrouille = 1,
 	SuiviJoueur = 2,
 	Attaque = 3,
-	Protection = 4
+	Protection = 4,
+	Random = 5,
+	Infection = 6,
+	Fuite = 7
 }
 public class ManageBehaviours : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
 
 	private Family _behaviourGO = FamilyManager.getFamily(new AllOfComponents(typeof(Behaviour)));
+	private Family _vivantsGO = FamilyManager.getFamily(new AllOfComponents(typeof(Vivant)));
+	private Family _randomMoverGO = FamilyManager.getFamily(new AllOfComponents(typeof(MouvantAleatoire)));
+	private Family _infectieuxGO = FamilyManager.getFamily(new AllOfComponents(typeof(Infectieux)));
+	private Family _infectablesGO = FamilyManager.getFamily(new AllOfComponents(typeof(Infectable)));
+
+
+
 	//private Family _intrusGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamIntrus),typeof(Behaviour)));
 	//private Family _defensesGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamDefense),typeof(Behaviour)),new NoneOfComponents(typeof(ControllableByKeyboard)));
 
@@ -84,6 +94,46 @@ public class ManageBehaviours : FSystem {
 				go.GetComponent<Behaviour> ().index_currentBehaviour = EnumBehaviour.Patrouille;
 			}
 		}
+		//5-DeplacementAleatoire
+		foreach (GameObject go in _behaviourGO) {
+			if (_randomMoverGO.contains(go.GetInstanceID())) {
+				go.GetComponent<Behaviour> ().index_currentBehaviour = EnumBehaviour.Random;
+			}
+		}
+		//6-Infection
+		foreach (GameObject go1 in _behaviourGO) {
+			if (_infectieuxGO.contains (go1.GetInstanceID ())) {
+				foreach (GameObject go2 in _infectablesGO) {
+					Transform tr1 = go1.transform;
+					Transform tr2 = go2.transform;
+					float distance = Mathf.Sqrt ((tr1.position.x - tr2.position.x) * (tr1.position.x - tr2.position.x)
+					                 + (tr1.position.z - tr2.position.z) * (tr1.position.z - tr2.position.z));
+					if (distance < (go1.GetComponent<Vivant> ().rayonVueAlerte)) {
+						go1.GetComponent<Behaviour> ().cible_poursuite = go2;
+						go1.GetComponent<Behaviour> ().index_currentBehaviour = EnumBehaviour.Infection;
+					}
+				}
+			}
+		}
+		//7-Fuite
+		foreach (GameObject go1 in _behaviourGO) {
+			foreach (GameObject go2 in _vivantsGO) {
+				if (!go1.Equals (go2)) {
+					Transform tr1 = go1.transform;
+					Transform tr2 = go2.transform;
+					float distance = Mathf.Sqrt ((tr1.position.x - tr2.position.x) * (tr1.position.x - tr2.position.x)
+						+ (tr1.position.z - tr2.position.z) * (tr1.position.z - tr2.position.z));
+					
+					if (distance < (go1.GetComponent<Vivant> ().rayonVueAlerte)) {
+						if (myTargetIs (go1, go2) == -1) {
+							go1.GetComponent<Behaviour> ().cible_a_fuir = go2;
+							go1.GetComponent<Behaviour> ().index_currentBehaviour = EnumBehaviour.Fuite;
+						}
+					}
+				}
+			}
+		}
+
 
 //		foreach (GameObject go in _recuperableGO) {
 //			Debug.Log ("Current : "+go.GetComponent<CurrentBehaviour> ().index_behaviour);
@@ -144,7 +194,7 @@ public class ManageBehaviours : FSystem {
 		if (AIsToxiquable && BIsToxique)
 			return val;
 
-		//Si on arrive ici c'est que A n'a pas besoin de fuire B, olors on test si il peut l'attaquer
+		//Si on arrive ici c'est que A n'a pas besoin de fuir B, olors on test si il peut l'attaquer
 		if (val == -1) { // test si on est à la 1er récursion
 			return whatIs (goB, goA, 1); // A devient B et B devient A
 		}
@@ -153,7 +203,7 @@ public class ManageBehaviours : FSystem {
 		return 0; // A et B sont allié
 	}
 
-	public static Vector3 poinBbackToEnnemi(GameObject him, GameObject ennemi,float distanceBack){
+	public static Vector3 poinBbackToEnemy(GameObject him, GameObject ennemi,float distanceBack){
 		Vector3 tr1 = him.GetComponent<Transform>().position;
 		Vector3 tr2 = ennemi.GetComponent<Transform>().position;
 

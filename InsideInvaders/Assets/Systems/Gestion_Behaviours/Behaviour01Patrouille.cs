@@ -141,7 +141,7 @@ public class Behaviour01Patrouille : FSystem {
 					return;// on a trouvé une action pas besoin d'annalyser les autres
 				}else if(valueAttaque == -1){ // je dois fuire
 			
-					bdv.objectifCoord = ManageBehaviours.poinBbackToEnnemi(him,otherGo,bdv.rayonVueAlerte) ;
+					bdv.objectifCoord = ManageBehaviours.poinBbackToEnemy(him,otherGo,bdv.rayonVueAlerte) ;
 					bdv.agent.SetDestination(bdv.objectifCoord);
 					return;// on a trouvé une action pas besoin d'annalyser les autres
 				}
