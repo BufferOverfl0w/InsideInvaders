@@ -26,10 +26,7 @@ public class Behaviour04Protection : FSystem {
 				float distance = Mathf.Sqrt ((tr1.position.x - tr2.position.x) * (tr1.position.x - tr2.position.x)
 					+ (tr1.position.z - tr2.position.z) * (tr1.position.z - tr2.position.z));
 				Rigidbody rb = go.GetComponent<Rigidbody> ();
-				//Debug.Log ("test distance " + distance);
-
 				if (distance > distance_de_suivi) {
-
 					Vector3 v = tr1.position - tr2.position;
 					//v.x = v.x * (distance-distance_de_suivi)/100;
 					//v.y = v.y * (distance-distance_de_suivi)/100;

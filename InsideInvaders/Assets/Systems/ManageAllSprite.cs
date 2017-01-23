@@ -15,6 +15,9 @@ public class ManageAllSprite : FSystem {
 	private Family _recuperableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Recuperable)));
 	private Family _intrusGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamIntrus)));
 	private Family _defensesGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamDefense)));
+	private Family _ralentissableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Ralentissable)));
+	private Family _behaviourGO = FamilyManager.getFamily(new AllOfComponents(typeof(Behaviour)));
+
 	Gradient g;
 	protected override void onPause(int currentFrame) {
 	}
@@ -47,6 +50,7 @@ public class ManageAllSprite : FSystem {
 		manageCercleSelection();
 		manageCercleCible ();
 		manageShield ();
+		manageSlowingImg ();
 	}
 
 	private void manageCercleSelection(){
@@ -65,7 +69,8 @@ public class ManageAllSprite : FSystem {
 	}
 	private void manageCercleCible(){
 		List<GameObject> listPoursuivit = new List<GameObject>();
-		foreach (GameObject go in _recuperableGO) {
+		foreach (GameObject go in _behaviourGO) {
+			if (go.CompareTag ("Anticorps"))continue;
 			GameObject poursuivit = go.GetComponent<Behaviour> ().cible_poursuite;
 			if (poursuivit != null) {
 				listPoursuivit.Add(poursuivit);
@@ -82,7 +87,7 @@ public class ManageAllSprite : FSystem {
 
 	private void manageShield(){
 		List<GameObject> listProtege = new List<GameObject>();
-		foreach (GameObject go in _recuperableGO) {
+		foreach (GameObject go in _behaviourGO) {
 			GameObject protege = go.GetComponent<Behaviour> ().cible_protection;
 			if (protege != null) {
 				listProtege.Add(protege);
@@ -142,5 +147,15 @@ public class ManageAllSprite : FSystem {
 				img.color =  g.Evaluate (val/100);
 			}
 		}
+	}
+	private void manageSlowingImg(){
+		foreach (GameObject go in _ralentissableGO) {
+			Transform transform_Go = go.transform.Find("Canvas/slow");
+			if (transform_Go == null) continue;
+			GameObject slow_Go = transform_Go.gameObject;
+			if (slow_Go == null) continue;
+			slow_Go.SetActive (go.GetComponent<Ralentissable>().ralenti);
+		}
+
 	}
 }

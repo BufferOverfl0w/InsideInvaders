@@ -431,8 +431,8 @@ MonoBehaviour:
   speedAgent: 20
   angularSpeedAgent: 5
   accelerationAgent: 15
-  rayonPatrouille: 50
-  rayonVueAlerte: 50
+  rayonPatrouille: 100
+  rayonVueAlerte: 100
   agent: {fileID: 0}
   lastDistance: 0
   nbSecBlocked: 0

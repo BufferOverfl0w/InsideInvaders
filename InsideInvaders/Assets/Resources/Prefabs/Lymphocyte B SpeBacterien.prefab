@@ -200,8 +200,8 @@ GameObject:
   - 114: {fileID: 114000012501813196}
   - 122: {fileID: 122000014242682812}
   - 114: {fileID: 114000012134339552}
-  - 114: {fileID: 114000013927913562}
   - 114: {fileID: 114000010936129272}
+  - 114: {fileID: 114000010313292156}
   m_Layer: 0
   m_Name: Lymphocyte B SpeBacterien
   m_TagString: longRange
@@ -417,7 +417,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011463128364}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -99, y: 216.26544, z: -394.6}
+  m_LocalPosition: {x: -99, y: 250, z: -271.3}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -939,6 +939,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000010313292156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011463128364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a048f9bbef0b5734598b79c469859eca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000010936129272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1066,8 +1077,8 @@ MonoBehaviour:
   speedAgent: 20
   angularSpeedAgent: 5
   accelerationAgent: 15
-  rayonPatrouille: 50
-  rayonVueAlerte: 50
+  rayonPatrouille: 100
+  rayonVueAlerte: 200
   agent: {fileID: 0}
   lastDistance: 0
   nbSecBlocked: 0
@@ -1239,18 +1250,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114000013927913562
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011463128364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eac912ce87c701e4397c6f237fe413fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rayon_effet: 30
 --- !u!114 &114000014172662574
 MonoBehaviour:
   m_ObjectHideFlags: 1

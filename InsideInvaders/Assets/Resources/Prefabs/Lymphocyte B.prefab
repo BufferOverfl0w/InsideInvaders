@@ -193,7 +193,6 @@ GameObject:
   - 114: {fileID: 114000014266941962}
   - 114: {fileID: 114000014034601466}
   - 114: {fileID: 114000013988234270}
-  - 114: {fileID: 114000010974691864}
   - 54: {fileID: 54000010562300140}
   - 114: {fileID: 114000012159486112}
   - 195: {fileID: 195000012178715704}
@@ -1029,20 +1028,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 0
   m_FillOrigin: 2
---- !u!114 &114000010974691864
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012181218482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf9b8688d0419c48b5a5b70ece497b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  infecte: 0
-  progres_infection: 0
-  timeForInfect: 5
 --- !u!114 &114000011632119848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1061,8 +1046,8 @@ MonoBehaviour:
   speedAgent: 20
   angularSpeedAgent: 5
   accelerationAgent: 15
-  rayonPatrouille: 50
-  rayonVueAlerte: 50
+  rayonPatrouille: 100
+  rayonVueAlerte: 100
   agent: {fileID: 0}
   lastDistance: 0
   nbSecBlocked: 0

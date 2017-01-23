@@ -76,8 +76,8 @@ GameObject:
   - 114: {fileID: 114000010665426428}
   - 122: {fileID: 122000012315790584}
   - 114: {fileID: 114000014285956412}
-  - 114: {fileID: 114000013315274654}
   - 114: {fileID: 114000013854089806}
+  - 114: {fileID: 114000012007037788}
   m_Layer: 0
   m_Name: Lymphocyte B SpeViral
   m_TagString: longRange
@@ -346,7 +346,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011430484752}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -62.346313, y: 213.35307, z: -398.2}
+  m_LocalPosition: {x: -62.346313, y: 250, z: -398.2}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -1042,6 +1042,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de38b1cc1f84dd845894ab35caf483c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114000012007037788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011430484752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82778530b6054c94baa3f2ad1f3e73bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000012165346950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1063,19 +1074,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114000013315274654
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011430484752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34f939d734b3207489b12eb8b8e84089, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VirusAgglutine: {fileID: 0}
-  progres_agglutinement: 0
 --- !u!114 &114000013367758268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1167,8 +1165,8 @@ MonoBehaviour:
   speedAgent: 20
   angularSpeedAgent: 5
   accelerationAgent: 15
-  rayonPatrouille: 50
-  rayonVueAlerte: 50
+  rayonPatrouille: 100
+  rayonVueAlerte: 200
   agent: {fileID: 0}
   lastDistance: 0
   nbSecBlocked: 0

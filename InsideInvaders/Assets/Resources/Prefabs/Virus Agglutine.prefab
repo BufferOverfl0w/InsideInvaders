@@ -62,7 +62,6 @@ GameObject:
   - 114: {fileID: 114000013907093962}
   - 114: {fileID: 114000013915283198}
   - 114: {fileID: 114000011423009636}
-  - 114: {fileID: 114000011705913940}
   m_Layer: 0
   m_Name: Virus Agglutine
   m_TagString: Untagged
@@ -422,21 +421,6 @@ MonoBehaviour:
   lastDistance: 0
   nbSecBlocked: 0
   waiForMajCentreOfPatrouille: 0
---- !u!114 &114000011705913940
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011679809644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eacbf46b819c364880f2244aee8bea5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index_currentBehaviour: 0
-  index_lastBehaviour: 0
-  cible_poursuite: {fileID: 0}
-  cible_protection: {fileID: 0}
 --- !u!114 &114000012143537220
 MonoBehaviour:
   m_ObjectHideFlags: 1

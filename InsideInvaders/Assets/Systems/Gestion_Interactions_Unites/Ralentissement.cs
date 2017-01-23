@@ -17,17 +17,22 @@ public class Ralentissement : FSystem {
 
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
-		foreach (GameObject go1 in _ralentisseurGO) {
+		foreach (GameObject go1 in _ralentisseurGO) 
+		{
 			float rayon_effet = go1.GetComponent<Ralentisseur> ().rayon_effet;
 			Transform tr1 = go1.GetComponent<Transform> ();
-			foreach (GameObject go2 in _ralentissableGO) {
+			foreach (GameObject go2 in _ralentissableGO) 
+			{				
 				Transform tr2 = go2.GetComponent<Transform> ();
 				float distance = Mathf.Sqrt ((tr1.position.x - tr2.position.x) * (tr1.position.x - tr2.position.x)
 					+ (tr1.position.z - tr2.position.z) * (tr1.position.z - tr2.position.z));
-				if (distance < rayon_effet && go2.GetComponent<Ralentissable>().ralenti == false && go2.GetComponent<MouvantAleatoire>() != null) {
+				//Debug.Log ("distance "+distance);
+				if (distance < rayon_effet && go2.GetComponent<Ralentissable>().ralenti == false && go2.GetComponent<MouvantAleatoire>() != null) 
+				{
+					//Debug.Log ("la");
 					go2.GetComponent<Ralentissable> ().ralenti = true;
 					go2.GetComponent<MouvantAleatoire> ().vitesse /= 2;
-					if (go2.tag == "Bacterie")
+					if (go2.GetComponent<GenerateurToxines> ()!=null)
 						go2.GetComponent<GenerateurToxines> ().periode *= 2;
 				}
 			}

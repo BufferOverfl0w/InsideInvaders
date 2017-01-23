@@ -30,7 +30,6 @@ GameObject:
   - 114: {fileID: 114000011433399662}
   - 114: {fileID: 114000010228732974}
   - 114: {fileID: 114000013908939366}
-  - 114: {fileID: 114000012575388386}
   m_Layer: 0
   m_Name: Virus
   m_TagString: Virus
@@ -448,21 +447,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: ProgressBar.Utils.OnCompleteEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114000012575388386
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010329856722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eacbf46b819c364880f2244aee8bea5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index_currentBehaviour: 0
-  index_lastBehaviour: 0
-  cible_poursuite: {fileID: 0}
-  cible_protection: {fileID: 0}
 --- !u!114 &114000012969367158
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -32,7 +32,7 @@ public class DegatsAbsorbtion : FSystem {
 				float distance = Mathf.Sqrt ((tr1.position.x - tr2.position.x) * (tr1.position.x - tr2.position.x)
 					+ (tr1.position.z - tr2.position.z) * (tr1.position.z - tr2.position.z));
 				if (distance < rayon_effet) {
-					Debug.Log ("je fais des degats");
+					//Debug.Log ("je fais des degats");
 					go2.GetComponent<Vivant> ().current_pv -= degats_absorbtion;
 				}
 			}
@@ -42,7 +42,7 @@ public class DegatsAbsorbtion : FSystem {
 				float distance = Mathf.Sqrt ((tr1.position.x - tr3.position.x) * (tr1.position.x - tr3.position.x)
 					+ (tr1.position.z - tr3.position.z) * (tr1.position.z - tr3.position.z));
 				if (distance < rayon_effet) {
-					Debug.Log ("je fais des degats");
+					//Debug.Log ("je fais des degats");
 					go3.GetComponent<Vivant> ().current_pv -= degats_absorbtion;
 					if (go3.GetComponent<Vivant> ().current_pv <= 0) {
 						go3.GetComponent<Infectable> ().infecte = false;

@@ -12,7 +12,7 @@ public class Recuperation : FSystem {
 	private Family _defensesGO = FamilyManager.getFamily(new AllOfComponents(typeof(TeamDefense)));
 
 	private Image img_Cursor;
-
+	private static float maxSpeed = 300.0f;
 
 	protected override void onPause(int currentFrame) {
 
@@ -65,7 +65,7 @@ public class Recuperation : FSystem {
 		}
 	}
 	private void envoi(Camera camera){
-		float force_envoi = 50f;
+		//float force_envoi = 50f;
 
 		//Si clic droit, envoi des unités vers pos curseur
 		if (Input.GetMouseButton (1)) {
@@ -77,73 +77,71 @@ public class Recuperation : FSystem {
 					foreach (GameObject go in _recuperableGO) {
 						if (go.GetComponent<Recuperable> ().recupere == true) {
 
-							//Test si le joueur à cliqué sur la même unité ( une unité ne peux pas se defendre seul
+							//Test si le joueur à cliqué sur la même unité ( une unité ne peux pas se defendre elle même
 							if(!go_hit.Equals(go)){
-								Rigidbody rb = go.GetComponent<Rigidbody> ();
-								Vector3 v = hit.point - go.transform.position;
 								go.GetComponent<Recuperable> ().recupere = false;
 								go.GetComponent<Behaviour> ().cible_protection = go_hit;
-								v.x = v.x * force_envoi;
-								v.y = 0;
-								v.z = v.z * force_envoi;
-								float vitesse = Mathf.Sqrt (v.x * v.x + v.z * v.z);
-								if (vitesse > 8000) {
-									v.x /= (vitesse / 8000);
-									v.z /= (vitesse / 8000);
-								}
-								rb.velocity = Vector3.zero;
-								rb.AddForce (v);
+								propulse (go, hit.point);
 							}
 						}
 					}
 				} else if (_intrusGO.contains (go_hit.GetInstanceID ())) { // si on a ciblé une unité ennemie
-					Debug.Log("Unité ennemie ciblée");
+					//Debug.Log("Unité ennemie ciblée");
 					foreach (GameObject go in _recuperableGO) {
 						if (go.GetComponent<Recuperable> ().recupere == true) {
-
-							Rigidbody rb = go.GetComponent<Rigidbody> ();
-							Vector3 v = hit.point - go.transform.position;
 							go.GetComponent<Recuperable> ().recupere = false;
-							go.GetComponent<Behaviour> ().cible_poursuite = go_hit;
+							bool isLymphSpe = go.CompareTag ("longRange");
+							bool canWin = (ManageBehaviours.myTargetIs (go, go_hit) == 1);
 
-							if(!go.CompareTag("longRange")){
-								// on lance l'unité si elle n'attaque pas à distance.
-								v.x = v.x * force_envoi;
-								v.y = 0;
-								v.z = v.z * force_envoi;
-								float vitesse = Mathf.Sqrt (v.x * v.x + v.z * v.z);
-								if (vitesse > 8000) {
-									v.x /= (vitesse / 8000);
-									v.z /= (vitesse / 8000);
-								}
-								rb.velocity = Vector3.zero;
-								rb.AddForce (v);
+							if ((!isLymphSpe) || (isLymphSpe && (canWin))) {
+								// on donne une cible si go n'est pas un Lynphosite Spé
+								// ou, on lance un Anticorps si c'est la bonne cible
+								go.GetComponent<Behaviour> ().cible_poursuite = go_hit;
 							}
 
+							if ((!isLymphSpe) || (isLymphSpe&&(!canWin))) {
+								// on lance l'unité si go n'est pas un Lynphosite Spé
+								// ou, on lance l'unité si go est un Lynphosite Spé avec une mauvaise cible 
+								// ( pas d'anticorps de crée) 
+								propulse (go, hit.point);
+							}
 
 						}
 					}
 				} else {
 					foreach (GameObject go in _recuperableGO) {
 						if (go.GetComponent<Recuperable> ().recupere == true) {
-							Rigidbody rb = go.GetComponent<Rigidbody> ();
-							Vector3 v = hit.point - go.transform.position;
 							go.GetComponent<Recuperable> ().recupere = false;
-							v.x = v.x * force_envoi;
-							v.y = 0;
-							v.z = v.z * force_envoi;
-							float vitesse = Mathf.Sqrt (v.x * v.x + v.z * v.z);
-							if (vitesse > 8000) {
-								v.x /= (vitesse / 8000);
-								v.z /= (vitesse / 8000);
-							}
-
-							rb.velocity = Vector3.zero;
-							rb.AddForce (v);
+							propulse (go, hit.point);
 						}
 					}
 				}
 			}
 		}
+	}
+	private static void propulse(GameObject him, Vector3 target){
+		Rigidbody rb = him.GetComponent<Rigidbody> ();
+		if (rb == null) return;
+		Vector3 v = target - him.transform.position;
+		rb.velocity = v;
+		if (rb.velocity.magnitude > Recuperation.maxSpeed) { // trop rapide !
+			rb.velocity = rb.velocity.normalized * Recuperation.maxSpeed;
+		}
+	
+		//Vector3 v = (hit.point + hit.normal) - go.transform.position;
+		//							foreach (GameObject player in _playerGO) {
+		//								player.GetComponent<ControllableByKeyboard> ().point = (hit.point + hit.normal);
+		//							}
+		//v.x = v.x * force_envoi;
+		//v.y = 0;
+		//v.z = v.z * force_envoi;
+		//float vitesse = Mathf.Sqrt (v.x * v.x + v.z * v.z);
+		//if (vitesse > 8000) {
+		//	v.x /= (vitesse / 8000);
+		//	v.z /= (vitesse / 8000);
+		//}
+		//rb.velocity = Vector3.zero;
+		//rb.AddForce (v);
+
 	}
 }

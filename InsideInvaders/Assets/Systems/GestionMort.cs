@@ -7,8 +7,8 @@ public class GestionMort : FSystem {
 	private Family _vivantsGO = FamilyManager.getFamily(new AllOfComponents(typeof(Vivant)), new NoneOfComponents(typeof(Infectable)));
 	private Family _bacteries_puresGO = FamilyManager.getFamily(new AnyOfTags("Bacterie"));
 	private Family _vivantsInfectablesGO = FamilyManager.getFamily(new AllOfComponents(typeof(Vivant),typeof(Infectable)));
-	private Family _recuperablesGO = FamilyManager.getFamily(new AllOfComponents(typeof(Recuperable)));
-
+	private Family _behaviourGO = FamilyManager.getFamily(new AllOfComponents(typeof(Behaviour)));
+	private Family _anticorpsGO = FamilyManager.getFamily(new AnyOfTags("Anticorps"));
 	protected override void onPause(int currentFrame) {
 	}
 
@@ -17,13 +17,19 @@ public class GestionMort : FSystem {
 	protected override void onResume(int currentFrame){
 	}
 
-
+//	Debug.Log ("go2 " + go2.name +"cible ; "+behav.cible_poursuite.name);
+//	Debug.Log ("go " + go.name);
+//
+//		if (go2.CompareTag ("Anticorps")) {
+//			Debug.Log ("Anticorps");
+//			GameObjectManager.destroyGameObject (go2);
+//	}
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
 		Transform tr;
 		foreach (GameObject go in _vivantsGO){
 			if (go.GetComponent<Vivant>().current_pv <= 0){
-				foreach (GameObject go2 in _recuperablesGO){
+				foreach (GameObject go2 in _behaviourGO){
 					Behaviour behav = go2.GetComponent<Behaviour> ();
 					if (behav.cible_poursuite != null) {
 						if (behav.cible_poursuite.Equals (go)){
@@ -45,6 +51,15 @@ public class GestionMort : FSystem {
 			if (go.GetComponent<Vivant>().current_pv <= 0){
 				tr = go.GetComponent<Transform> ();
 
+				foreach (GameObject anticorps in _anticorpsGO){
+					Behaviour behav = anticorps.GetComponent<Behaviour> ();
+					if (behav.cible_poursuite != null) {
+						if (behav.cible_poursuite.Equals (go)){
+							behav.cible_poursuite = null;
+							GameObjectManager.destroyGameObject(anticorps);
+						}
+					}
+				}
 				if (go.GetComponent<Infectable> ().infecte == true) {
 					GameObjectManager.destroyGameObject (go);
 					GameObject new_go = GameObjectManager.instantiatePrefab ("Prefabs/Virus");

@@ -7,6 +7,15 @@ public class DebugPatrouille : MonoBehaviour {
 		GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>() ;
 		foreach (GameObject obj in allObjects)
 		{
+//			ControllableByKeyboard control = obj.GetComponent<ControllableByKeyboard> (); 
+//			if (control != null) {
+//				Vector3 p = control.point;
+//				if (p != null) {
+//					Gizmos.color = new Color(0.0f,255.0f,0.0f,255f);
+//					Gizmos.DrawSphere (p, 5);  // on dessine le cercle de vision.
+//				}
+//
+//			}
 			Behaviour behav = obj.GetComponent<Behaviour> ();
 			if (behav == null) continue;
 			if (behav.index_currentBehaviour != EnumBehaviour.Patrouille) continue;

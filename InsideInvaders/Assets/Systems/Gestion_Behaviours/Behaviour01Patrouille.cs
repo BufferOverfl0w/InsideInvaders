@@ -39,9 +39,6 @@ public class Behaviour01Patrouille : FSystem {
 		Vivant bdv = null;
 		NavMeshAgent newAgent = null;
 		bdv = go.GetComponent<Vivant> ();
-		if (bdv == null) {
-			Debug.Log ("FUCK");
-		}
 
 		if (bdv.centreOfPatrouille == Vector3.zero) {
 			bdv.centreOfPatrouille = go.transform.position; // on mets à jours le centre du cerle
@@ -137,10 +134,11 @@ public class Behaviour01Patrouille : FSystem {
 			if (distance < bdv.rayonVueAlerte) {
 				int valueAttaque = ManageBehaviours.myTargetIs (him, otherGo);
 				if (valueAttaque == 1) { // je peux attaquer
+					Debug.Log("Attaque");
 					him.GetComponent<Behaviour> ().cible_poursuite = otherGo;
 					return;// on a trouvé une action pas besoin d'annalyser les autres
 				}else if(valueAttaque == -1){ // je dois fuire
-			
+					Debug.Log("fuite");
 					bdv.objectifCoord = ManageBehaviours.poinBbackToEnnemi(him,otherGo,bdv.rayonVueAlerte) ;
 					bdv.agent.SetDestination(bdv.objectifCoord);
 					return;// on a trouvé une action pas besoin d'annalyser les autres

@@ -36,10 +36,19 @@ public class Agglutinement : FSystem {
 		}
 		foreach (GameObject go2 in _agglutinableGO) {
 			if (go2.GetComponent<Agglutinable> ().progres_agglutinement >= seuil_agglutinement) {
+				// on suprime l'anticorps si le virus est Agglutine
+				foreach (GameObject go1 in _agglutineurGO) {
+					GameObject cible = go1.GetComponent<Behaviour> ().cible_poursuite;
+					if(cible.Equals(go2)){
+						GameObjectManager.destroyGameObject (go1);
+						break;
+					}
+				}
 				Transform tr2 = go2.GetComponent<Transform> ();
 				GameObjectManager.destroyGameObject (go2);
 				GameObject go = GameObjectManager.instantiatePrefab ("Prefabs/Virus Agglutine");
 				go.transform.position = tr2.position;
+				
 			}
 		}
 	}

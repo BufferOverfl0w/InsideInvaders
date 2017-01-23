@@ -7,4 +7,5 @@ public class ControllableByKeyboard : MonoBehaviour {
 	public float mouseSensibility = 150.0f;
 	public bool inverseMouse = false;
 
+	//public Vector3 point;
 }
