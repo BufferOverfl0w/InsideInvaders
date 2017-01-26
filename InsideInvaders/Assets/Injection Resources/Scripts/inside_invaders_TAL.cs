@@ -43,7 +43,8 @@ namespace inside_invaders_TAL
         MOD_AGAIN,
 
 		// confirmation
-		POS_HERE
+		HERE,
+		NOT_UNDERSTAND
     }
 
     // concept
@@ -246,40 +247,51 @@ namespace inside_invaders_TAL
         public static void responses_init()
         {
             staticAllResponses = new List<Response>();
-			addToResponses ("Ici?", concept_ID.POS_HERE);
-			addToResponses ("Par là?", concept_ID.POS_HERE);
-			addToResponses ("C'est bon ici?", concept_ID.POS_HERE);
+			addToResponses ("Ici?", concept_ID.HERE);
+			addToResponses ("Par là?", concept_ID.HERE);
+			addToResponses ("C'est bon ici?", concept_ID.HERE);
+
+			addToResponses ("Je n'ai pas compris.", concept_ID.NOT_UNDERSTAND);
+			addToResponses ("Quoi ?! .", concept_ID.NOT_UNDERSTAND);
+			addToResponses ("Heu ... Tu peux répéter.", concept_ID.NOT_UNDERSTAND);
         }
 
         // choisit la reponse la plus pertinente par rapport a une phrase de l'utilisateur
         public static string getBestResponse(List<concept_ID> sentenceConcepts, bool hasMoved)
         {
-			if(sentenceConcepts!=null)
-				UnityEngine.Debug.Log ("sentenceConcepts "+ sentenceConcepts.ToString());
+//			if (sentenceConcepts != null) {
+//				UnityEngine.Debug.Log ("===sentenceConcepts===");
+//				foreach( concept_ID  val in sentenceConcepts ){
+//					Debug.Log ("val : "+val.ToString());
+//				}
+//			}
 			if (hasMoved) {
-				return getResponseByID (concept_ID.POS_HERE).getRandomText ();
+				return getResponseByID (concept_ID.HERE).getRandomText ();
 				// return "Ici?";
 			}
              
-
-			int[] responseConceptCount = new int[staticAllResponses.Count];
-			for (int iR = 0; iR < staticAllResponses.Count; ++iR) {
-				responseConceptCount [iR] = 0;
-				foreach (concept_ID c in sentenceConcepts)
-					if (staticAllResponses [iR].responseConcept.Equals(c))
-						++responseConceptCount [iR];
+			if (sentenceConcepts.Count != 0) {
+				int[] responseConceptCount = new int[staticAllResponses.Count];
+				for (int iR = 0; iR < staticAllResponses.Count; ++iR) {
+					responseConceptCount [iR] = 0;
+					foreach (concept_ID c in sentenceConcepts)
+						if (staticAllResponses [iR].responseConcept.Equals(c))
+							++responseConceptCount [iR];
+				}
+				int max = int.MinValue;
+				int iMax = -1;
+				for (int iR = 0; iR < staticAllResponses.Count; ++iR)
+					if (responseConceptCount[iR] > max)
+					{
+						max = responseConceptCount[iR];
+						iMax = iR;
+					}
+				if (iMax > -1)
+					return staticAllResponses[iMax].getRandomText();
 			}
-			int max = int.MinValue;
-            int iMax = -1;
-            for (int iR = 0; iR < staticAllResponses.Count; ++iR)
-                if (responseConceptCount[iR] > max)
-                {
-                    max = responseConceptCount[iR];
-                    iMax = iR;
-                }
-            if (iMax > -1)
-				return staticAllResponses[iMax].getRandomText();
-            return "Je n'ai pas compris.";
+
+			return getResponseByID (concept_ID.NOT_UNDERSTAND).getRandomText ();
+			//return "Je n'ai pas compris.";
         }
 
         // decide le mouvement du viseur

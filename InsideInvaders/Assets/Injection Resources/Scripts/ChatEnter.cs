@@ -22,12 +22,15 @@ public class ChatEnter : MonoBehaviour {
 
 		List<concept_ID> sentenceConcepts = Concept.getConcepts (user_text);
 		float[] d = Response.getMovement (sentenceConcepts, Aim.position.x, Aim.position.y);
-		//Debug.Log ("test");
-		if (d[2] != -1) {
-			newAimPosition = new Vector3 (d[0], d[1], 0f);
-			t = Response.getBestResponse (null, true);
+//		Debug.Log ("----");
+//		foreach( var a in d ){
+//			Debug.Log ("a : "+a);
+//		}
+		bool hasMoved = (d [2] != -1);
+		if (hasMoved) {
+			newAimPosition = new Vector3 (d [0], d [1], 0f);
 		}
-
+		t = Response.getBestResponse (sentenceConcepts, hasMoved);
 		t += '\n';
 		GameObject newText = (GameObject)Instantiate(BotTextPrefab, new Vector3(0, 0, 0), Quaternion.identity);
 		newText.transform.SetParent(ChatContent.transform);
