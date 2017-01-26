@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using UnityEngine;
 
 namespace inside_invaders_TAL
 {
@@ -39,7 +40,10 @@ namespace inside_invaders_TAL
         MOD_MORE,
         MOD_NEG,
         MOD_POS,
-        MOD_AGAIN
+        MOD_AGAIN,
+
+		// confirmation
+		POS_HERE
     }
 
     // concept
@@ -188,65 +192,93 @@ namespace inside_invaders_TAL
     public class Response
     {
         // texte et concepts de la reponse
-        public string text;
-        public List<concept_ID> responseConcepts;
+		private List<string> listeMotsPossibles;
+		private concept_ID responseConcept;
 
-        public Response(string text, concept_ID ID)
+		// liste des reponses possibles
+		public static List<Response> staticAllResponses;
+
+        public Response(string word, concept_ID ID)
         {
-            this.text = text;
-            responseConcepts = new List<concept_ID>();
-            responseConcepts.Add(ID);
+			if((word==null) || (word.Equals(""))){
+				throw new Exception ("Word can't be empty !");
+			}
+			listeMotsPossibles = new List<string>();
+			listeMotsPossibles.Add (word);
+			responseConcept = ID;
         }
+		public Response( List<string> words, concept_ID ID)
+		{
+			if((words==null) || (words.Count==0) || (words[0].Equals(""))){
+				throw new Exception ("Word can't be empty !");
+			}
+			listeMotsPossibles = words;
+			responseConcept = ID;
+		}
+		public string getRandomText(){
+			int valRdm = UnityEngine.Random.Range (0, listeMotsPossibles.Count);
+			return listeMotsPossibles [valRdm];
+		}
 
-        // liste des reponses possibles
-        public static List<Response> responses;
+		// retrouve la Response d'un ID dans la liste
+		public static Response getResponseByID(concept_ID ID){
+			foreach (Response rep in staticAllResponses)
+				if (rep.responseConcept.Equals(ID))
+					return rep;
+			return null;
+		}
 
         // ajout d'un concept a une reponse
-        public static void addToResponses(string text, concept_ID ID)
-        {
-            for(int iR=0; iR<responses.Count; ++iR)
-            {
-                if(responses[iR].text == text)
-                {
-                    if (responses[iR].responseConcepts.Contains(ID))
-                        return;
-                    responses[iR].responseConcepts.Add(ID);
-                    return;
-                }
-            }
-            responses.Add(new Response(text, ID));
-        }
+        public static void addToResponses(string text, concept_ID ID){
+			foreach (Response rep  in staticAllResponses) {
+				if (rep.responseConcept.Equals (ID)) {
+					// Le concept est déjà dans la liste
+					if (!rep.listeMotsPossibles.Contains(text))
+						rep.listeMotsPossibles.Add (text);
+					return;
+				}
+			}
+			staticAllResponses.Add(new Response(text, ID));
+		}
+
 
         // initialisaiton de la liste des reponses
         public static void responses_init()
         {
-            responses = new List<Response>();
-
-
+            staticAllResponses = new List<Response>();
+			addToResponses ("Ici?", concept_ID.POS_HERE);
+			addToResponses ("Par là?", concept_ID.POS_HERE);
+			addToResponses ("C'est bon ici?", concept_ID.POS_HERE);
         }
 
         // choisit la reponse la plus pertinente par rapport a une phrase de l'utilisateur
         public static string getBestResponse(List<concept_ID> sentenceConcepts, bool hasMoved)
         {
-            if (hasMoved)
-                return "Ici?";
-            float[] responseConceptCount = new float[responses.Count];
-			for (int iR = 0; iR < responses.Count; ++iR) {
-				responseConceptCount [iR] = 0f;
+			if(sentenceConcepts!=null)
+				UnityEngine.Debug.Log ("sentenceConcepts "+ sentenceConcepts.ToString());
+			if (hasMoved) {
+				return getResponseByID (concept_ID.POS_HERE).getRandomText ();
+				// return "Ici?";
+			}
+             
+
+			int[] responseConceptCount = new int[staticAllResponses.Count];
+			for (int iR = 0; iR < staticAllResponses.Count; ++iR) {
+				responseConceptCount [iR] = 0;
 				foreach (concept_ID c in sentenceConcepts)
-					if (responses [iR].responseConcepts.Contains (c))
+					if (staticAllResponses [iR].responseConcept.Equals(c))
 						++responseConceptCount [iR];
 			}
-            float max = 0f;
+			int max = int.MinValue;
             int iMax = -1;
-            for (int iR = 0; iR < responses.Count; ++iR)
+            for (int iR = 0; iR < staticAllResponses.Count; ++iR)
                 if (responseConceptCount[iR] > max)
                 {
                     max = responseConceptCount[iR];
                     iMax = iR;
                 }
             if (iMax > -1)
-                return responses[iMax].text;
+				return staticAllResponses[iMax].getRandomText();
             return "Je n'ai pas compris.";
         }
 

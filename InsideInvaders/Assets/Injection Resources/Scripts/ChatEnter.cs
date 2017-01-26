@@ -22,6 +22,7 @@ public class ChatEnter : MonoBehaviour {
 
 		List<concept_ID> sentenceConcepts = Concept.getConcepts (user_text);
 		float[] d = Response.getMovement (sentenceConcepts, Aim.position.x, Aim.position.y);
+		//Debug.Log ("test");
 		if (d[2] != -1) {
 			newAimPosition = new Vector3 (d[0], d[1], 0f);
 			t = Response.getBestResponse (null, true);
