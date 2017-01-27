@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour {
 
+	public static string mission_Name;
 	public void SelectMission(){
 		SceneManager.LoadScene ("menu missions");
 	}
@@ -14,35 +15,44 @@ public class Menu : MonoBehaviour {
 	}
 
 	public void m1(){
-		SceneManager.LoadScene ("mission_01");
+		mission_Name = "mission_01";
+		//ChatEnter chat = new ChatEnter ();
+		SceneManager.LoadScene ("injection");
 	}
 
 	public void m2(){
-		SceneManager.LoadScene ("mission_02");
+		mission_Name = "mission_02";
+		SceneManager.LoadScene ("injection");
 	}
 
 	public void m3(){
-		SceneManager.LoadScene ("mission_03");
+		mission_Name = "mission_03";
+		SceneManager.LoadScene ("injection");
 	}
 
 	public void m4(){
-		SceneManager.LoadScene ("mission_04");
+		mission_Name = "mission_04";
+		SceneManager.LoadScene ("injection");
 	}
 
 	public void m5(){
-		SceneManager.LoadScene ("mission_05");
+		mission_Name = "mission_05";
+		SceneManager.LoadScene ("injection");
 	}
 
 	public void m6(){
-		SceneManager.LoadScene ("mission_06");
+		mission_Name = "mission_06";
+		SceneManager.LoadScene ("injection");
 	}
 
 	public void m7(){
-		SceneManager.LoadScene ("mission_07");
+		mission_Name = "mission_07";
+		SceneManager.LoadScene ("injection");
 	}
 
 	public void m8(){
-		SceneManager.LoadScene ("mission_08");
+		mission_Name = "mission_08";
+		SceneManager.LoadScene ("injection");
 	}
 
 	public void Retour(){

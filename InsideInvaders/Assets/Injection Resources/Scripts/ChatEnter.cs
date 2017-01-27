@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using inside_invaders_TAL;
+using UnityEngine.SceneManagement;
 
 public class ChatEnter : MonoBehaviour {
 	public InputField InputText;
@@ -28,7 +29,7 @@ public class ChatEnter : MonoBehaviour {
 		string t = "";
 		//t = user_text; //test
 
-		List<concept_ID> sentenceConcepts = Concept.getConcepts (user_text);
+		List<concept_ID> sentenceConcepts = Concept.getConcepts2(user_text);
 		float[] d = Response.getMovement (sentenceConcepts, Aim.position.x, Aim.position.y);
         //Debug.Log ("test");
         newAimPosition = new Vector3 (d[0], d[1], 0f);
@@ -40,6 +41,9 @@ public class ChatEnter : MonoBehaviour {
 		newText.transform.SetParent(ChatContent.transform);
 		newText.GetComponent<Text>().text = t;
 		Scroll.value = 0;
+		if(sentenceConcepts.Contains(concept_ID.INJECT)){
+			Invoke("inject", 0.1f);
+		}
 	}
 
 	public void chatEnter() {
@@ -62,13 +66,17 @@ public class ChatEnter : MonoBehaviour {
 	}
 
 	public void inject(){
-        if (Vector3.Distance(Aim.position, DangerZone.position) < 50)
-        {
-            Debug.Log("Injection reussie");
-            // start mission
-        }
-        else
-            Debug.Log("Injection ratee");
+		if (Vector3.Distance (Aim.position, DangerZone.position) < 50) {
+			Debug.Log ("Injection reussie");
+			// start mission
+			SceneManager.LoadScene (Menu.mission_Name);
+		} else {
+			Debug.Log ("Injection ratee");
+			GameObject newText = (GameObject)Instantiate(BotTextPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+			newText.transform.SetParent(ChatContent.transform);
+			newText.GetComponent<Text>().text = "Injection ratee \n";
+			Scroll.value = 0;
+		}
     }
 
 	// Use this for initialization

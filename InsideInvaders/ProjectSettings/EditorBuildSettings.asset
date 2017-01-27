@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Single TPS Controller/Base.unity
-  - enabled: 0
     path: Assets/Scenes/test.unity
+  - enabled: 0
+    path: Assets/Single TPS Controller/Base.unity
   - enabled: 0
     path: Assets/Scenes/test_recuperation.unity
   - enabled: 1
@@ -33,3 +33,5 @@ EditorBuildSettings:
     path: Assets/Scenes/mission_08.unity
   - enabled: 1
     path: Assets/Scenes/fin.unity
+  - enabled: 1
+    path: Assets/Scenes/injection.unity

@@ -48,33 +48,36 @@ public class FinMission01 : FSystem {
 
 	void charger_mission_suivante(){
 		string scene_name = SceneManager.GetActiveScene().name;
-
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.None;
 		switch(scene_name){
-			case "mission_01":
-				SceneManager.LoadScene("mission_02",LoadSceneMode.Single);
+		case "mission_01":
+			
+				Menu.mission_Name = "mission_02";
 				break;
 			case "mission_02":
-				SceneManager.LoadScene("mission_03",LoadSceneMode.Single);
+				Menu.mission_Name = "mission_03";
 				break;
 			case "mission_03":
-				SceneManager.LoadScene("mission_04",LoadSceneMode.Single);
+				Menu.mission_Name = "mission_04";
 				break;
 			case "mission_04":
-				SceneManager.LoadScene("mission_05",LoadSceneMode.Single);
+				Menu.mission_Name = "mission_05";
 				break;
 			case "mission_05":
-				SceneManager.LoadScene("mission_06",LoadSceneMode.Single);
+				Menu.mission_Name = "mission_06";
 				break;
 			case "mission_06":
-				SceneManager.LoadScene("mission_07",LoadSceneMode.Single);
+				Menu.mission_Name = "mission_07";
 				break;
 			case "mission_07":
-				SceneManager.LoadScene("mission_08",LoadSceneMode.Single);
+				Menu.mission_Name = "mission_08";
 				break;
 			case "mission_08":
-				SceneManager.LoadScene("fin",LoadSceneMode.Single);
+				Menu.mission_Name = "fin";
 				break;
 		}
+		SceneManager.LoadScene ("injection",LoadSceneMode.Single);
 	}
 	void recommencer_mission(){
 		string scene_name = SceneManager.GetActiveScene().name;

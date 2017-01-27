@@ -5,11 +5,16 @@ using UnityEngine;
 
 namespace inside_invaders_TAL
 {
+	public enum operatorLogic
+	{
+		OR,
+		AND
+	}
     public enum concept_ID
 	{
 		// organes et parties du corps
 		ORG_COEUR,
-		//ORG_POUMON_GAUCHE,
+		ORG_POUMON_GAUCHE,
 		ORG_POUMON_DROIT,
 		ORG_FOIE,
 		ORG_ESTOMAC,
@@ -47,7 +52,11 @@ namespace inside_invaders_TAL
         NOT_UNDERSTOOD,
         GREETING,
         THANK,
-        QUESTION
+        QUESTION,
+
+		//injecter
+		INJECT
+
     }
 
     // concept
@@ -59,29 +68,61 @@ namespace inside_invaders_TAL
         // position pour les organes
         public float posX;
         public float posY;
+		public operatorLogic logicOP;
+		public int weight;
 
-        public Concept(concept_ID ID, string word)
+		public void addWord(string word){
+			this.word_asso.Add (word);
+			if(logicOP.Equals(operatorLogic.AND))
+				weight++;
+			else
+				weight = 1;
+		}
+		public bool isValide(string [] phrase){
+			List<string> newphrase = new List<string>(phrase);
+			if (logicOP.Equals (operatorLogic.OR)) {
+				foreach (string word in word_asso) {
+					if (newphrase.Contains(word))
+						return true;  // on est dans le cas d'un "ou logique" un match suffit 
+				}
+			} else {
+				// cas d'un "et logique"
+				foreach (string word in word_asso) {
+					if (!newphrase.Contains(word))
+						return false; 
+				}
+				return true;
+			}
+			return false;
+
+		}
+
+		public Concept(concept_ID ID, string word,operatorLogic op)
         {
             this.ID = ID;
             word_asso = new List<string>();
             word_asso.Add(word);
             posX = posY = 0f;
+			this.logicOP = op;
+			weight = 1;
         }
 
-        public Concept(concept_ID ID, string word, float posX, float posY)
+		public Concept(concept_ID ID, string word, float posX, float posY,operatorLogic op)
         {
             this.ID = ID;
             word_asso = new List<string>();
             word_asso.Add(word);
             this.posX = posX;
             this.posY = posY;
+			this.logicOP = op;
+			weight = 1;
         }
 
         // liste de tous les concepts
         public static List<Concept> concepts;
 
         // ajout a la liste des concepts
-        public static void addToConcepts(concept_ID ID, string word)
+		public static void addToConcepts(concept_ID ID, string word, operatorLogic op = operatorLogic.OR)
         {
             for(int iC=0; iC<concepts.Count; ++iC)
             {
@@ -89,14 +130,15 @@ namespace inside_invaders_TAL
                 {
                     if (concepts[iC].word_asso.Contains(word))
                         return;
-                    concepts[iC].word_asso.Add(word);
+                    //concepts[iC].word_asso.Add(word);
+					concepts[iC].addWord(word);
                     return;
                 }
             }
-            concepts.Add(new Concept(ID, word));
+            concepts.Add(new Concept(ID, word,op));
         }
 
-        public static void addToConcepts(concept_ID ID, string word, float posX, float posY)
+		public static void addToConcepts(concept_ID ID, string word, float posX, float posY, operatorLogic op = operatorLogic.OR)
         {
             for (int iC = 0; iC < concepts.Count; ++iC)
             {
@@ -104,11 +146,12 @@ namespace inside_invaders_TAL
                 {
                     if (concepts[iC].word_asso.Contains(word))
                         return;
-                    concepts[iC].word_asso.Add(word);
+                    //concepts[iC].word_asso.Add(word);
+					concepts[iC].addWord(word);
                     return;
                 }
             }
-            concepts.Add(new Concept(ID, word, posX, posY));
+            concepts.Add(new Concept(ID, word, posX, posY,op));
         }
 
         // initialisation de la liste des concepts
@@ -117,13 +160,22 @@ namespace inside_invaders_TAL
 			concepts = new List<Concept>();
 
 			addToConcepts(concept_ID.ORG_COEUR, "coeur", 1405f, 520f);
-			//addToConcepts(concept_ID.ORG_POUMON_GAUCHE, "poumon", 1515f, 505f);
-			addToConcepts(concept_ID.ORG_POUMON_DROIT, "poumon", 1285f, 480f);
+
+			addToConcepts(concept_ID.ORG_POUMON_GAUCHE, "poumon", 1515f, 505f,operatorLogic.AND);
+			addToConcepts(concept_ID.ORG_POUMON_GAUCHE, "gauche");
+
+			addToConcepts(concept_ID.ORG_POUMON_DROIT, "poumon", 1285f, 480f,operatorLogic.AND);
+			addToConcepts(concept_ID.ORG_POUMON_DROIT, "droit");
+
 			addToConcepts(concept_ID.ORG_FOIE, "foie", 1335f, 375f);
 			addToConcepts(concept_ID.ORG_ESTOMAC, "estomac", 1465f, 360f);
-			addToConcepts(concept_ID.ORG_INTESTIN_GRELE, "intestin", 1425f, 215f);
-            addToConcepts(concept_ID.ORG_GROS_INTESTIN, "gros", 1280f, 215f);
-            //addToConcepts(concept_ID.ORG_GROS_INTESTIN, "intestin", 1280f, 215f);
+
+			addToConcepts(concept_ID.ORG_INTESTIN_GRELE, "intestin", 1425f, 215f,operatorLogic.AND);
+			addToConcepts(concept_ID.ORG_INTESTIN_GRELE, "grele");
+
+			addToConcepts(concept_ID.ORG_GROS_INTESTIN, "intestin", 1280f, 215f,operatorLogic.AND);
+            addToConcepts(concept_ID.ORG_GROS_INTESTIN, "gros");
+          
             addToConcepts(concept_ID.ORG_GORGE, "gorge", 1390f, 725f);
 			addToConcepts(concept_ID.ORG_AORTE, "aorte", 1390f, 615f);
 
@@ -153,10 +205,6 @@ namespace inside_invaders_TAL
             addToConcepts(concept_ID.MOD_POS, "bon");
             addToConcepts(concept_ID.MOD_AGAIN, "encore");
 
-			//addToConcepts(concept_ID.ORG_POUMON_GAUCHE, "gauche");
-			addToConcepts(concept_ID.ORG_POUMON_DROIT, "droit");
-			addToConcepts(concept_ID.ORG_INTESTIN_GRELE, "grele");
-
             addToConcepts(concept_ID.GREETING, "bonjour");
             addToConcepts(concept_ID.GREETING, "salut");
             addToConcepts(concept_ID.GREETING, "bonsoir");
@@ -164,6 +212,11 @@ namespace inside_invaders_TAL
             addToConcepts(concept_ID.THANK, "merci");
             addToConcepts(concept_ID.THANK, "remercie");
             addToConcepts(concept_ID.THANK, "remercier");
+
+			addToConcepts(concept_ID.INJECT, "go");
+			addToConcepts(concept_ID.INJECT, "injecte");
+			addToConcepts(concept_ID.INJECT, "parti");
+
         }
 
         // recupere les concepts d'une phrase du joueur
@@ -174,34 +227,67 @@ namespace inside_invaders_TAL
 			string[] words2 = new string[words.Length];
 			for(int iW=0; iW<words.Length; ++iW)
 				words2[iW] = Regex.Replace(words[iW], "[^A-Za-z0-9]", "");
-            /*foreach (Concept c in concepts) {
-				bool containsAll = true;
-				foreach (string wa in c.word_asso) {
-					bool contains = false;
-					foreach (string w in words2)
-						if (w == wa)
-							contains = true;
-                    if (!contains)
-                    {
-                        containsAll = false;
-                        break;
-                    }
-				}
-				if(containsAll)
-					sentenceConcepts.Add(c.ID);
-			}*/
+
             foreach(Concept c in concepts)
-                foreach (string w in words2)
-                    if(c.word_asso.Contains(w))
-                        sentenceConcepts.Add(c.ID);
+				if(c.isValide(words2))
+					sentenceConcepts.Add(c.ID);
+			
             return sentenceConcepts;
         }
+		// recupere le concepts le plus lourds d'une phrase du joueur
+		public static List<concept_ID> getConcepts2(string sentence)
+		{
+			List<concept_ID> sentenceConcepts = new List<concept_ID>();
+			List<concept_ID> sentenceConcepts2 = new List<concept_ID>();
+			string[] words = sentence.ToLower().Split(default(string[]), StringSplitOptions.RemoveEmptyEntries);
+			string[] words2 = new string[words.Length];
+			for(int iW=0; iW<words.Length; ++iW)
+				words2[iW] = Regex.Replace(words[iW], "[^A-Za-z0-9]", "");
+
+			foreach(Concept c in concepts)
+				if(c.isValide(words2))
+					sentenceConcepts.Add(c.ID);
+//
+//			if (sentenceConcepts != null) {
+//				UnityEngine.Debug.Log ("===sentenceConcepts 1 ===");
+//				foreach( concept_ID  val in sentenceConcepts ){
+//					Debug.Log ("val1 : "+val.ToString());
+//				}
+//			}
+			//Debug.Log ("Count : "+sentenceConcepts.Count);
+			if (sentenceConcepts.Count > 1) {
+				int max = 0;
+				int iMax = -1;
+				for (int iR = 0; iR < sentenceConcepts.Count; ++iR) {
+					//Debug.Log ("ID : " + sentenceConcepts [iR].ToString ());
+					Concept conc = Concept.getConceptByID (sentenceConcepts[iR]);
+					int poidsConcept = 1;
+					if (conc != null) {
+						poidsConcept = conc.weight;
+					}
+					//Debug.Log ("weight : " + poidsConcept);
+					if (poidsConcept > max) {
+						max = poidsConcept;
+						iMax = iR;
+					}
+				}
+				if (iMax > -1) {
+					sentenceConcepts2.Add (sentenceConcepts [iMax]);
+					return sentenceConcepts2;
+				}
+			}
+
+
+			return sentenceConcepts;
+		}
+
 
 		// retrouve le concept d'un ID dans la liste
 		public static Concept getConceptByID(concept_ID ID){
 			foreach (Concept c in concepts)
 				if (c.ID == ID)
 					return c;
+			//Debug.Log (ID + "not found !");
 			return null;
 		}
     }
@@ -276,61 +362,92 @@ namespace inside_invaders_TAL
             addToResponses("Ici?", concept_ID.POS_LEFT);
             addToResponses("Par là?", concept_ID.POS_LEFT);
             addToResponses("C'est bon ici?", concept_ID.POS_LEFT);
+
             addToResponses("C'est la bonne direction?", concept_ID.POS_RIGHT);
             addToResponses("Ici?", concept_ID.POS_RIGHT);
             addToResponses("Par là?", concept_ID.POS_RIGHT);
             addToResponses("C'est bon ici?", concept_ID.POS_RIGHT);
+
             addToResponses("On est a la bonne hauteur?", concept_ID.POS_UP);
             addToResponses("Ici?", concept_ID.POS_UP);
             addToResponses("Par là?", concept_ID.POS_UP);
             addToResponses("C'est bon ici?", concept_ID.POS_UP);
+
             addToResponses("On est a la bonne hauteur?", concept_ID.POS_DOWN);
             addToResponses("Ici?", concept_ID.POS_DOWN);
             addToResponses("Par là?", concept_ID.POS_DOWN);
             addToResponses("C'est bon ici?", concept_ID.POS_DOWN);
+
             addToResponses("Ici?", concept_ID.POS_HERE);
             addToResponses("Par là?", concept_ID.POS_HERE);
             addToResponses("C'est bon ici?", concept_ID.POS_HERE);
 
             addToResponses("Merci de m'indiquer où vous souhaitez être injecté.", concept_ID.GREETING);
             addToResponses("Veuiller me guider afin que je vous injecte au bon endroit.", concept_ID.GREETING);
+
             addToResponses("Tres bien.", concept_ID.MOD_POS);
             addToResponses("D'accord.", concept_ID.MOD_POS);
+
             addToResponses("Ah... D'accord.", concept_ID.MOD_NEG);
             addToResponses("Je vois.", concept_ID.MOD_NEG);
             addToResponses("Non?", concept_ID.MOD_NEG);
+
             addToResponses("De rien!", concept_ID.THANK);
             addToResponses("Je vous en prie.", concept_ID.THANK);
+
+			addToResponses("C'est partie  ",concept_ID.INJECT);
+			addToResponses("Je t'injecte  ",concept_ID.INJECT);
         }
 
         // choisit la reponse la plus pertinente par rapport a une phrase de l'utilisateur
         public static string getBestResponse(List<concept_ID> sentenceConcepts, bool hasMoved)
         {
-			if(sentenceConcepts!=null)
-				UnityEngine.Debug.Log ("sentenceConcepts "+ sentenceConcepts.ToString());
+			if (sentenceConcepts != null) {
+				UnityEngine.Debug.Log ("===sentenceConcepts===");
+				foreach( concept_ID  val in sentenceConcepts ){
+					Debug.Log ("val : "+val.ToString());
+				}
+			}
+			//Debug.Log ("hasMoved : "+hasMoved);
 			if (hasMoved) {
                 //return getResponseByID (concept_ID.POS_HERE).getRandomText ();
                 // return "Ici?";
                 sentenceConcepts.Add(concept_ID.POS_HERE);
 			}
 
-			int[] responseConceptCount = new int[responses.Count];
-			for (int iR = 0; iR < responses.Count; ++iR) {
-				responseConceptCount [iR] = 0;
-				foreach (concept_ID c in sentenceConcepts)
-					if (responses [iR].responseConcepts.Contains(c))
-						++responseConceptCount [iR];
+			//Debug.Log ("Count : "+sentenceConcepts.Count);
+			if (sentenceConcepts.Count != 0) {
+				int[] responseConceptCount = new int[responses.Count];
+
+				for (int iR = 0; iR < responses.Count; ++iR) {
+					responseConceptCount [iR] = 0;
+					foreach (concept_ID c in sentenceConcepts) {
+						Response rep = responses [iR];
+						if (rep.responseConcepts.Contains (c)) {
+							Concept conc = Concept.getConceptByID (c);
+							int poidsConcept = 1;
+							if (conc != null) {
+								poidsConcept = conc.weight;
+							}
+							responseConceptCount [iR] = responseConceptCount [iR] + poidsConcept;
+						}
+					}
+						
+				}
+
+				int max = 0;
+				int iMax = -1;
+				for (int iR = 0; iR < responses.Count; ++iR)
+					if (responseConceptCount[iR] > max)
+					{
+						max = responseConceptCount[iR];
+						iMax = iR;
+					}
+				if (iMax > -1)
+					return responses[iMax].getRandomText();
 			}
-			int max = 0;
-            int iMax = -1;
-            for (int iR = 0; iR < responses.Count; ++iR)
-                if (responseConceptCount[iR] > max)
-                {
-                    max = responseConceptCount[iR];
-                    iMax = iR;
-                }
-            if (iMax > -1)
-				return responses[iMax].getRandomText();
+
+			
             return responses[0].getRandomText();
         }
 
