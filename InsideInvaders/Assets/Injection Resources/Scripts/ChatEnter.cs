@@ -30,23 +30,11 @@ public class ChatEnter : MonoBehaviour {
 
 		List<concept_ID> sentenceConcepts = Concept.getConcepts (user_text);
 		float[] d = Response.getMovement (sentenceConcepts, Aim.position.x, Aim.position.y);
-<<<<<<< HEAD
         //Debug.Log ("test");
         newAimPosition = new Vector3 (d[0], d[1], 0f);
         bool hasMoved = d[2] == 1f;
 		t = Response.getBestResponse (sentenceConcepts, hasMoved);
 
-=======
-//		Debug.Log ("----");
-//		foreach( var a in d ){
-//			Debug.Log ("a : "+a);
-//		}
-		bool hasMoved = (d [2] != -1);
-		if (hasMoved) {
-			newAimPosition = new Vector3 (d [0], d [1], 0f);
-		}
-		t = Response.getBestResponse (sentenceConcepts, hasMoved);
->>>>>>> origin/master
 		t += '\n';
 		GameObject newText = (GameObject)Instantiate(BotTextPrefab, new Vector3(0, 0, 0), Quaternion.identity);
 		newText.transform.SetParent(ChatContent.transform);

@@ -41,7 +41,6 @@ namespace inside_invaders_TAL
         MOD_AGAIN,
 
 		// confirmation
-<<<<<<< HEAD
 		POS_HERE,
 
         // conversation
@@ -49,10 +48,6 @@ namespace inside_invaders_TAL
         GREETING,
         THANK,
         QUESTION
-=======
-		HERE,
-		NOT_UNDERSTAND
->>>>>>> origin/master
     }
 
     // concept
@@ -272,7 +267,6 @@ namespace inside_invaders_TAL
         // initialisaiton de la liste des reponses
         public static void responses_init()
         {
-<<<<<<< HEAD
             responses = new List<Response>();
             addToResponses("Je n'ai pas compris.", concept_ID.NOT_UNDERSTOOD);
             addToResponses("Je ne vois pas ce que vous voulez dire.", concept_ID.NOT_UNDERSTOOD);
@@ -307,29 +301,14 @@ namespace inside_invaders_TAL
             addToResponses("Non?", concept_ID.MOD_NEG);
             addToResponses("De rien!", concept_ID.THANK);
             addToResponses("Je vous en prie.", concept_ID.THANK);
-=======
-            staticAllResponses = new List<Response>();
-			addToResponses ("Ici?", concept_ID.HERE);
-			addToResponses ("Par là?", concept_ID.HERE);
-			addToResponses ("C'est bon ici?", concept_ID.HERE);
-
-			addToResponses ("Je n'ai pas compris.", concept_ID.NOT_UNDERSTAND);
-			addToResponses ("Quoi ?! .", concept_ID.NOT_UNDERSTAND);
-			addToResponses ("Heu ... Tu peux répéter.", concept_ID.NOT_UNDERSTAND);
->>>>>>> origin/master
         }
 
         // choisit la reponse la plus pertinente par rapport a une phrase de l'utilisateur
         public static string getBestResponse(List<concept_ID> sentenceConcepts, bool hasMoved)
         {
-//			if (sentenceConcepts != null) {
-//				UnityEngine.Debug.Log ("===sentenceConcepts===");
-//				foreach( concept_ID  val in sentenceConcepts ){
-//					Debug.Log ("val : "+val.ToString());
-//				}
-//			}
+			if(sentenceConcepts!=null)
+				UnityEngine.Debug.Log ("sentenceConcepts "+ sentenceConcepts.ToString());
 			if (hasMoved) {
-<<<<<<< HEAD
                 //return getResponseByID (concept_ID.POS_HERE).getRandomText ();
                 // return "Ici?";
                 sentenceConcepts.Add(concept_ID.POS_HERE);
@@ -353,34 +332,6 @@ namespace inside_invaders_TAL
             if (iMax > -1)
 				return responses[iMax].getRandomText();
             return responses[0].getRandomText();
-=======
-				return getResponseByID (concept_ID.HERE).getRandomText ();
-				// return "Ici?";
-			}
-             
-			if (sentenceConcepts.Count != 0) {
-				int[] responseConceptCount = new int[staticAllResponses.Count];
-				for (int iR = 0; iR < staticAllResponses.Count; ++iR) {
-					responseConceptCount [iR] = 0;
-					foreach (concept_ID c in sentenceConcepts)
-						if (staticAllResponses [iR].responseConcept.Equals(c))
-							++responseConceptCount [iR];
-				}
-				int max = int.MinValue;
-				int iMax = -1;
-				for (int iR = 0; iR < staticAllResponses.Count; ++iR)
-					if (responseConceptCount[iR] > max)
-					{
-						max = responseConceptCount[iR];
-						iMax = iR;
-					}
-				if (iMax > -1)
-					return staticAllResponses[iMax].getRandomText();
-			}
-
-			return getResponseByID (concept_ID.NOT_UNDERSTAND).getRandomText ();
-			//return "Je n'ai pas compris.";
->>>>>>> origin/master
         }
 
         // decide le mouvement du viseur
