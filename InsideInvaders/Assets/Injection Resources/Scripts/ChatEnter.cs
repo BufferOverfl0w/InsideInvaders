@@ -15,6 +15,14 @@ public class ChatEnter : MonoBehaviour {
 	Vector3 newAimPosition;
 	//List<Vector3> zonePositions;
 
+    void startText()
+    {
+        GameObject newText = (GameObject)Instantiate(BotTextPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        newText.transform.SetParent(ChatContent.transform);
+        newText.GetComponent<Text>().text = "Bonjour! Je suis votre operateur pour cette mission.\n";
+        Scroll.value = 0;
+    }
+
 	void botReply() {
 		string user_text = ChatContent.GetChild (ChatContent.childCount - 1).GetComponent<Text>().text;
 		string t = "";
@@ -22,11 +30,10 @@ public class ChatEnter : MonoBehaviour {
 
 		List<concept_ID> sentenceConcepts = Concept.getConcepts (user_text);
 		float[] d = Response.getMovement (sentenceConcepts, Aim.position.x, Aim.position.y);
-		//Debug.Log ("test");
-		if (d[2] != -1) {
-			newAimPosition = new Vector3 (d[0], d[1], 0f);
-			t = Response.getBestResponse (null, true);
-		}
+        //Debug.Log ("test");
+        newAimPosition = new Vector3 (d[0], d[1], 0f);
+        bool hasMoved = d[2] == 1f;
+		t = Response.getBestResponse (sentenceConcepts, hasMoved);
 
 		t += '\n';
 		GameObject newText = (GameObject)Instantiate(BotTextPrefab, new Vector3(0, 0, 0), Quaternion.identity);
@@ -55,17 +62,26 @@ public class ChatEnter : MonoBehaviour {
 	}
 
 	public void inject(){
-		//check aim if in zone
-	}
+        if (Vector3.Distance(Aim.position, DangerZone.position) < 50)
+        {
+            Debug.Log("Injection reussie");
+            // start mission
+        }
+        else
+            Debug.Log("Injection ratee");
+    }
 
 	// Use this for initialization
-	void Start () {
-		newAimPosition = new Vector3 (Aim.position.x, Aim.position.y, Aim.position.z);
+	void Start ()
+    {
+        Invoke("startText", 0.5f);
+
+        newAimPosition = new Vector3 (Aim.position.x, Aim.position.y, Aim.position.z);
 
 		Concept.concepts_init();
 		Response.responses_init ();
 
-		int rdz = Random.Range(0, 9);
+		int rdz = Random.Range(0, 8);
 		DangerZone.position = new Vector3(Concept.concepts[rdz].posX, Concept.concepts[rdz].posY, DangerZone.position.z);
 	}
 
