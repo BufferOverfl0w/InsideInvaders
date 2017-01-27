@@ -154,6 +154,8 @@ namespace inside_invaders_TAL
             addToConcepts(concept_ID.MOD_POS, "oui");
             addToConcepts(concept_ID.MOD_POS, "ok");
             addToConcepts(concept_ID.MOD_POS, "si");
+            addToConcepts(concept_ID.MOD_POS, "bien");
+            addToConcepts(concept_ID.MOD_POS, "bon");
             addToConcepts(concept_ID.MOD_AGAIN, "encore");
 
 			//addToConcepts(concept_ID.ORG_POUMON_GAUCHE, "gauche");
